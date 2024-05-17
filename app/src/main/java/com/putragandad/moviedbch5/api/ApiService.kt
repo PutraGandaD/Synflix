@@ -2,6 +2,7 @@ package com.putragandad.moviedbch5.api
 
 import com.putragandad.moviedbch5.models.now_playing.NowPlayingResponse
 import com.putragandad.moviedbch5.models.popular.PopularResponse
+import com.putragandad.moviedbch5.models.top_rated.TopRatedResponse
 import com.putragandad.moviedbch5.utils.Constant
 import retrofit2.http.GET
 import retrofit2.http.Header
@@ -12,4 +13,7 @@ interface ApiService {
 
     @GET("movie/popular")
     suspend fun getMoviePopular() : PopularResponse
+
+    @GET("movie/top_rated")
+    suspend fun getMovieTopRated() : TopRatedResponse
 }

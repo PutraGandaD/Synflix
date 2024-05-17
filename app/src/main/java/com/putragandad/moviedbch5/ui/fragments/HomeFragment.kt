@@ -15,9 +15,11 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.putragandad.moviedbch5.R
 import com.putragandad.moviedbch5.adapters.NowPlayingAdapter
 import com.putragandad.moviedbch5.adapters.PopularAdapter
+import com.putragandad.moviedbch5.adapters.TopRatedAdapter
 import com.putragandad.moviedbch5.databinding.FragmentHomeBinding
 import com.putragandad.moviedbch5.models.now_playing.NowPlayingResult
 import com.putragandad.moviedbch5.models.popular.PopularResult
+import com.putragandad.moviedbch5.models.top_rated.TopRatedResult
 import com.putragandad.moviedbch5.ui.viewmodels.MoviesViewModel
 import com.putragandad.moviedbch5.ui.viewmodels.MoviesViewModelFactory
 
@@ -52,6 +54,11 @@ class HomeFragment : Fragment() {
             val result = movies.results
             setUpRvPopular(result)
         }
+
+        moviesViewModel.getMovieTopRated().observe(requireActivity()) { movies ->
+            val result = movies.results
+            setUpRvTopRated(result)
+        }
     }
 
     private fun setUpRvNowPlaying(dataset: List<NowPlayingResult>) {
@@ -66,5 +73,12 @@ class HomeFragment : Fragment() {
         val recyclerView : RecyclerView? = view?.findViewById(R.id.popular_rv_container)
         recyclerView?.adapter = adapter
         recyclerView?.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
+    }
+
+    private fun setUpRvTopRated(dataset: List<TopRatedResult>) {
+        val adapter = TopRatedAdapter(dataset, requireActivity())
+        val recyclerView : RecyclerView? = view?.findViewById(R.id.toprated_rv_container)
+        recyclerView?.adapter = adapter
+        recyclerView?.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
     }
 }

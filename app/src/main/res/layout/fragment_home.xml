@@ -7,66 +7,114 @@
     tools:context=".ui.fragments.HomeFragment"
     android:padding="16dp">
 
-    <TextView
-        android:id="@+id/now_playing_header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Now Playing"
-        android:fontFamily="@font/netflixsans_medium"
-        android:textColor="@color/white"
-        android:textSize="22sp"
-        android:paddingBottom="2dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
     <androidx.core.widget.NestedScrollView
-        android:id="@+id/scrollview_nowplaying"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/now_playing_header"
+        android:layout_height="match_parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/now_playing_rv_container"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:listitem="@layout/movie_card_nowplaying"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:orientation="horizontal"
-            tools:itemCount="2" />
+            android:layout_height="match_parent">
 
-    </androidx.core.widget.NestedScrollView>
+            <TextView
+                android:id="@+id/now_playing_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Now Playing"
+                android:fontFamily="@font/netflixsans_medium"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:paddingBottom="2dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
 
-    <TextView
-        android:id="@+id/popular_header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Popular now on Synflix"
-        android:fontFamily="@font/netflixsans_medium"
-        android:textColor="@color/white"
-        android:textSize="22sp"
-        android:paddingBottom="2dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/scrollview_nowplaying"/>
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/scrollview_nowplaying"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toBottomOf="@id/now_playing_header"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
 
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/scrollview_popular"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/popular_header"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/now_playing_rv_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:listitem="@layout/movie_card_nowplaying"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:orientation="horizontal"
+                    tools:itemCount="2" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/popular_rv_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:listitem="@layout/movie_card_popular"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:orientation="horizontal"
-            tools:itemCount="2" />
+            </androidx.core.widget.NestedScrollView>
+
+            <TextView
+                android:id="@+id/popular_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Popular now on Synflix"
+                android:fontFamily="@font/netflixsans_medium"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:paddingBottom="2dp"
+                android:layout_marginTop="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/scrollview_nowplaying"/>
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/scrollview_popular"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toBottomOf="@id/popular_header"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/popular_rv_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:listitem="@layout/movie_card_popular"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:orientation="horizontal"
+                    tools:itemCount="2" />
+
+            </androidx.core.widget.NestedScrollView>
+
+            <TextView
+                android:id="@+id/toprated_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Top Rated Movies"
+                android:fontFamily="@font/netflixsans_medium"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:paddingBottom="4dp"
+                android:layout_marginTop="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/scrollview_popular"/>
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/scrollview_toprated"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toBottomOf="@id/toprated_header"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/toprated_rv_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:listitem="@layout/movie_card_toprated"
+                    tools:itemCount="4"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:orientation="vertical" />
+
+            </androidx.core.widget.NestedScrollView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
 

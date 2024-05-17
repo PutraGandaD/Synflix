@@ -15,5 +15,9 @@ class MoviesViewModel(private val repository: MoviesRepository) : ViewModel() {
     fun getMoviePopular() = liveData(Dispatchers.IO) {
         emit(repository.getMoviePopular())
     }
+
+    fun getMovieTopRated() = liveData(Dispatchers.IO) {
+        emit(repository.getMovieTopRated())
+    }
 }
 

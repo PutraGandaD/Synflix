@@ -5,7 +5,7 @@ import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
-@Parcelize
+
 data class NowPlayingResult(
     @SerializedName("adult")
     val adult: Boolean,
@@ -35,4 +35,4 @@ data class NowPlayingResult(
     val voteAverage: Double,
     @SerializedName("vote_count")
     val voteCount: Int
-) : Parcelable
+)

@@ -1,7 +1,9 @@
 package com.putragandad.moviedbch5.models.popular
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
 data class PopularResult(
     @SerializedName("adult")

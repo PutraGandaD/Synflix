@@ -47,13 +47,13 @@ class MovieDetailFragment : Fragment() {
             findNavController().popBackStack()
         }
 
-        val bundle = arguments?.getParcelable<NowPlayingResult>(Constant.MOVIES_ID_EXTRA)
-        if(bundle != null) {
-            moviesViewModel.getMovieDetails("${bundle.id}").observe(viewLifecycleOwner) { details ->
+        val moviesId = arguments?.getInt(Constant.MOVIES_ID_EXTRA)
+        if(moviesId != null) {
+            moviesViewModel.getMovieDetails("$moviesId").observe(viewLifecycleOwner) { details ->
                 setMovieDetails(details.title, details.releaseDate, details.overview, details.posterPath)
             }
 
-            moviesViewModel.getMovieCredits("${bundle.id}").observe(viewLifecycleOwner) { credits ->
+            moviesViewModel.getMovieCredits("$moviesId").observe(viewLifecycleOwner) { credits ->
                 setUpRvMovieCast(credits.cast)
             }
         }

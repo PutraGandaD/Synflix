@@ -12,7 +12,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.putragandad.moviedbch5.R
 import com.putragandad.moviedbch5.models.top_rated.TopRatedResult
 
-class TopRatedAdapter(private val dataSet: List<TopRatedResult>, private val context: Context) : RecyclerView.Adapter<TopRatedAdapter.ViewHolder>() {
+class TopRatedAdapter(private val dataSet: List<TopRatedResult>, private val context: Context, private val topRatedClickListener: TopRatedClickListener) : RecyclerView.Adapter<TopRatedAdapter.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val ivMovieImage : ImageView = view.findViewById(R.id.iv_toprated_movie)
         val tvMovieTitle : TextView = view.findViewById(R.id.tv_movie_popular_title)
@@ -38,6 +38,10 @@ class TopRatedAdapter(private val dataSet: List<TopRatedResult>, private val con
         val imageUrl = "https://image.tmdb.org/t/p/w500${getData.backdropPath}"
         val imageView = holder.ivMovieImage
 
+        holder.itemView.setOnClickListener {
+            topRatedClickListener.onClickMovieTopRated(getData)
+        }
+
         Glide
             .with(context)
             .load(imageUrl)
@@ -45,4 +49,8 @@ class TopRatedAdapter(private val dataSet: List<TopRatedResult>, private val con
             .centerCrop()
             .into(imageView)
     }
+}
+
+interface TopRatedClickListener {
+    fun onClickMovieTopRated(result: TopRatedResult)
 }

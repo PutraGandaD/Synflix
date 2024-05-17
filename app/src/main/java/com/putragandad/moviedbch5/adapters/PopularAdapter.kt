@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.putragandad.moviedbch5.R
 import com.putragandad.moviedbch5.models.popular.PopularResult
 
-class PopularAdapter(private val dataSet: List<PopularResult>, private val context: Context) : RecyclerView.Adapter<PopularAdapter.ViewHolder>() {
+class PopularAdapter(private val dataSet: List<PopularResult>, private val context: Context, private val popularClickListener: PopularClickListener) : RecyclerView.Adapter<PopularAdapter.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val ivMovieImage: ImageView = view.findViewById(R.id.iv_popular_movie_card)
     }
@@ -31,10 +31,18 @@ class PopularAdapter(private val dataSet: List<PopularResult>, private val conte
         val imageUrl = "https://image.tmdb.org/t/p/w500${getData.posterPath}"
         val imageView = holder.ivMovieImage
 
+        imageView.setOnClickListener {
+            popularClickListener.onClickPopularMovie(getData)
+        }
+
         Glide
             .with(context)
             .load(imageUrl)
             .centerCrop()
             .into(imageView)
     }
+}
+
+interface PopularClickListener {
+    fun onClickPopularMovie(result: PopularResult)
 }

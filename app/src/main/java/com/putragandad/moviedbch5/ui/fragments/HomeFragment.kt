@@ -19,7 +19,9 @@ import com.putragandad.moviedbch5.R
 import com.putragandad.moviedbch5.adapters.NowPlayingAdapter
 import com.putragandad.moviedbch5.adapters.NowPlayingClickListener
 import com.putragandad.moviedbch5.adapters.PopularAdapter
+import com.putragandad.moviedbch5.adapters.PopularClickListener
 import com.putragandad.moviedbch5.adapters.TopRatedAdapter
+import com.putragandad.moviedbch5.adapters.TopRatedClickListener
 import com.putragandad.moviedbch5.databinding.FragmentHomeBinding
 import com.putragandad.moviedbch5.models.now_playing.NowPlayingResult
 import com.putragandad.moviedbch5.models.popular.PopularResult
@@ -28,7 +30,7 @@ import com.putragandad.moviedbch5.ui.viewmodels.MoviesViewModel
 import com.putragandad.moviedbch5.ui.viewmodels.MoviesViewModelFactory
 import com.putragandad.moviedbch5.utils.Constant
 
-class HomeFragment : Fragment(), NowPlayingClickListener {
+class HomeFragment : Fragment(), NowPlayingClickListener, TopRatedClickListener, PopularClickListener {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
@@ -74,23 +76,31 @@ class HomeFragment : Fragment(), NowPlayingClickListener {
     }
 
     private fun setUpRvPopular(dataset: List<PopularResult>) {
-        val adapter = PopularAdapter(dataset, requireActivity())
+        val adapter = PopularAdapter(dataset, requireActivity(), this)
         val recyclerView : RecyclerView? = view?.findViewById(R.id.popular_rv_container)
         recyclerView?.adapter = adapter
         recyclerView?.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
     }
 
     private fun setUpRvTopRated(dataset: List<TopRatedResult>) {
-        val adapter = TopRatedAdapter(dataset, requireActivity())
+        val adapter = TopRatedAdapter(dataset, requireActivity(), this)
         val recyclerView : RecyclerView? = view?.findViewById(R.id.toprated_rv_container)
         recyclerView?.adapter = adapter
         recyclerView?.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
     }
 
     override fun onClickMovieNowPlaying(result: NowPlayingResult) {
-        val bundle = Bundle().apply {
-            putParcelable(Constant.MOVIES_ID_EXTRA, result)
-        }
+        val bundle = bundleOf(Constant.MOVIES_ID_EXTRA to result.id)
+        findNavController().navigate(R.id.action_homeFragment_to_movieDetailFragment, bundle)
+    }
+
+    override fun onClickPopularMovie(result: PopularResult) {
+        val bundle = bundleOf(Constant.MOVIES_ID_EXTRA to result.id)
+        findNavController().navigate(R.id.action_homeFragment_to_movieDetailFragment, bundle)
+    }
+
+    override fun onClickMovieTopRated(result: TopRatedResult) {
+        val bundle = bundleOf(Constant.MOVIES_ID_EXTRA to result.id)
         findNavController().navigate(R.id.action_homeFragment_to_movieDetailFragment, bundle)
     }
 }

@@ -1,19 +1,17 @@
 package com.putragandad.moviedbch5.models.now_playing
 
+import com.google.gson.annotations.SerializedName
 
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
 
-@Serializable
 data class NowPlayingResponse(
-    @SerialName("dates")
-    val dates: Dates,
-    @SerialName("page")
+    @SerializedName("dates")
+    val dates: NowPlayingDates,
+    @SerializedName("page")
     val page: Int,
-    @SerialName("results")
-    val results: List<Result>,
-    @SerialName("total_pages")
+    @SerializedName("results")
+    val results: List<NowPlayingResult>,
+    @SerializedName("total_pages")
     val totalPages: Int,
-    @SerialName("total_results")
+    @SerializedName("total_results")
     val totalResults: Int
 )

@@ -1,18 +1,40 @@
 package com.putragandad.moviedbch5.ui.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import com.putragandad.moviedbch5.R
+import com.putragandad.moviedbch5.databinding.FragmentHomeBinding
+import com.putragandad.moviedbch5.ui.viewmodels.MoviesViewModel
+import com.putragandad.moviedbch5.ui.viewmodels.MoviesViewModelFactory
 
 class HomeFragment : Fragment() {
+    private var _binding: FragmentHomeBinding? = null
+    private val binding get() = _binding!!
+
+    private val moviesViewModel : MoviesViewModel by viewModels {
+        MoviesViewModelFactory.getInstance(requireActivity())
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        moviesViewModel.getMovieNowPlaying().observe(requireActivity()) { movies ->
+
+        }
     }
 }

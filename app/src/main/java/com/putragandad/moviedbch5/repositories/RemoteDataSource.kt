@@ -8,4 +8,8 @@ class RemoteDataSource(private val apiService: ApiService) {
     suspend fun getMoviePopular() = apiService.getMoviePopular()
 
     suspend fun getMovieTopRated() = apiService.getMovieTopRated()
+
+    suspend fun getMovieDetails(query: String) = apiService.getMovieDetails(query)
+
+    suspend fun getMovieCredits(query: String) = apiService.getMovieCredits(query)
 }

@@ -11,7 +11,7 @@ import com.bumptech.glide.Glide
 import com.putragandad.moviedbch5.R
 import com.putragandad.moviedbch5.models.now_playing.NowPlayingResult
 
-class NowPlayingAdapter(private val dataSet: List<NowPlayingResult>, private val context: Context) : RecyclerView.Adapter<NowPlayingAdapter.ViewHolder>() {
+class NowPlayingAdapter(private val dataSet: List<NowPlayingResult>, private val context: Context, private val nowPlayingClickListener: NowPlayingClickListener) : RecyclerView.Adapter<NowPlayingAdapter.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val ivMovieImage : ImageView = view.findViewById(R.id.iv_nowplaying_movie_card)
     }
@@ -32,6 +32,10 @@ class NowPlayingAdapter(private val dataSet: List<NowPlayingResult>, private val
         val imageUrl = "https://image.tmdb.org/t/p/w500${getData.posterPath}"
         val imageView = holder.ivMovieImage
 
+        imageView.setOnClickListener {
+            nowPlayingClickListener.onClickMovieNowPlaying(getData)
+        }
+
         Glide
             .with(context)
             .load(imageUrl)
@@ -39,4 +43,8 @@ class NowPlayingAdapter(private val dataSet: List<NowPlayingResult>, private val
             .into(imageView)
 //        Log.d("Poster Path", "${getData.id}")
     }
+}
+
+interface NowPlayingClickListener {
+    fun onClickMovieNowPlaying(result: NowPlayingResult)
 }

@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginEnd="8dp"
+    android:layout_marginEnd="12dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -15,9 +15,10 @@
 
     <TextView
         android:id="@+id/tv_movie_cast_name"
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:text="Chris Pratt"
+        android:textAlignment="center"
         android:fontFamily="@font/netflixsans_light"
         android:textColor="@color/white"
         android:maxLines="3"

@@ -6,14 +6,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.putragandad.moviedbch5.R
 import com.putragandad.moviedbch5.adapters.NowPlayingAdapter
+import com.putragandad.moviedbch5.adapters.NowPlayingClickListener
 import com.putragandad.moviedbch5.adapters.PopularAdapter
 import com.putragandad.moviedbch5.adapters.TopRatedAdapter
 import com.putragandad.moviedbch5.databinding.FragmentHomeBinding
@@ -22,8 +26,9 @@ import com.putragandad.moviedbch5.models.popular.PopularResult
 import com.putragandad.moviedbch5.models.top_rated.TopRatedResult
 import com.putragandad.moviedbch5.ui.viewmodels.MoviesViewModel
 import com.putragandad.moviedbch5.ui.viewmodels.MoviesViewModelFactory
+import com.putragandad.moviedbch5.utils.Constant
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), NowPlayingClickListener {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
@@ -62,7 +67,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun setUpRvNowPlaying(dataset: List<NowPlayingResult>) {
-        val adapter = NowPlayingAdapter(dataset, requireActivity())
+        val adapter = NowPlayingAdapter(dataset, requireActivity(), this)
         val recyclerView : RecyclerView? = view?.findViewById(R.id.now_playing_rv_container)
         recyclerView?.adapter = adapter
         recyclerView?.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
@@ -80,5 +85,12 @@ class HomeFragment : Fragment() {
         val recyclerView : RecyclerView? = view?.findViewById(R.id.toprated_rv_container)
         recyclerView?.adapter = adapter
         recyclerView?.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
+    }
+
+    override fun onClickMovieNowPlaying(result: NowPlayingResult) {
+        val bundle = Bundle().apply {
+            putParcelable(Constant.MOVIES_ID_EXTRA, result)
+        }
+        findNavController().navigate(R.id.action_homeFragment_to_movieDetailFragment, bundle)
     }
 }

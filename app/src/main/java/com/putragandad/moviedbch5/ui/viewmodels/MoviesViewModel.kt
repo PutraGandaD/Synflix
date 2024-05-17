@@ -11,5 +11,9 @@ class MoviesViewModel(private val repository: MoviesRepository) : ViewModel() {
     fun getMovieNowPlaying() = liveData(Dispatchers.IO) {
         emit(repository.getMovieNowPlaying())
     }
+
+    fun getMoviePopular() = liveData(Dispatchers.IO) {
+        emit(repository.getMoviePopular())
+    }
 }
 

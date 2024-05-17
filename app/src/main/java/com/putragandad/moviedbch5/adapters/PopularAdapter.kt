@@ -1,0 +1,40 @@
+package com.putragandad.moviedbch5.adapters
+
+import android.content.Context
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.putragandad.moviedbch5.R
+import com.putragandad.moviedbch5.models.popular.PopularResult
+
+class PopularAdapter(private val dataSet: List<PopularResult>, private val context: Context) : RecyclerView.Adapter<PopularAdapter.ViewHolder>() {
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val ivMovieImage: ImageView = view.findViewById(R.id.iv_popular_movie_card)
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.movie_card_popular, parent, false)
+        return ViewHolder(view)
+    }
+
+    override fun getItemCount(): Int {
+        return dataSet.size
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val getData = dataSet[position]
+
+        val imageUrl = "https://image.tmdb.org/t/p/w500${getData.posterPath}"
+        val imageView = holder.ivMovieImage
+
+        Glide
+            .with(context)
+            .load(imageUrl)
+            .centerCrop()
+            .into(imageView)
+    }
+}

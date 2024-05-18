@@ -82,4 +82,7 @@ dependencies {
 
     // CircleImageView
     implementation("de.hdodenhof:circleimageview:3.1.0")
+
+    // DataStore
+    implementation("androidx.datastore:datastore-preferences:1.1.1")
 }

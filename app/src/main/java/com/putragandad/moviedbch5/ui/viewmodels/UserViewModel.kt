@@ -19,6 +19,10 @@ class UserViewModel(private val preferences: PrefDataStoreManager): ViewModel() 
 
     suspend fun readLoginStatus() = preferences.readLoginStatus.firstOrNull()
 
+    fun getUserEmail() = preferences.readAccountEmail.asLiveData()
+    fun getUserUsername() = preferences.readAccountUsername.asLiveData()
+    fun getUserFullname() = preferences.readAccountUserFullName.asLiveData()
+
     fun registerAccount(fullname: String, email: String, password: String, passwordCv: String) : Boolean {
         return if(password == passwordCv) {
             viewModelScope.launch(Dispatchers.IO) {

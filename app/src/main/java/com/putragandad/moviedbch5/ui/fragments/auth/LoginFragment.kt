@@ -42,15 +42,15 @@ class LoginFragment : Fragment() {
             if(email.isNotEmpty() && password.isNotEmpty()) {
                 userViewModel.login(email, password).observe(viewLifecycleOwner) { login ->
                     if(login) {
-                        Snackbar.make(requireView(), "Login successful! You're signed in as $email", Snackbar.LENGTH_SHORT).show()
+                        Snackbar.make(requireView(), "Login successful! You're signed in as $email", Snackbar.LENGTH_LONG).show()
                         findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
                     } else {
-                        Snackbar.make(requireView(), "Invalid email or password. Try Again.", Snackbar.LENGTH_SHORT)
+                        Snackbar.make(requireView(), "Invalid email or password. Try Again.", Snackbar.LENGTH_LONG)
                             .show()
                     }
                 }
             } else {
-                Snackbar.make(requireView(), "Email and password can't be empty", Snackbar.LENGTH_SHORT)
+                Snackbar.make(requireView(), "Email and password can't be empty", Snackbar.LENGTH_LONG)
                     .show()
             }
         }

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.putragandad.moviedbch5.R
 import com.putragandad.moviedbch5.databinding.FragmentLoginBinding
@@ -57,13 +58,24 @@ class ProfileFragment : Fragment() {
         }
 
         binding.btnSignOut.setOnClickListener {
-            userViewModel.logout()
-            Snackbar.make(it, "Logged out successfully!", Snackbar.LENGTH_LONG).show()
-            //handle back button
-            findNavController().popBackStack(R.id.homeFragment, true); // clear back stack with popup to main nav and inclusive to true to clean the stack
-            findNavController().navigate(R.id.loginFragment); // navigate to login screen
+            logout()
         }
+    }
 
-
+    private fun logout() {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle("Log out")
+            .setMessage("Are you sure to logout from your Synflix Account?")
+            .setNegativeButton("No") { dialog, which ->
+                dialog.cancel()
+            }
+            .setPositiveButton("Yes") { dialog, which ->
+                userViewModel.logout()
+                Snackbar.make(requireView(), "Logged out successfully!", Snackbar.LENGTH_LONG).show()
+                //handle back button
+                findNavController().popBackStack(R.id.homeFragment, true); // clear back stack with popup to main nav and inclusive to true to clean the stack
+                findNavController().navigate(R.id.loginFragment); // navigate to login screen
+            }
+            .show()
     }
 }

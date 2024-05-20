@@ -85,4 +85,7 @@ dependencies {
 
     // DataStore
     implementation("androidx.datastore:datastore-preferences:1.1.1")
+
+    // Facebook Shimmer Loading
+    implementation("com.facebook.shimmer:shimmer:0.5.0")
 }

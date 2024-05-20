@@ -64,7 +64,8 @@ class LoginFragment : Fragment() {
         super.onStart()
 
         viewLifecycleOwner.lifecycleScope.launch {
-            val loginStatus = userViewModel.readLoginStatus()!!
+            val loginStatus = userViewModel.readLoginStatus()
+
             if (loginStatus) {
                 findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
             }

@@ -9,15 +9,23 @@ import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import com.putragandad.moviedbch5.helper.PrefDataStoreManager
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 class UserViewModel(private val preferences: PrefDataStoreManager): ViewModel() {
-    fun saveLoginStatus(status : Boolean) = viewModelScope.launch(Dispatchers.IO) {
+    fun saveLoginStatus(status: Boolean) = viewModelScope.launch(Dispatchers.IO) {
         preferences.saveLoginStatus(status)
     }
 
-    suspend fun readLoginStatus() = preferences.readLoginStatus.firstOrNull()
+    fun readLoginStatus() : Boolean {
+        return runBlocking {
+            preferences.readLoginStatus.first()
+        }
+    }
 
     fun getUserEmail() = preferences.readAccountEmail.asLiveData()
     fun getUserUsername() = preferences.readAccountUsername.asLiveData()

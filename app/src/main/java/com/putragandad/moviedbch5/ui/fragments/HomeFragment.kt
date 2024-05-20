@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.core.os.bundleOf
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
@@ -66,6 +67,20 @@ class HomeFragment : Fragment(), NowPlayingClickListener, TopRatedClickListener,
             val result = movies.results
             setUpRvTopRated(result)
         }
+
+        // Handle Back Press Button
+        // references :
+        // https://stackoverflow.com/questions/5448653/how-to-implement-onbackpressed-in-fragments
+        activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                // exit the app when in home fragments
+                // references :
+                // https://stackoverflow.com/questions/28293895/how-to-exit-from-the-application-while-pressing-back-button-from-fragmentg
+                requireActivity().moveTaskToBack(true)
+                requireActivity().finish()
+            }
+        })
+
     }
 
     private fun setUpRvNowPlaying(dataset: List<NowPlayingResult>) {

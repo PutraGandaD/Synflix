@@ -40,6 +40,7 @@ class NowPlayingAdapter(private val dataSet: List<NowPlayingResult>, private val
             .with(context)
             .load(imageUrl)
             .centerCrop()
+            .placeholder(R.color.placeholder_image)
             .into(imageView)
 //        Log.d("Poster Path", "${getData.id}")
     }

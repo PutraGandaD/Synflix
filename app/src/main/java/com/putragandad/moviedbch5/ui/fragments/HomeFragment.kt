@@ -54,54 +54,78 @@ class HomeFragment : Fragment(), NowPlayingClickListener, TopRatedClickListener,
 
         moviesViewModel.getMovieNowPlaying().observe(requireActivity()) { movies ->
             val result = movies.results
-            if(result.isNotEmpty()) {
-                setUpRvNowPlaying(result)
-                binding.nowPlayingShimmering.stopShimmer()
-                binding.nowPlayingShimmering.visibility = View.GONE
-            }
+            setUpRvNowPlaying(result)
         }
 
         moviesViewModel.getMoviePopular().observe(requireActivity()) { movies ->
             val result = movies.results
-            if(result.isNotEmpty()) {
-                setUpRvPopular(result)
-                binding.popularShimmering.stopShimmer()
-                binding.popularShimmering.visibility = View.GONE
-            }
+            setUpRvPopular(result)
         }
 
         moviesViewModel.getMovieTopRated().observe(requireActivity()) { movies ->
             val result = movies.results
-            if(result.isNotEmpty()) {
-                setUpRvTopRated(result)
-                binding.topratedShimmering.stopShimmer()
-                binding.topratedShimmering.visibility = View.GONE
-            }
+            setUpRvTopRated(result)
         }
     }
 
     private fun setUpRvNowPlaying(dataset: List<NowPlayingResult>) {
-        val adapter = NowPlayingAdapter(dataset, requireActivity(), this)
-        val recyclerView : RecyclerView? = view?.findViewById(R.id.now_playing_rv_container)
-        recyclerView?.visibility = View.VISIBLE
-        recyclerView?.adapter = adapter
-        recyclerView?.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
+        val shimmer = binding.nowPlayingShimmering
+
+        shimmer.startShimmer()
+
+        if(dataset.isNotEmpty()) {
+            val adapter = NowPlayingAdapter(dataset, requireActivity(), this)
+            val recyclerView : RecyclerView? = view?.findViewById(R.id.now_playing_rv_container)
+            recyclerView?.adapter = adapter
+            recyclerView?.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
+
+            shimmer.apply {
+                stopShimmer()
+                visibility = View.GONE
+            }
+
+            recyclerView?.visibility = View.VISIBLE
+        }
     }
 
     private fun setUpRvPopular(dataset: List<PopularResult>) {
-        val adapter = PopularAdapter(dataset, requireActivity(), this)
-        val recyclerView : RecyclerView? = view?.findViewById(R.id.popular_rv_container)
-        recyclerView?.visibility = View.VISIBLE
-        recyclerView?.adapter = adapter
-        recyclerView?.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
+        val shimmer = binding.popularShimmering
+
+        shimmer.startShimmer()
+
+        if(dataset.isNotEmpty()) {
+            val adapter = PopularAdapter(dataset, requireActivity(), this)
+            val recyclerView : RecyclerView? = view?.findViewById(R.id.popular_rv_container)
+            recyclerView?.adapter = adapter
+            recyclerView?.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
+
+            shimmer.apply {
+                stopShimmer()
+                visibility = View.GONE
+            }
+
+            recyclerView?.visibility = View.VISIBLE
+        }
     }
 
     private fun setUpRvTopRated(dataset: List<TopRatedResult>) {
-        val adapter = TopRatedAdapter(dataset, requireActivity(), this)
-        val recyclerView : RecyclerView? = view?.findViewById(R.id.toprated_rv_container)
-        recyclerView?.visibility = View.VISIBLE
-        recyclerView?.adapter = adapter
-        recyclerView?.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
+        val shimmer = binding.topratedShimmering
+
+        shimmer.startShimmer()
+
+        if(dataset.isNotEmpty()) {
+            val adapter = TopRatedAdapter(dataset, requireActivity(), this)
+            val recyclerView : RecyclerView? = view?.findViewById(R.id.toprated_rv_container)
+            recyclerView?.adapter = adapter
+            recyclerView?.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
+
+            shimmer.apply {
+                stopShimmer()
+                visibility = View.GONE
+            }
+
+            recyclerView?.visibility = View.VISIBLE
+        }
     }
 
     override fun onClickMovieNowPlaying(result: NowPlayingResult) {

@@ -47,6 +47,7 @@ class TopRatedAdapter(private val dataSet: List<TopRatedResult>, private val con
             .load(imageUrl)
             .apply(RequestOptions().override(500, 200))
             .centerCrop()
+            .placeholder(R.color.placeholder_image)
             .into(imageView)
     }
 }

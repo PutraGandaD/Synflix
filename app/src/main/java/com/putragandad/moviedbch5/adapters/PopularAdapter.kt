@@ -39,6 +39,7 @@ class PopularAdapter(private val dataSet: List<PopularResult>, private val conte
             .with(context)
             .load(imageUrl)
             .centerCrop()
+            .placeholder(R.color.placeholder_image)
             .into(imageView)
     }
 }

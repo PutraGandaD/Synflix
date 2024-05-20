@@ -39,6 +39,7 @@ class MovieCastAdapter(private val dataSet: List<Cast>, private val context: Con
             .with(context)
             .load(imageUrl)
             .centerCrop()
+            .placeholder(R.color.placeholder_image)
             .into(imageView)
     }
 }

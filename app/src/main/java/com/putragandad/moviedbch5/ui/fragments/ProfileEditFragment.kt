@@ -62,10 +62,10 @@ class ProfileEditFragment : Fragment() {
     }
 
     private fun saveProfile(fullname: TextInputLayout, username: TextInputLayout, email: TextInputLayout) {
-        if(fullname.isNotEmpty() && email.isNotEmpty()) {
-            val getFullname = fullname.editText?.text.toString()
-            val getUsername = username.editText?.text.toString()
-            val getEmail = email.editText?.text.toString()
+        val getFullname = fullname.editText?.text.toString()
+        val getUsername = username.editText?.text.toString()
+        val getEmail = email.editText?.text.toString()
+        if(getFullname.isNotEmpty() && getEmail.isNotEmpty()) {
             userViewModel.saveAccountDetail(getUsername, getFullname, getEmail)
             findNavController().popBackStack()
             Snackbar.make(requireView(), "Profile successfully saved.", Snackbar.LENGTH_LONG).show()

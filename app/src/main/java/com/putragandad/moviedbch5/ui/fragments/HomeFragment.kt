@@ -80,7 +80,6 @@ class HomeFragment : Fragment(), NowPlayingClickListener, TopRatedClickListener,
                 requireActivity().finish()
             }
         })
-
     }
 
     private fun setUpRvNowPlaying(dataset: List<NowPlayingResult>) {

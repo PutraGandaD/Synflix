@@ -1,6 +1,7 @@
 package com.putragandad.moviedbch5.ui.fragments
 
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -29,6 +30,8 @@ import com.putragandad.moviedbch5.models.top_rated.TopRatedResult
 import com.putragandad.moviedbch5.ui.viewmodels.MoviesViewModel
 import com.putragandad.moviedbch5.ui.viewmodels.MoviesViewModelFactory
 import com.putragandad.moviedbch5.utils.Constant
+import java.util.Timer
+import java.util.TimerTask
 
 class HomeFragment : Fragment(), NowPlayingClickListener, TopRatedClickListener, PopularClickListener {
     private var _binding: FragmentHomeBinding? = null
@@ -51,26 +54,36 @@ class HomeFragment : Fragment(), NowPlayingClickListener, TopRatedClickListener,
 
         moviesViewModel.getMovieNowPlaying().observe(requireActivity()) { movies ->
             val result = movies.results
-            setUpRvNowPlaying(result)
-
-//            Log.d("OUTPUT", "$movies")
-//            Log.d("RESULT", "$result")
+            if(result.isNotEmpty()) {
+                setUpRvNowPlaying(result)
+                binding.nowPlayingShimmering.stopShimmer()
+                binding.nowPlayingShimmering.visibility = View.GONE
+            }
         }
 
         moviesViewModel.getMoviePopular().observe(requireActivity()) { movies ->
             val result = movies.results
-            setUpRvPopular(result)
+            if(result.isNotEmpty()) {
+                setUpRvPopular(result)
+                binding.popularShimmering.stopShimmer()
+                binding.popularShimmering.visibility = View.GONE
+            }
         }
 
         moviesViewModel.getMovieTopRated().observe(requireActivity()) { movies ->
             val result = movies.results
-            setUpRvTopRated(result)
+            if(result.isNotEmpty()) {
+                setUpRvTopRated(result)
+                binding.topratedShimmering.stopShimmer()
+                binding.topratedShimmering.visibility = View.GONE
+            }
         }
     }
 
     private fun setUpRvNowPlaying(dataset: List<NowPlayingResult>) {
         val adapter = NowPlayingAdapter(dataset, requireActivity(), this)
         val recyclerView : RecyclerView? = view?.findViewById(R.id.now_playing_rv_container)
+        recyclerView?.visibility = View.VISIBLE
         recyclerView?.adapter = adapter
         recyclerView?.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
     }
@@ -78,6 +91,7 @@ class HomeFragment : Fragment(), NowPlayingClickListener, TopRatedClickListener,
     private fun setUpRvPopular(dataset: List<PopularResult>) {
         val adapter = PopularAdapter(dataset, requireActivity(), this)
         val recyclerView : RecyclerView? = view?.findViewById(R.id.popular_rv_container)
+        recyclerView?.visibility = View.VISIBLE
         recyclerView?.adapter = adapter
         recyclerView?.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
     }
@@ -85,6 +99,7 @@ class HomeFragment : Fragment(), NowPlayingClickListener, TopRatedClickListener,
     private fun setUpRvTopRated(dataset: List<TopRatedResult>) {
         val adapter = TopRatedAdapter(dataset, requireActivity(), this)
         val recyclerView : RecyclerView? = view?.findViewById(R.id.toprated_rv_container)
+        recyclerView?.visibility = View.VISIBLE
         recyclerView?.adapter = adapter
         recyclerView?.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
     }

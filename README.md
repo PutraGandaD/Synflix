@@ -12,6 +12,9 @@
 - Using RecyclerView with OnClickListener Interface and NestedScrollView
 - and more...
 
+## Featuring :
+- Facebook Shimmering Loading Effect Library (https://github.com/facebookarchive/shimmer-android)
+
 # Screenshot
 ## Login / Register
 ![Untitled design (1)](https://github.com/PutraGandaD/F-AND24001121-synrgy7-SimpleTMDBApp-ch5/assets/54593964/8ac52a52-49c6-477b-ad4a-bd293fdc6e97)

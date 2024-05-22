@@ -4,6 +4,7 @@
 ## Tech Stack :
 - Built using Material Design 3 (https://m3.material.io), UI Inspired by Netflix
 - Built with MVVM (Model-View-ViewModel) Architecture
+- With Dependency Injection (Koin)
 - Using TheMovieDB API (https://api.themoviedb.org)
 - Using Retrofit to parse the API
 - Using Glide to load the image

@@ -1,22 +1,15 @@
 package com.putragandad.moviedbch5.ui.fragments
 
 import android.os.Bundle
-import android.os.Handler
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.core.os.bundleOf
-import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.putragandad.moviedbch5.R
 import com.putragandad.moviedbch5.adapters.NowPlayingAdapter
 import com.putragandad.moviedbch5.adapters.NowPlayingClickListener
@@ -29,18 +22,14 @@ import com.putragandad.moviedbch5.models.now_playing.NowPlayingResult
 import com.putragandad.moviedbch5.models.popular.PopularResult
 import com.putragandad.moviedbch5.models.top_rated.TopRatedResult
 import com.putragandad.moviedbch5.ui.viewmodels.MoviesViewModel
-import com.putragandad.moviedbch5.ui.viewmodels.MoviesViewModelFactory
 import com.putragandad.moviedbch5.utils.Constant
-import java.util.Timer
-import java.util.TimerTask
+import org.koin.android.ext.android.inject
 
 class HomeFragment : Fragment(), NowPlayingClickListener, TopRatedClickListener, PopularClickListener {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
-    private val moviesViewModel : MoviesViewModel by viewModels {
-        MoviesViewModelFactory.getInstance(requireActivity())
-    }
+    private val moviesViewModel: MoviesViewModel by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

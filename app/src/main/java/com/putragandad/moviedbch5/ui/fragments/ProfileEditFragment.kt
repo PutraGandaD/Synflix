@@ -5,24 +5,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isNotEmpty
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
-import com.putragandad.moviedbch5.R
-import com.putragandad.moviedbch5.databinding.FragmentProfileBinding
 import com.putragandad.moviedbch5.databinding.FragmentProfileEditBinding
 import com.putragandad.moviedbch5.ui.viewmodels.UserViewModel
-import com.putragandad.moviedbch5.ui.viewmodels.UserViewModelFactory
+import org.koin.android.ext.android.inject
 
 class ProfileEditFragment : Fragment() {
     private var _binding: FragmentProfileEditBinding? = null
     private val binding get() = _binding!!
 
-    private val userViewModel : UserViewModel by viewModels {
-        UserViewModelFactory.getInstance(requireActivity())
-    }
+    private val userViewModel : UserViewModel by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

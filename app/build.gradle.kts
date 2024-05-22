@@ -43,6 +43,7 @@ android {
 dependencies {
     val lifecycle_version = "2.7.0"
     val arch_version = "2.2.0"
+    val koin_version = "3.5.6"
 
     // ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
@@ -88,4 +89,14 @@ dependencies {
 
     // Facebook Shimmer Loading
     implementation("com.facebook.shimmer:shimmer:0.5.0")
+
+    // Koin (Dependency Injection)
+    // Declare koin-bom version
+    implementation(platform("io.insert-koin:koin-bom:$koin_version"))
+
+    // Declare the koin dependencies that you need
+    implementation("io.insert-koin:koin-android")
+    implementation("io.insert-koin:koin-core-coroutines")
+    implementation("io.insert-koin:koin-androidx-workmanager")
+
 }

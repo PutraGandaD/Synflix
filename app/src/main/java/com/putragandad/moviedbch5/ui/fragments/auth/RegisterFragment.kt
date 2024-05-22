@@ -5,22 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
-import com.putragandad.moviedbch5.R
-import com.putragandad.moviedbch5.databinding.FragmentLoginBinding
 import com.putragandad.moviedbch5.databinding.FragmentRegisterBinding
 import com.putragandad.moviedbch5.ui.viewmodels.UserViewModel
-import com.putragandad.moviedbch5.ui.viewmodels.UserViewModelFactory
+import org.koin.android.ext.android.inject
 
 class RegisterFragment : Fragment() {
     private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
 
-    private val userViewModel : UserViewModel by viewModels {
-        UserViewModelFactory.getInstance(requireActivity())
-    }
+    private val userViewModel: UserViewModel by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

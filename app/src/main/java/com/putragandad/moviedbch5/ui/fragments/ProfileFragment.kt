@@ -5,25 +5,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.putragandad.moviedbch5.R
-import com.putragandad.moviedbch5.databinding.FragmentLoginBinding
 import com.putragandad.moviedbch5.databinding.FragmentProfileBinding
 import com.putragandad.moviedbch5.ui.viewmodels.UserViewModel
-import com.putragandad.moviedbch5.ui.viewmodels.UserViewModelFactory
-import kotlinx.coroutines.launch
+import org.koin.android.ext.android.inject
 
 class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
 
-    private val userViewModel : UserViewModel by viewModels {
-        UserViewModelFactory.getInstance(requireActivity())
-    }
+    private val userViewModel: UserViewModel by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

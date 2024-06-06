@@ -18,11 +18,11 @@ import com.putragandad.moviedbch5.adapters.PopularClickListener
 import com.putragandad.moviedbch5.adapters.TopRatedAdapter
 import com.putragandad.moviedbch5.adapters.TopRatedClickListener
 import com.putragandad.moviedbch5.databinding.FragmentHomeBinding
-import com.putragandad.moviedbch5.models.now_playing.NowPlayingResult
-import com.putragandad.moviedbch5.models.popular.PopularResult
-import com.putragandad.moviedbch5.models.top_rated.TopRatedResult
+import com.putragandad.moviedbch5.data.remote.now_playing.NowPlayingResult
+import com.putragandad.moviedbch5.data.remote.popular.PopularResult
+import com.putragandad.moviedbch5.data.remote.top_rated.TopRatedResult
 import com.putragandad.moviedbch5.ui.viewmodels.MoviesViewModel
-import com.putragandad.moviedbch5.utils.Constant
+import com.putragandad.moviedbch5.common.Constant
 import org.koin.android.ext.android.inject
 
 class HomeFragment : Fragment(), NowPlayingClickListener, TopRatedClickListener, PopularClickListener {

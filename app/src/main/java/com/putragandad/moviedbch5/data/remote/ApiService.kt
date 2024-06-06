@@ -1,13 +1,11 @@
-package com.putragandad.moviedbch5.api
+package com.putragandad.moviedbch5.data.remote
 
-import com.putragandad.moviedbch5.models.details.CreditResponse
-import com.putragandad.moviedbch5.models.details.MovieDetailsResponse
-import com.putragandad.moviedbch5.models.now_playing.NowPlayingResponse
-import com.putragandad.moviedbch5.models.popular.PopularResponse
-import com.putragandad.moviedbch5.models.top_rated.TopRatedResponse
-import com.putragandad.moviedbch5.utils.Constant
+import com.putragandad.moviedbch5.data.remote.details.CreditResponse
+import com.putragandad.moviedbch5.data.remote.details.MovieDetailsResponse
+import com.putragandad.moviedbch5.data.remote.now_playing.NowPlayingResponse
+import com.putragandad.moviedbch5.data.remote.popular.PopularResponse
+import com.putragandad.moviedbch5.data.remote.top_rated.TopRatedResponse
 import retrofit2.http.GET
-import retrofit2.http.Header
 import retrofit2.http.Path
 
 interface ApiService {

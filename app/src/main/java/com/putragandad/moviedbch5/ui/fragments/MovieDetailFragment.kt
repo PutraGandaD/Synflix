@@ -12,9 +12,9 @@ import com.bumptech.glide.Glide
 import com.putragandad.moviedbch5.R
 import com.putragandad.moviedbch5.adapters.MovieCastAdapter
 import com.putragandad.moviedbch5.databinding.FragmentMovieDetailBinding
-import com.putragandad.moviedbch5.models.details.Cast
+import com.putragandad.moviedbch5.data.remote.details.Cast
 import com.putragandad.moviedbch5.ui.viewmodels.MoviesViewModel
-import com.putragandad.moviedbch5.utils.Constant
+import com.putragandad.moviedbch5.common.Constant
 import org.koin.android.ext.android.inject
 
 class MovieDetailFragment : Fragment() {

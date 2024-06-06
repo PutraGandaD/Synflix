@@ -1,12 +1,9 @@
-package com.putragandad.moviedbch5.models.now_playing
+package com.putragandad.moviedbch5.data.remote.top_rated
 
 
-import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import kotlinx.parcelize.Parcelize
 
-
-data class NowPlayingResult(
+data class TopRatedResult(
     @SerializedName("adult")
     val adult: Boolean,
     @SerializedName("backdrop_path")

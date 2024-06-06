@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.putragandad.moviedbch5.R
-import com.putragandad.moviedbch5.models.top_rated.TopRatedResult
+import com.putragandad.moviedbch5.data.remote.top_rated.TopRatedResult
 
 class TopRatedAdapter(private val dataSet: List<TopRatedResult>, private val context: Context, private val topRatedClickListener: TopRatedClickListener) : RecyclerView.Adapter<TopRatedAdapter.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {

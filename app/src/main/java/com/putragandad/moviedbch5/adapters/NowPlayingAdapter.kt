@@ -9,7 +9,7 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.putragandad.moviedbch5.R
-import com.putragandad.moviedbch5.models.now_playing.NowPlayingResult
+import com.putragandad.moviedbch5.data.remote.now_playing.NowPlayingResult
 
 class NowPlayingAdapter(private val dataSet: List<NowPlayingResult>, private val context: Context, private val nowPlayingClickListener: NowPlayingClickListener) : RecyclerView.Adapter<NowPlayingAdapter.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {

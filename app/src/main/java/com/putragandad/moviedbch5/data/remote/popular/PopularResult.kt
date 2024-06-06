@@ -1,9 +1,11 @@
-package com.putragandad.moviedbch5.models.top_rated
+package com.putragandad.moviedbch5.data.remote.popular
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
-data class TopRatedResult(
+data class PopularResult(
     @SerializedName("adult")
     val adult: Boolean,
     @SerializedName("backdrop_path")

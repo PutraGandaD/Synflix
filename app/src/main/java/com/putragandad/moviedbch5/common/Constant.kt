@@ -1,4 +1,4 @@
-package com.putragandad.moviedbch5.utils
+package com.putragandad.moviedbch5.common
 
 class Constant {
     companion object {

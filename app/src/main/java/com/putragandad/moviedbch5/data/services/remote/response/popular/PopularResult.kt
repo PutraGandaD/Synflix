@@ -1,4 +1,4 @@
-package com.putragandad.moviedbch5.data.remote.response.popular
+package com.putragandad.moviedbch5.data.services.remote.response.popular
 
 
 import android.os.Parcelable

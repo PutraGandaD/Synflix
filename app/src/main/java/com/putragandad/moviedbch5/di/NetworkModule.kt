@@ -2,7 +2,7 @@ package com.putragandad.moviedbch5.di
 
 import com.putragandad.moviedbch5.utils.Constant
 import com.putragandad.moviedbch5.utils.network.AuthInterceptor
-import com.putragandad.moviedbch5.data.remote.ApiService
+import com.putragandad.moviedbch5.data.services.remote.ApiService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module

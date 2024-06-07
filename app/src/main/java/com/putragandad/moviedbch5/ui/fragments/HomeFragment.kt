@@ -18,9 +18,9 @@ import com.putragandad.moviedbch5.ui.adapters.PopularClickListener
 import com.putragandad.moviedbch5.ui.adapters.TopRatedAdapter
 import com.putragandad.moviedbch5.ui.adapters.TopRatedClickListener
 import com.putragandad.moviedbch5.databinding.FragmentHomeBinding
-import com.putragandad.moviedbch5.data.remote.response.now_playing.NowPlayingResult
-import com.putragandad.moviedbch5.data.remote.response.popular.PopularResult
-import com.putragandad.moviedbch5.data.remote.response.top_rated.TopRatedResult
+import com.putragandad.moviedbch5.data.services.remote.response.now_playing.NowPlayingResult
+import com.putragandad.moviedbch5.data.services.remote.response.popular.PopularResult
+import com.putragandad.moviedbch5.data.services.remote.response.top_rated.TopRatedResult
 import com.putragandad.moviedbch5.ui.viewmodels.MoviesViewModel
 import com.putragandad.moviedbch5.utils.Constant
 import org.koin.android.ext.android.inject

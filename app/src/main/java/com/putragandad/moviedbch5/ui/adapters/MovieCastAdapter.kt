@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.putragandad.moviedbch5.R
-import com.putragandad.moviedbch5.data.remote.response.details.Cast
+import com.putragandad.moviedbch5.data.services.remote.response.details.Cast
 
 class MovieCastAdapter(private val dataSet: List<Cast>, private val context: Context) : RecyclerView.Adapter<MovieCastAdapter.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {

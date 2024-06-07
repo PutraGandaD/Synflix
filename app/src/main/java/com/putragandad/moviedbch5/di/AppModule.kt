@@ -1,8 +1,8 @@
 package com.putragandad.moviedbch5.di
 
 import com.putragandad.moviedbch5.utils.prefdatastore.PrefDataStoreManager
-import com.putragandad.moviedbch5.repositories.MoviesRepository
-import com.putragandad.moviedbch5.repositories.RemoteDataSource
+import com.putragandad.moviedbch5.domain.repositories.movies.MoviesRepository
+import com.putragandad.moviedbch5.domain.repositories.source.RemoteDataSource
 import com.putragandad.moviedbch5.ui.viewmodels.MoviesViewModel
 import com.putragandad.moviedbch5.ui.viewmodels.UserViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel

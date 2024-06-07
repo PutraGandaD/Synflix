@@ -1,4 +1,4 @@
-package com.putragandad.moviedbch5.data.remote.response.now_playing
+package com.putragandad.moviedbch5.data.services.remote.response.now_playing
 
 
 import android.os.Parcelable

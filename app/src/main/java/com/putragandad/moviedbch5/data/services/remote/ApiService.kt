@@ -1,10 +1,10 @@
-package com.putragandad.moviedbch5.data.remote
+package com.putragandad.moviedbch5.data.services.remote
 
-import com.putragandad.moviedbch5.data.remote.response.details.CreditResponse
-import com.putragandad.moviedbch5.data.remote.response.details.MovieDetailsResponse
-import com.putragandad.moviedbch5.data.remote.response.now_playing.NowPlayingResponse
-import com.putragandad.moviedbch5.data.remote.response.popular.PopularResponse
-import com.putragandad.moviedbch5.data.remote.response.top_rated.TopRatedResponse
+import com.putragandad.moviedbch5.data.services.remote.response.details.CreditResponse
+import com.putragandad.moviedbch5.data.services.remote.response.details.MovieDetailsResponse
+import com.putragandad.moviedbch5.data.services.remote.response.now_playing.NowPlayingResponse
+import com.putragandad.moviedbch5.data.services.remote.response.popular.PopularResponse
+import com.putragandad.moviedbch5.data.services.remote.response.top_rated.TopRatedResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 

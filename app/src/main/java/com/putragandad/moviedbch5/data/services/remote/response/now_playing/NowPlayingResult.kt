@@ -1,9 +1,9 @@
 package com.putragandad.moviedbch5.data.services.remote.response.now_playing
 
 
-import android.os.Parcelable
+import android.util.Log
 import com.google.gson.annotations.SerializedName
-import kotlinx.parcelize.Parcelize
+import com.putragandad.moviedbch5.domain.models.movies.NowPlaying
 
 
 data class NowPlayingResult(
@@ -35,4 +35,9 @@ data class NowPlayingResult(
     val voteAverage: Double,
     @SerializedName("vote_count")
     val voteCount: Int
+)
+
+fun NowPlayingResult.asDomain() = NowPlaying (
+    id = id,
+    posterPath = posterPath
 )

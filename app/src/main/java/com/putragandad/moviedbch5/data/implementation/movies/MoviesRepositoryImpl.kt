@@ -1,5 +1,6 @@
-package com.putragandad.moviedbch5.data.implementation
+package com.putragandad.moviedbch5.data.implementation.movies
 
+import com.putragandad.moviedbch5.data.implementation.source.RemoteDataSourceImpl
 import com.putragandad.moviedbch5.data.services.remote.response.details.CreditResponse
 import com.putragandad.moviedbch5.data.services.remote.response.details.MovieDetailsResponse
 import com.putragandad.moviedbch5.data.services.remote.response.now_playing.NowPlayingResponse

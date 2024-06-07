@@ -5,7 +5,6 @@ import com.putragandad.moviedbch5.data.services.remote.response.details.MovieDet
 import com.putragandad.moviedbch5.data.services.remote.response.now_playing.NowPlayingResponse
 import com.putragandad.moviedbch5.data.services.remote.response.popular.PopularResponse
 import com.putragandad.moviedbch5.data.services.remote.response.top_rated.TopRatedResponse
-import com.putragandad.moviedbch5.domain.repositories.source.RemoteDataSource
 
 interface MoviesRepository {
     suspend fun getMovieNowPlaying() : NowPlayingResponse

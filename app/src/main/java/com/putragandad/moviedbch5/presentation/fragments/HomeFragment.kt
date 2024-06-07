@@ -1,10 +1,12 @@
 package com.putragandad.moviedbch5.presentation.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
@@ -18,11 +20,12 @@ import com.putragandad.moviedbch5.presentation.adapters.PopularClickListener
 import com.putragandad.moviedbch5.presentation.adapters.TopRatedAdapter
 import com.putragandad.moviedbch5.presentation.adapters.TopRatedClickListener
 import com.putragandad.moviedbch5.databinding.FragmentHomeBinding
-import com.putragandad.moviedbch5.data.services.remote.response.now_playing.NowPlayingResult
 import com.putragandad.moviedbch5.data.services.remote.response.popular.PopularResult
 import com.putragandad.moviedbch5.data.services.remote.response.top_rated.TopRatedResult
+import com.putragandad.moviedbch5.domain.models.movies.NowPlaying
 import com.putragandad.moviedbch5.presentation.viewmodels.MoviesViewModel
 import com.putragandad.moviedbch5.utils.Constant
+import com.putragandad.moviedbch5.utils.Resource
 import org.koin.android.ext.android.inject
 
 class HomeFragment : Fragment(), NowPlayingClickListener, TopRatedClickListener,
@@ -43,17 +46,30 @@ class HomeFragment : Fragment(), NowPlayingClickListener, TopRatedClickListener,
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        moviesViewModel.getMovieNowPlaying().observe(requireActivity()) { movies ->
-            val result = movies.results
-            setUpRvNowPlaying(result)
+        moviesViewModel.movieNowPlaying.observe(viewLifecycleOwner) { movies ->
+            when(movies) {
+                is Resource.Success -> {
+                    //Toast.makeText(requireActivity(), "SUCCESS", Toast.LENGTH_SHORT).show()
+                    movies.data?.let {
+                        setUpRvNowPlaying(it)
+                    }
+                }
+                is Resource.Error -> {
+                    //Toast.makeText(requireActivity(), "ERROR", Toast.LENGTH_SHORT).show()
+                }
+                is Resource.Loading -> {
+                    //Toast.makeText(requireActivity(), "LOADING", Toast.LENGTH_SHORT).show()
+                    setUpRvNowPlaying(emptyList())
+                }
+            }
         }
 
-        moviesViewModel.getMoviePopular().observe(requireActivity()) { movies ->
+        moviesViewModel.getMoviePopular().observe(viewLifecycleOwner) { movies ->
             val result = movies.results
             setUpRvPopular(result)
         }
 
-        moviesViewModel.getMovieTopRated().observe(requireActivity()) { movies ->
+        moviesViewModel.getMovieTopRated().observe(viewLifecycleOwner) { movies ->
             val result = movies.results
             setUpRvTopRated(result)
         }
@@ -72,7 +88,7 @@ class HomeFragment : Fragment(), NowPlayingClickListener, TopRatedClickListener,
         })
     }
 
-    private fun setUpRvNowPlaying(dataset: List<NowPlayingResult>) {
+    private fun setUpRvNowPlaying(dataset: List<NowPlaying>) {
         val shimmer = binding.nowPlayingShimmering
 
         shimmer.startShimmer()
@@ -132,7 +148,7 @@ class HomeFragment : Fragment(), NowPlayingClickListener, TopRatedClickListener,
         }
     }
 
-    override fun onClickMovieNowPlaying(result: NowPlayingResult) {
+    override fun onClickMovieNowPlaying(result: NowPlaying) {
         val bundle = bundleOf(Constant.MOVIES_ID_EXTRA to result.id)
         findNavController().navigate(R.id.action_homeFragment_to_movieDetailFragment, bundle)
     }

@@ -1,6 +1,7 @@
 package com.putragandad.moviedbch5.presentation.adapters
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,9 +9,9 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.putragandad.moviedbch5.R
-import com.putragandad.moviedbch5.data.services.remote.response.now_playing.NowPlayingResult
+import com.putragandad.moviedbch5.domain.models.movies.NowPlaying
 
-class NowPlayingAdapter(private val dataSet: List<NowPlayingResult>, private val context: Context, private val nowPlayingClickListener: NowPlayingClickListener) : RecyclerView.Adapter<NowPlayingAdapter.ViewHolder>() {
+class NowPlayingAdapter(private val dataSet: List<NowPlaying>, private val context: Context, private val nowPlayingClickListener: NowPlayingClickListener) : RecyclerView.Adapter<NowPlayingAdapter.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val ivMovieImage : ImageView = view.findViewById(R.id.iv_nowplaying_movie_card)
     }
@@ -46,5 +47,5 @@ class NowPlayingAdapter(private val dataSet: List<NowPlayingResult>, private val
 }
 
 interface NowPlayingClickListener {
-    fun onClickMovieNowPlaying(result: NowPlayingResult)
+    fun onClickMovieNowPlaying(result: NowPlaying)
 }

@@ -1,4 +1,6 @@
 package com.putragandad.moviedbch5.domain.models.movies
 
-class NowPlaying {
-}
+data class NowPlaying(
+    val id: Int,
+    val posterPath: String
+)

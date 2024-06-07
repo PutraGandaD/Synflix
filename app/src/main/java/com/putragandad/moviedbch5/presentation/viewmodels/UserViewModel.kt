@@ -1,4 +1,4 @@
-package com.putragandad.moviedbch5.ui.viewmodels
+package com.putragandad.moviedbch5.presentation.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel

@@ -2,13 +2,11 @@ package com.putragandad.moviedbch5.di
 
 import com.putragandad.moviedbch5.data.implementation.MoviesRepositoryImpl
 import com.putragandad.moviedbch5.data.implementation.RemoteDataSourceImpl
-import com.putragandad.moviedbch5.data.services.remote.ApiService
 import com.putragandad.moviedbch5.utils.prefdatastore.PrefDataStoreManager
 import com.putragandad.moviedbch5.domain.repositories.movies.MoviesRepository
-import com.putragandad.moviedbch5.domain.repositories.source.RemoteDataSource
 import com.putragandad.moviedbch5.domain.usecases.movies.DetailsUseCase
-import com.putragandad.moviedbch5.ui.viewmodels.MoviesViewModel
-import com.putragandad.moviedbch5.ui.viewmodels.UserViewModel
+import com.putragandad.moviedbch5.presentation.viewmodels.MoviesViewModel
+import com.putragandad.moviedbch5.presentation.viewmodels.UserViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

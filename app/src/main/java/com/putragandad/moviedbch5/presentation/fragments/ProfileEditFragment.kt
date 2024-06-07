@@ -1,4 +1,4 @@
-package com.putragandad.moviedbch5.ui.fragments
+package com.putragandad.moviedbch5.presentation.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,7 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
 import com.putragandad.moviedbch5.databinding.FragmentProfileEditBinding
-import com.putragandad.moviedbch5.ui.viewmodels.UserViewModel
+import com.putragandad.moviedbch5.presentation.viewmodels.UserViewModel
 import org.koin.android.ext.android.inject
 
 class ProfileEditFragment : Fragment() {

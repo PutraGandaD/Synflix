@@ -1,23 +1,25 @@
-package com.putragandad.moviedbch5.ui.adapters
+package com.putragandad.moviedbch5.presentation.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.putragandad.moviedbch5.R
-import com.putragandad.moviedbch5.data.services.remote.response.popular.PopularResult
+import com.putragandad.moviedbch5.data.services.remote.response.details.Cast
 
-class PopularAdapter(private val dataSet: List<PopularResult>, private val context: Context, private val popularClickListener: PopularClickListener) : RecyclerView.Adapter<PopularAdapter.ViewHolder>() {
+class MovieCastAdapter(private val dataSet: List<Cast>, private val context: Context) : RecyclerView.Adapter<MovieCastAdapter.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val ivMovieImage: ImageView = view.findViewById(R.id.iv_popular_movie_card)
+        val ivMovieCast : ImageView = view.findViewById(R.id.iv_movie_cast)
+        val tvMovieCastName : TextView = view.findViewById(R.id.tv_movie_cast_name)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.movie_card_popular, parent, false)
+            .inflate(R.layout.movie_cast_card, parent, false)
         return ViewHolder(view)
     }
 
@@ -28,12 +30,10 @@ class PopularAdapter(private val dataSet: List<PopularResult>, private val conte
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val getData = dataSet[position]
 
-        val imageUrl = "https://image.tmdb.org/t/p/w500${getData.posterPath}"
-        val imageView = holder.ivMovieImage
+        holder.tvMovieCastName.setText(getData.name)
 
-        imageView.setOnClickListener {
-            popularClickListener.onClickPopularMovie(getData)
-        }
+        val imageUrl = "https://image.tmdb.org/t/p/w500${getData.profilePath}"
+        val imageView = holder.ivMovieCast
 
         Glide
             .with(context)
@@ -42,8 +42,4 @@ class PopularAdapter(private val dataSet: List<PopularResult>, private val conte
             .placeholder(R.color.placeholder_image)
             .into(imageView)
     }
-}
-
-interface PopularClickListener {
-    fun onClickPopularMovie(result: PopularResult)
 }

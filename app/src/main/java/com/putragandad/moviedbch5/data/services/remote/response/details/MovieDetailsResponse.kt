@@ -2,7 +2,7 @@ package com.putragandad.moviedbch5.data.services.remote.response.details
 
 
 import com.google.gson.annotations.SerializedName
-import com.putragandad.moviedbch5.domain.entities.movies.Details
+import com.putragandad.moviedbch5.domain.models.movies.Details
 
 data class MovieDetailsResponse(
     @SerializedName("adult")

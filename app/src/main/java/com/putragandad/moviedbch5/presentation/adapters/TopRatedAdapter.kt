@@ -1,4 +1,4 @@
-package com.putragandad.moviedbch5.ui.adapters
+package com.putragandad.moviedbch5.presentation.adapters
 
 import android.content.Context
 import android.view.LayoutInflater

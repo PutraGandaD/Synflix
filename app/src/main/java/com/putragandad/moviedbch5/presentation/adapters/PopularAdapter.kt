@@ -1,7 +1,6 @@
-package com.putragandad.moviedbch5.ui.adapters
+package com.putragandad.moviedbch5.presentation.adapters
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,16 +8,16 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.putragandad.moviedbch5.R
-import com.putragandad.moviedbch5.data.services.remote.response.now_playing.NowPlayingResult
+import com.putragandad.moviedbch5.data.services.remote.response.popular.PopularResult
 
-class NowPlayingAdapter(private val dataSet: List<NowPlayingResult>, private val context: Context, private val nowPlayingClickListener: NowPlayingClickListener) : RecyclerView.Adapter<NowPlayingAdapter.ViewHolder>() {
+class PopularAdapter(private val dataSet: List<PopularResult>, private val context: Context, private val popularClickListener: PopularClickListener) : RecyclerView.Adapter<PopularAdapter.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val ivMovieImage : ImageView = view.findViewById(R.id.iv_nowplaying_movie_card)
+        val ivMovieImage: ImageView = view.findViewById(R.id.iv_popular_movie_card)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.movie_card_nowplaying, parent, false)
+            .inflate(R.layout.movie_card_popular, parent, false)
         return ViewHolder(view)
     }
 
@@ -33,7 +32,7 @@ class NowPlayingAdapter(private val dataSet: List<NowPlayingResult>, private val
         val imageView = holder.ivMovieImage
 
         imageView.setOnClickListener {
-            nowPlayingClickListener.onClickMovieNowPlaying(getData)
+            popularClickListener.onClickPopularMovie(getData)
         }
 
         Glide
@@ -42,10 +41,9 @@ class NowPlayingAdapter(private val dataSet: List<NowPlayingResult>, private val
             .centerCrop()
             .placeholder(R.color.placeholder_image)
             .into(imageView)
-//        Log.d("Poster Path", "${getData.id}")
     }
 }
 
-interface NowPlayingClickListener {
-    fun onClickMovieNowPlaying(result: NowPlayingResult)
+interface PopularClickListener {
+    fun onClickPopularMovie(result: PopularResult)
 }

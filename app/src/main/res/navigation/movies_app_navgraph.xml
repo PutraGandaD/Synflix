@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.putragandad.moviedbch5.ui.fragments.auth.LoginFragment"
+        android:name="com.putragandad.moviedbch5.presentation.fragments.auth.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -21,12 +21,12 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.putragandad.moviedbch5.ui.fragments.auth.RegisterFragment"
+        android:name="com.putragandad.moviedbch5.presentation.fragments.auth.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" />
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.putragandad.moviedbch5.ui.fragments.HomeFragment"
+        android:name="com.putragandad.moviedbch5.presentation.fragments.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -35,7 +35,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.putragandad.moviedbch5.ui.fragments.ProfileFragment"
+        android:name="com.putragandad.moviedbch5.presentation.fragments.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
         <action
@@ -44,12 +44,12 @@
     </fragment>
     <fragment
         android:id="@+id/movieDetailFragment"
-        android:name="com.putragandad.moviedbch5.ui.fragments.MovieDetailFragment"
+        android:name="com.putragandad.moviedbch5.presentation.fragments.MovieDetailFragment"
         android:label="fragment_movie_detail"
         tools:layout="@layout/fragment_movie_detail" />
     <fragment
         android:id="@+id/profileEditFragment"
-        android:name="com.putragandad.moviedbch5.ui.fragments.ProfileEditFragment"
+        android:name="com.putragandad.moviedbch5.presentation.fragments.ProfileEditFragment"
         android:label="fragment_profile_edit"
         tools:layout="@layout/fragment_profile_edit" />
 </navigation>

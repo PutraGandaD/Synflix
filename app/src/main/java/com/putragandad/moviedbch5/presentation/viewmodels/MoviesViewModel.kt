@@ -1,16 +1,15 @@
-package com.putragandad.moviedbch5.ui.viewmodels
+package com.putragandad.moviedbch5.presentation.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
-import com.putragandad.moviedbch5.domain.entities.movies.Details
+import com.putragandad.moviedbch5.domain.models.movies.Details
 import com.putragandad.moviedbch5.domain.repositories.movies.MoviesRepository
 import com.putragandad.moviedbch5.domain.usecases.movies.DetailsUseCase
 import com.putragandad.moviedbch5.utils.Resource
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class MoviesViewModel(

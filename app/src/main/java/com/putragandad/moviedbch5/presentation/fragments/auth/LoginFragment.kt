@@ -1,4 +1,4 @@
-package com.putragandad.moviedbch5.ui.fragments.auth
+package com.putragandad.moviedbch5.presentation.fragments.auth
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.putragandad.moviedbch5.R
 import com.putragandad.moviedbch5.databinding.FragmentLoginBinding
-import com.putragandad.moviedbch5.ui.viewmodels.UserViewModel
+import com.putragandad.moviedbch5.presentation.viewmodels.UserViewModel
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 

@@ -1,4 +1,4 @@
-package com.putragandad.moviedbch5.domain.entities.movies
+package com.putragandad.moviedbch5.domain.models.movies
 
 data class Details(
     val title: String,

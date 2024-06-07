@@ -3,6 +3,7 @@ package com.putragandad.moviedbch5
 import android.app.Application
 import com.putragandad.moviedbch5.di.AppModule.appModule
 import com.putragandad.moviedbch5.di.AppModule.repositoryModule
+import com.putragandad.moviedbch5.di.AppModule.useCaseModule
 import com.putragandad.moviedbch5.di.AppModule.viewModelModule
 import com.putragandad.moviedbch5.di.NetworkModule.networkModule
 import org.koin.android.ext.koin.androidContext
@@ -16,7 +17,7 @@ class MainApplication : Application() {
         startKoin {
             androidLogger()
             androidContext(this@MainApplication)
-            modules(networkModule, appModule, repositoryModule, viewModelModule)
+            modules(networkModule, appModule, repositoryModule, viewModelModule, useCaseModule)
         }
     }
 }

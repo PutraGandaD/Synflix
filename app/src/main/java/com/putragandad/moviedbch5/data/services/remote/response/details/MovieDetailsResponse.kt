@@ -2,6 +2,7 @@ package com.putragandad.moviedbch5.data.services.remote.response.details
 
 
 import com.google.gson.annotations.SerializedName
+import com.putragandad.moviedbch5.domain.entities.movies.Details
 
 data class MovieDetailsResponse(
     @SerializedName("adult")
@@ -56,4 +57,11 @@ data class MovieDetailsResponse(
     val voteAverage: Double,
     @SerializedName("vote_count")
     val voteCount: Int
+)
+
+fun MovieDetailsResponse.asDomain() = Details (
+    title = title,
+    releaseDate = releaseDate,
+    overview = overview,
+    posterPath = posterPath
 )

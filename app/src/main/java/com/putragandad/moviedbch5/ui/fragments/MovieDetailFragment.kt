@@ -15,6 +15,7 @@ import com.putragandad.moviedbch5.databinding.FragmentMovieDetailBinding
 import com.putragandad.moviedbch5.data.services.remote.response.details.Cast
 import com.putragandad.moviedbch5.ui.viewmodels.MoviesViewModel
 import com.putragandad.moviedbch5.utils.Constant
+import com.putragandad.moviedbch5.utils.Resource
 import org.koin.android.ext.android.inject
 
 class MovieDetailFragment : Fragment() {
@@ -41,8 +42,21 @@ class MovieDetailFragment : Fragment() {
 
         val moviesId = arguments?.getInt(Constant.MOVIES_ID_EXTRA)
         if(moviesId != null) {
-            moviesViewModel.getMovieDetails("$moviesId").observe(viewLifecycleOwner) { details ->
-                setMovieDetails(details.title, details.releaseDate, details.overview, details.posterPath)
+            moviesViewModel.getMovieDetails("$moviesId")
+            moviesViewModel.movieDetails.observe(viewLifecycleOwner) { details ->
+                when(details) {
+                    is Resource.Success -> {
+                        details.data?.let { movieDetails ->
+                            setMovieDetails(movieDetails.title, movieDetails.releaseDate, movieDetails.overview, movieDetails.posterPath)
+                        }
+                    }
+                    is Resource.Loading -> {
+
+                    }
+                    is Resource.Error -> {
+
+                    }
+                }
             }
 
             moviesViewModel.getMovieCredits("$moviesId").observe(viewLifecycleOwner) { credits ->

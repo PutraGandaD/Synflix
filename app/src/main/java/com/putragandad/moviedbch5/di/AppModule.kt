@@ -6,6 +6,7 @@ import com.putragandad.moviedbch5.data.services.remote.ApiService
 import com.putragandad.moviedbch5.utils.prefdatastore.PrefDataStoreManager
 import com.putragandad.moviedbch5.domain.repositories.movies.MoviesRepository
 import com.putragandad.moviedbch5.domain.repositories.source.RemoteDataSource
+import com.putragandad.moviedbch5.domain.usecases.movies.DetailsUseCase
 import com.putragandad.moviedbch5.ui.viewmodels.MoviesViewModel
 import com.putragandad.moviedbch5.ui.viewmodels.UserViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -22,7 +23,11 @@ object AppModule {
     }
 
     val viewModelModule = module {
-        viewModel { MoviesViewModel(get()) }
+        viewModel { MoviesViewModel(get(), get()) }
         viewModel { UserViewModel(get()) }
+    }
+
+    val useCaseModule = module {
+        factory { DetailsUseCase(get()) }
     }
 }

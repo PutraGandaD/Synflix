@@ -11,21 +11,22 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.putragandad.moviedbch5.R
-import com.putragandad.moviedbch5.adapters.NowPlayingAdapter
-import com.putragandad.moviedbch5.adapters.NowPlayingClickListener
-import com.putragandad.moviedbch5.adapters.PopularAdapter
-import com.putragandad.moviedbch5.adapters.PopularClickListener
-import com.putragandad.moviedbch5.adapters.TopRatedAdapter
-import com.putragandad.moviedbch5.adapters.TopRatedClickListener
+import com.putragandad.moviedbch5.ui.adapters.NowPlayingAdapter
+import com.putragandad.moviedbch5.ui.adapters.NowPlayingClickListener
+import com.putragandad.moviedbch5.ui.adapters.PopularAdapter
+import com.putragandad.moviedbch5.ui.adapters.PopularClickListener
+import com.putragandad.moviedbch5.ui.adapters.TopRatedAdapter
+import com.putragandad.moviedbch5.ui.adapters.TopRatedClickListener
 import com.putragandad.moviedbch5.databinding.FragmentHomeBinding
-import com.putragandad.moviedbch5.data.remote.now_playing.NowPlayingResult
-import com.putragandad.moviedbch5.data.remote.popular.PopularResult
-import com.putragandad.moviedbch5.data.remote.top_rated.TopRatedResult
+import com.putragandad.moviedbch5.data.remote.response.now_playing.NowPlayingResult
+import com.putragandad.moviedbch5.data.remote.response.popular.PopularResult
+import com.putragandad.moviedbch5.data.remote.response.top_rated.TopRatedResult
 import com.putragandad.moviedbch5.ui.viewmodels.MoviesViewModel
-import com.putragandad.moviedbch5.common.Constant
+import com.putragandad.moviedbch5.utils.Constant
 import org.koin.android.ext.android.inject
 
-class HomeFragment : Fragment(), NowPlayingClickListener, TopRatedClickListener, PopularClickListener {
+class HomeFragment : Fragment(), NowPlayingClickListener, TopRatedClickListener,
+    PopularClickListener {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 

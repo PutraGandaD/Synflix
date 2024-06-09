@@ -13,7 +13,7 @@ class TopRatedUseCase(private val repository: MoviesRepository) {
     operator fun invoke() : Flow<Resource<List<TopRated>>> = flow {
         try {
             emit(Resource.Loading<List<TopRated>>())
-            val movieResult = repository.getMovieTopRated().results.map { it.asDomain() }
+            val movieResult = repository.getMovieTopRated()
             emit(Resource.Success<List<TopRated>>(movieResult))
         } catch (e: HttpException) {
 

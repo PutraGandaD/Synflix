@@ -1,7 +1,7 @@
 package com.putragandad.moviedbch5.di
 
 import com.putragandad.moviedbch5.data.implementation.movies.MoviesRepositoryImpl
-import com.putragandad.moviedbch5.data.implementation.source.RemoteDataSourceImpl
+import com.putragandad.moviedbch5.data.source.RemoteDataSource
 import com.putragandad.moviedbch5.utils.prefdatastore.PrefDataStoreManager
 import com.putragandad.moviedbch5.domain.repositories.movies.MoviesRepository
 import com.putragandad.moviedbch5.domain.usecases.movies.CastUseCase
@@ -16,7 +16,7 @@ import org.koin.dsl.module
 
 object AppModule {
     val appModule = module {
-        single { RemoteDataSourceImpl(get()) } // Declare Remote Data Source
+        single { RemoteDataSource(get()) } // Declare Remote Data Source
         single { PrefDataStoreManager(get()) } // Declare Preference Data Store Manager
     }
 

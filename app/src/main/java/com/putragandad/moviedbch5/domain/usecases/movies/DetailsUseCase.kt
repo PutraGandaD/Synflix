@@ -13,7 +13,7 @@ class DetailsUseCase(private val repository: MoviesRepository) {
     operator fun invoke(query: String) : Flow<Resource<Details>> = flow {
         try {
             emit(Resource.Loading<Details>())
-            val details = repository.getMovieDetails(query).asDomain()
+            val details = repository.getMovieDetails(query)
             emit(Resource.Success<Details>(details))
         } catch (e: HttpException) {
             emit(Resource.Error<Details>(e.localizedMessage ?: "An unexpected error occured"))

@@ -13,7 +13,7 @@ class NowPlayingUseCase(private val repository: MoviesRepository) {
     operator fun invoke() : Flow<Resource<List<NowPlaying>>> = flow {
         try {
             emit(Resource.Loading<List<NowPlaying>>())
-            val movieResult = repository.getMovieNowPlaying().results.map { it.asDomain() }
+            val movieResult = repository.getMovieNowPlaying()
             emit(Resource.Success<List<NowPlaying>>(movieResult))
         } catch (e: HttpException) {
 

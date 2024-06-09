@@ -13,7 +13,7 @@ class PopularUseCase(private val repository: MoviesRepository) {
     operator fun invoke() : Flow<Resource<List<Popular>>> = flow {
         try {
             emit(Resource.Loading<List<Popular>>())
-            val movieResult = repository.getMoviePopular().results.map { it.asDomain() }
+            val movieResult = repository.getMoviePopular()
             emit(Resource.Success<List<Popular>>(movieResult))
         } catch (e: HttpException) {
 

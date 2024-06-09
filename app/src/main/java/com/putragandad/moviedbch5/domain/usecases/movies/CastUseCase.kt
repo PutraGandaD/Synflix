@@ -13,7 +13,7 @@ class CastUseCase(private val repository: MoviesRepository) {
     operator fun invoke(query: String) : Flow<Resource<List<MovieCast>>> = flow {
         try {
             emit(Resource.Loading<List<MovieCast>>())
-            val castResult = repository.getMovieCredits(query).cast.map { it.asDomain() }
+            val castResult = repository.getMovieCast(query)
             emit(Resource.Success<List<MovieCast>>(castResult))
         } catch (e: HttpException) {
 

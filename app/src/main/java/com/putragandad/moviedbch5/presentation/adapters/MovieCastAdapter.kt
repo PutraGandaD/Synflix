@@ -10,8 +10,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.putragandad.moviedbch5.R
 import com.putragandad.moviedbch5.data.services.remote.response.details.Cast
+import com.putragandad.moviedbch5.domain.models.movies.MovieCast
 
-class MovieCastAdapter(private val dataSet: List<Cast>, private val context: Context) : RecyclerView.Adapter<MovieCastAdapter.ViewHolder>() {
+class MovieCastAdapter(private val dataSet: List<MovieCast>, private val context: Context) : RecyclerView.Adapter<MovieCastAdapter.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val ivMovieCast : ImageView = view.findViewById(R.id.iv_movie_cast)
         val tvMovieCastName : TextView = view.findViewById(R.id.tv_movie_cast_name)
@@ -32,7 +33,9 @@ class MovieCastAdapter(private val dataSet: List<Cast>, private val context: Con
 
         holder.tvMovieCastName.setText(getData.name)
 
-        val imageUrl = "https://image.tmdb.org/t/p/w500${getData.profilePath}"
+        val profilePath = getData.profilePath ?: ""
+
+        val imageUrl = "https://image.tmdb.org/t/p/w500$profilePath"
         val imageView = holder.ivMovieCast
 
         Glide

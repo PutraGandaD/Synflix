@@ -11,8 +11,9 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.putragandad.moviedbch5.R
 import com.putragandad.moviedbch5.data.services.remote.response.top_rated.TopRatedResult
+import com.putragandad.moviedbch5.domain.models.movies.TopRated
 
-class TopRatedAdapter(private val dataSet: List<TopRatedResult>, private val context: Context, private val topRatedClickListener: TopRatedClickListener) : RecyclerView.Adapter<TopRatedAdapter.ViewHolder>() {
+class TopRatedAdapter(private val dataSet: List<TopRated>, private val context: Context, private val topRatedClickListener: TopRatedClickListener) : RecyclerView.Adapter<TopRatedAdapter.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val ivMovieImage : ImageView = view.findViewById(R.id.iv_toprated_movie)
         val tvMovieTitle : TextView = view.findViewById(R.id.tv_movie_popular_title)
@@ -53,5 +54,5 @@ class TopRatedAdapter(private val dataSet: List<TopRatedResult>, private val con
 }
 
 interface TopRatedClickListener {
-    fun onClickMovieTopRated(result: TopRatedResult)
+    fun onClickMovieTopRated(result: TopRated)
 }

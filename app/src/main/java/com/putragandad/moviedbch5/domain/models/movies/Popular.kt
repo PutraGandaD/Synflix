@@ -1,4 +1,7 @@
 package com.putragandad.moviedbch5.domain.models.movies
 
-class Popular {
-}
+data class Popular (
+    val id: Int,
+    val title: String,
+    val posterPath: String
+)

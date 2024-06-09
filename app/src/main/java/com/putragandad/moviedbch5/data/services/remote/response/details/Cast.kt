@@ -2,6 +2,7 @@ package com.putragandad.moviedbch5.data.services.remote.response.details
 
 
 import com.google.gson.annotations.SerializedName
+import com.putragandad.moviedbch5.domain.models.movies.MovieCast
 
 data class Cast(
     @SerializedName("adult")
@@ -27,5 +28,10 @@ data class Cast(
     @SerializedName("popularity")
     val popularity: Double,
     @SerializedName("profile_path")
-    val profilePath: String
+    val profilePath: String?
+)
+
+fun Cast.asDomain() = MovieCast (
+    name = name,
+    profilePath = profilePath
 )

@@ -2,6 +2,7 @@ package com.putragandad.moviedbch5.data.services.remote.response.top_rated
 
 
 import com.google.gson.annotations.SerializedName
+import com.putragandad.moviedbch5.domain.models.movies.TopRated
 
 data class TopRatedResult(
     @SerializedName("adult")
@@ -32,4 +33,12 @@ data class TopRatedResult(
     val voteAverage: Double,
     @SerializedName("vote_count")
     val voteCount: Int
+)
+
+fun TopRatedResult.asDomain() = TopRated(
+    id = id,
+    posterPath = posterPath,
+    title = title,
+    backdropPath = backdropPath,
+    voteAverage = voteAverage
 )

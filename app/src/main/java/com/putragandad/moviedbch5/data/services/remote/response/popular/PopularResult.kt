@@ -3,6 +3,7 @@ package com.putragandad.moviedbch5.data.services.remote.response.popular
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import com.putragandad.moviedbch5.domain.models.movies.Popular
 import kotlinx.parcelize.Parcelize
 
 data class PopularResult(
@@ -34,4 +35,10 @@ data class PopularResult(
     val voteAverage: Double,
     @SerializedName("vote_count")
     val voteCount: Int
+)
+
+fun PopularResult.asDomain() = Popular(
+    id = id,
+    title = title,
+    posterPath = posterPath
 )

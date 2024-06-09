@@ -1,10 +1,12 @@
 package com.putragandad.moviedbch5.presentation.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -13,6 +15,7 @@ import com.putragandad.moviedbch5.R
 import com.putragandad.moviedbch5.presentation.adapters.MovieCastAdapter
 import com.putragandad.moviedbch5.databinding.FragmentMovieDetailBinding
 import com.putragandad.moviedbch5.data.services.remote.response.details.Cast
+import com.putragandad.moviedbch5.domain.models.movies.MovieCast
 import com.putragandad.moviedbch5.presentation.viewmodels.MoviesViewModel
 import com.putragandad.moviedbch5.utils.Constant
 import com.putragandad.moviedbch5.utils.Resource
@@ -59,14 +62,28 @@ class MovieDetailFragment : Fragment() {
                 }
             }
 
-            moviesViewModel.getMovieCredits("$moviesId").observe(viewLifecycleOwner) { credits ->
-                setUpRvMovieCast(credits.cast)
+            moviesViewModel.getMovieCast("$moviesId")
+            moviesViewModel.movieCast.observe(viewLifecycleOwner) { cast ->
+                when(cast) {
+                    is Resource.Success -> {
+                        cast.data?.let {
+                            setUpRvMovieCast(it)
+                        }
+                        Toast.makeText(requireActivity(), "SUCCESS", Toast.LENGTH_SHORT).show()
+                    }
+                    is Resource.Loading -> {
+                        Toast.makeText(requireActivity(), "LOADING", Toast.LENGTH_SHORT).show()
+                    }
+                    is Resource.Error -> {
+                        Toast.makeText(requireActivity(), "ERROR", Toast.LENGTH_SHORT).show()
+                    }
+                }
             }
         }
 
     }
 
-    private fun setUpRvMovieCast(dataSet: List<Cast>) {
+    private fun setUpRvMovieCast(dataSet: List<MovieCast>) {
         val adapter = MovieCastAdapter(dataSet, requireActivity())
         val recyclerView : RecyclerView? = view?.findViewById(R.id.cast_rv_container)
         recyclerView?.adapter = adapter

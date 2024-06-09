@@ -23,6 +23,8 @@ import com.putragandad.moviedbch5.databinding.FragmentHomeBinding
 import com.putragandad.moviedbch5.data.services.remote.response.popular.PopularResult
 import com.putragandad.moviedbch5.data.services.remote.response.top_rated.TopRatedResult
 import com.putragandad.moviedbch5.domain.models.movies.NowPlaying
+import com.putragandad.moviedbch5.domain.models.movies.Popular
+import com.putragandad.moviedbch5.domain.models.movies.TopRated
 import com.putragandad.moviedbch5.presentation.viewmodels.MoviesViewModel
 import com.putragandad.moviedbch5.utils.Constant
 import com.putragandad.moviedbch5.utils.Resource
@@ -64,14 +66,36 @@ class HomeFragment : Fragment(), NowPlayingClickListener, TopRatedClickListener,
             }
         }
 
-        moviesViewModel.getMoviePopular().observe(viewLifecycleOwner) { movies ->
-            val result = movies.results
-            setUpRvPopular(result)
+        moviesViewModel.moviePopular.observe(viewLifecycleOwner) { movies ->
+            when(movies) {
+                is Resource.Success -> {
+                    movies.data?.let {
+                        setUpRvPopular(it)
+                    }
+                }
+                is Resource.Error -> {
+
+                }
+                is Resource.Loading -> {
+                    setUpRvPopular(emptyList())
+                }
+            }
         }
 
-        moviesViewModel.getMovieTopRated().observe(viewLifecycleOwner) { movies ->
-            val result = movies.results
-            setUpRvTopRated(result)
+        moviesViewModel.movieTopRated.observe(viewLifecycleOwner) { movies ->
+            when(movies) {
+                is Resource.Success -> {
+                    movies.data?.let {
+                        setUpRvTopRated(it)
+                    }
+                }
+                is Resource.Error -> {
+
+                }
+                is Resource.Loading -> {
+                    setUpRvTopRated(emptyList())
+                }
+            }
         }
 
         // Handle Back Press Button
@@ -108,7 +132,7 @@ class HomeFragment : Fragment(), NowPlayingClickListener, TopRatedClickListener,
         }
     }
 
-    private fun setUpRvPopular(dataset: List<PopularResult>) {
+    private fun setUpRvPopular(dataset: List<Popular>) {
         val shimmer = binding.popularShimmering
 
         shimmer.startShimmer()
@@ -128,7 +152,7 @@ class HomeFragment : Fragment(), NowPlayingClickListener, TopRatedClickListener,
         }
     }
 
-    private fun setUpRvTopRated(dataset: List<TopRatedResult>) {
+    private fun setUpRvTopRated(dataset: List<TopRated>) {
         val shimmer = binding.topratedShimmering
 
         shimmer.startShimmer()
@@ -153,12 +177,12 @@ class HomeFragment : Fragment(), NowPlayingClickListener, TopRatedClickListener,
         findNavController().navigate(R.id.action_homeFragment_to_movieDetailFragment, bundle)
     }
 
-    override fun onClickPopularMovie(result: PopularResult) {
+    override fun onClickPopularMovie(result: Popular) {
         val bundle = bundleOf(Constant.MOVIES_ID_EXTRA to result.id)
         findNavController().navigate(R.id.action_homeFragment_to_movieDetailFragment, bundle)
     }
 
-    override fun onClickMovieTopRated(result: TopRatedResult) {
+    override fun onClickMovieTopRated(result: TopRated) {
         val bundle = bundleOf(Constant.MOVIES_ID_EXTRA to result.id)
         findNavController().navigate(R.id.action_homeFragment_to_movieDetailFragment, bundle)
     }

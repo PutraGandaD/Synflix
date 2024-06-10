@@ -1,4 +1,6 @@
-package com.putragandad.moviedbch5.utils.prefdatastore
+package com.putragandad.moviedbch5.data.source
+
+import com.putragandad.moviedbch5.utils.prefdatastore.PrefDataStoreConstant
 
 import android.content.Context
 import androidx.datastore.core.DataStore
@@ -11,9 +13,8 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
 import java.io.IOException
 
-private val Context.dataStore : DataStore<Preferences> by preferencesDataStore(PrefDataStoreConstant.USER_CREDENTIAL)
-
-class PrefDataStoreManager(private val context: Context) {
+class DataStoreSource(private val context: Context) {
+    private val Context.dataStore : DataStore<Preferences> by preferencesDataStore(PrefDataStoreConstant.APP_DATASTORE)
 
     suspend fun saveLoginStatus(status: Boolean) {
         context.dataStore.edit { preferences ->
@@ -29,11 +30,17 @@ class PrefDataStoreManager(private val context: Context) {
         }
     }
 
-    suspend fun saveAccountDetail(userName: String, fullname: String, email: String) {
+    suspend fun saveAccountDetail(username: String, fullname: String, email: String) {
         context.dataStore.edit { preferences ->
-            preferences[PrefDataStoreConstant.USERNAME] = userName
+            preferences[PrefDataStoreConstant.USERNAME] = username
             preferences[PrefDataStoreConstant.USER_FULLNAME] = fullname
             preferences[PrefDataStoreConstant.USER_EMAIL] = email
+        }
+    }
+
+    suspend fun deleteAllPreferences() {
+        context.dataStore.edit { preferences ->
+            preferences.clear()
         }
     }
 

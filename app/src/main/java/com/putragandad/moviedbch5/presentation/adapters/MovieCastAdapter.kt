@@ -12,7 +12,9 @@ import com.putragandad.moviedbch5.R
 import com.putragandad.moviedbch5.data.services.remote.response.details.Cast
 import com.putragandad.moviedbch5.domain.models.movies.MovieCast
 
-class MovieCastAdapter(private val dataSet: List<MovieCast>, private val context: Context) : RecyclerView.Adapter<MovieCastAdapter.ViewHolder>() {
+class MovieCastAdapter(
+    private val dataSet: List<MovieCast>,
+    private val context: Context) : RecyclerView.Adapter<MovieCastAdapter.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val ivMovieCast : ImageView = view.findViewById(R.id.iv_movie_cast)
         val tvMovieCastName : TextView = view.findViewById(R.id.tv_movie_cast_name)

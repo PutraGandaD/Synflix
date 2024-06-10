@@ -31,20 +31,14 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val fullname = binding.tvProfileName
-        val username = binding.tvProfileUsername
-        val email = binding.tvProfileEmail
+        val tvFullname = binding.tvProfileName
+        val tvUsername = binding.tvProfileUsername
+        val tvEmail = binding.tvProfileEmail
 
-        userViewModel.getUserFullname().observe(viewLifecycleOwner) { value ->
-            fullname.setText(value)
-        }
-
-        userViewModel.getUserUsername().observe(viewLifecycleOwner) { value ->
-            if(value.isNotEmpty()) username.setText(value)
-        }
-
-        userViewModel.getUserEmail().observe(viewLifecycleOwner) { value ->
-            email.setText(value)
+        userViewModel.userInfo.observe(viewLifecycleOwner) { (email, fullname, username) ->
+            tvFullname.setText(fullname)
+            if(username.isNotEmpty()) tvUsername.setText(username)
+            tvEmail.setText(email)
         }
 
         binding.btnEditProfile.setOnClickListener {
@@ -67,8 +61,8 @@ class ProfileFragment : Fragment() {
                 userViewModel.logout()
                 Snackbar.make(requireView(), "Logged out successfully!", Snackbar.LENGTH_LONG).show()
                 //handle back button
-                findNavController().popBackStack(R.id.homeFragment, true); // clear back stack with popup to main nav and inclusive to true to clean the stack
-                findNavController().navigate(R.id.loginFragment); // navigate to login screen
+                findNavController().popBackStack(R.id.splashFragment, true)
+                findNavController().navigate(R.id.loginFragment)
             }
             .show()
     }

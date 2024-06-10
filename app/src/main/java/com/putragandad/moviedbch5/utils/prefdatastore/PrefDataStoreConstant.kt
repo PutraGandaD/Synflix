@@ -4,7 +4,7 @@ import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 
 object PrefDataStoreConstant {
-    const val USER_CREDENTIAL = "synflix_login_credentials"
+    const val APP_DATASTORE = "synflix_datastore"
     val ISLOGIN = booleanPreferencesKey("is_login")
     val USER_EMAIL = stringPreferencesKey("user_email")
     val USER_PASSWORD = stringPreferencesKey("user_password")

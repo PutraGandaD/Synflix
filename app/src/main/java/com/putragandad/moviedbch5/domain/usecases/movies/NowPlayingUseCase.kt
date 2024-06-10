@@ -16,9 +16,9 @@ class NowPlayingUseCase(private val repository: MoviesRepository) {
             val movieResult = repository.getMovieNowPlaying()
             emit(Resource.Success<List<NowPlaying>>(movieResult))
         } catch (e: HttpException) {
-
+            emit(Resource.Error<List<NowPlaying>>("Data can't retrieved from the API", emptyList()))
         } catch (e: IOException) {
-
+            emit(Resource.Error<List<NowPlaying>>("Error", emptyList()))
         }
     }
 }

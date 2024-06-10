@@ -44,12 +44,16 @@ class MoviesViewModel(
     val movieCast : LiveData<Resource<List<MovieCast>>> = _movieCast
 
     init {
+        initializeHomeScreen()
+    }
+
+    private fun initializeHomeScreen() {
         getMovieNowPlaying()
         getMoviePopular()
         getMovieTopRated()
     }
 
-    fun getMovieNowPlaying() {
+    private fun getMovieNowPlaying() {
         viewModelScope.launch {
             nowPlayingUseCase.invoke().collect{ result ->
                 _movieNowPlaying.value = result
@@ -57,7 +61,7 @@ class MoviesViewModel(
         }
     }
 
-    fun getMoviePopular() {
+    private fun getMoviePopular() {
         viewModelScope.launch {
             popularUseCase.invoke().collect{ result ->
                 _moviePopular.value = result
@@ -65,7 +69,7 @@ class MoviesViewModel(
         }
     }
 
-    fun getMovieTopRated() {
+    private fun getMovieTopRated() {
         viewModelScope.launch {
             topRatedUseCase.invoke().collect{ result ->
                 _movieTopRated.value = result

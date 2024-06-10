@@ -69,13 +69,13 @@ class MovieDetailFragment : Fragment() {
                         cast.data?.let {
                             setUpRvMovieCast(it)
                         }
-                        Toast.makeText(requireActivity(), "SUCCESS", Toast.LENGTH_SHORT).show()
+                        //Toast.makeText(requireActivity(), "SUCCESS", Toast.LENGTH_SHORT).show()
                     }
                     is Resource.Loading -> {
-                        Toast.makeText(requireActivity(), "LOADING", Toast.LENGTH_SHORT).show()
+                        //Toast.makeText(requireActivity(), "LOADING", Toast.LENGTH_SHORT).show()
                     }
                     is Resource.Error -> {
-                        Toast.makeText(requireActivity(), "ERROR", Toast.LENGTH_SHORT).show()
+                        //Toast.makeText(requireActivity(), "ERROR", Toast.LENGTH_SHORT).show()
                     }
                 }
             }

@@ -30,24 +30,18 @@ class ProfileEditFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val fullname = binding.etEditprofileFullname
-        val username = binding.etEditprofileUsername
-        val email = binding.etEditprofileEmail
+        val tvFullname = binding.etEditprofileFullname
+        val tvUsername = binding.etEditprofileUsername
+        val tvEmail = binding.etEditprofileEmail
 
-        userViewModel.getUserFullname().observe(viewLifecycleOwner) { value ->
-            fullname.editText?.setText(value)
-        }
-
-        userViewModel.getUserUsername().observe(viewLifecycleOwner) { value ->
-            username.editText?.setText(value)
-        }
-
-        userViewModel.getUserEmail().observe(viewLifecycleOwner) { value ->
-            email.editText?.setText(value)
+        userViewModel.userInfo.observe(viewLifecycleOwner) { (email, fullname, username) ->
+            tvFullname.editText?.setText(fullname)
+            if(username.isNotEmpty()) tvUsername.editText?.setText(username)
+            tvEmail.editText?.setText(email)
         }
 
         binding.btnEditProfile.setOnClickListener {
-            saveProfile(fullname, username, email)
+            saveProfile(tvFullname, tvUsername, tvEmail)
         }
 
         binding.btnBackRegister.setOnClickListener {

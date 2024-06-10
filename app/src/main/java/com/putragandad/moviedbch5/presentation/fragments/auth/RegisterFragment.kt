@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.putragandad.moviedbch5.databinding.FragmentRegisterBinding
@@ -45,8 +46,8 @@ class RegisterFragment : Fragment() {
 
     private fun registerAccount(fullName: String, email: String, password: String, passwordCv:String) {
         if(fullName.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && passwordCv.isNotEmpty()) {
-            val registerAuth = userViewModel.registerAccount(fullName, email, password, passwordCv)
-            if(registerAuth) {
+            if(password == passwordCv) {
+                userViewModel.register(fullName, email, password)
                 Snackbar.make(requireView(), "User registered successfully! Please log in with your credentials to continue", Snackbar.LENGTH_LONG).show()
                 findNavController().popBackStack()
             } else {

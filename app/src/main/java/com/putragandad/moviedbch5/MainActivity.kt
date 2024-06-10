@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when(destination.id) {
-                R.id.loginFragment, R.id.registerFragment, R.id.movieDetailFragment, R.id.profileEditFragment -> {
+                R.id.splashFragment, R.id.loginFragment, R.id.registerFragment, R.id.movieDetailFragment, R.id.profileEditFragment -> {
                     bottomNavbar.visibility = View.GONE
                 }
                 else -> {

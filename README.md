@@ -1,5 +1,6 @@
 # Synflix
-![synflix_logo](https://github.com/PutraGandaD/F-AND24001121-synrgy7-SimpleTMDBApp-ch5/assets/54593964/a284feb4-f987-411a-905e-dc4498663b49)
+![synflix_logo](https://github.com/PutraGandaD/F-AND24001121-synrgy7-SimpleTMDBApp-ch5/assets/54593964/a284feb4-f987-411a-905e-dc4498663b49) <br>
+Basic Movie Database App utilizing The Movie Database (TMDB) API, for learning android development purpose.
 
 ## Branch
 - **clean-architecture** = Clean Architecture implementation + Dependency Injection (Koin)

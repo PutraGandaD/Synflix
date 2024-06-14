@@ -51,6 +51,7 @@ class ProfileFragment : Fragment() {
                 val image = Uri.parse(it.profilePictureURI)
                 Glide.with(requireView())
                     .load(image)
+                    .placeholder(R.drawable.synflix_profile_picture_default)
                     .into(binding.ivProfilePicture)
             }
         }

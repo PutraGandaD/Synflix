@@ -56,25 +56,12 @@ class ProfileFragment : Fragment() {
             }
         }
 
-        val pickMedia = registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
-            if (uri != null) {
-                Log.d("PhotoPicker", "Selected URI: $uri")
-                userViewModel.setProfilePicture(uri.toString())
-            } else {
-                Log.d("PhotoPicker", "No media selected")
-            }
-        }
-
         binding.btnEditProfile.setOnClickListener {
             findNavController().navigate(R.id.action_profileFragment_to_profileEditFragment)
         }
 
         binding.btnSignOut.setOnClickListener {
             logout()
-        }
-
-        binding.ivProfilePicture.setOnClickListener {
-            pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
         }
     }
 

@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.putragandad.moviedbch5.domain.models.users.UserInfo
+import com.putragandad.moviedbch5.domain.models.users.AccountDetail
 import com.putragandad.moviedbch5.domain.usecases.users.CheckLoginUseCase
 import com.putragandad.moviedbch5.domain.usecases.users.ReadUserInfoUseCase
 import com.putragandad.moviedbch5.domain.usecases.users.SetProfilePictureUseCase
@@ -27,12 +27,12 @@ class UserViewModel(
     val loginStatus: LiveData<Boolean>
         get() = _loginStatus
 
-    private val _userInfo = MutableLiveData<UserInfo>()
-    val userInfo: LiveData<UserInfo> = _userInfo
+    private val _userInfo = MutableLiveData<AccountDetail>()
+    val userInfo: LiveData<AccountDetail> = _userInfo
 
     init {
         readLoginStatus()
-        readUserInfo()
+        readAccountDetail()
     }
 
     private fun readLoginStatus() {
@@ -43,7 +43,7 @@ class UserViewModel(
         }
     }
 
-    private fun readUserInfo() {
+    private fun readAccountDetail() {
         viewModelScope.launch {
             readUserInfoUseCase.invoke().collect {
                 _userInfo.value = it

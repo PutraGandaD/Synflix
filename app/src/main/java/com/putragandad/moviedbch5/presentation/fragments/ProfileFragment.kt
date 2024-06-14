@@ -1,11 +1,17 @@
 package com.putragandad.moviedbch5.presentation.fragments
 
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.PickVisualMediaRequest
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.putragandad.moviedbch5.R
@@ -35,10 +41,27 @@ class ProfileFragment : Fragment() {
         val tvUsername = binding.tvProfileUsername
         val tvEmail = binding.tvProfileEmail
 
-        userViewModel.userInfo.observe(viewLifecycleOwner) { (email, fullname, username) ->
-            tvFullname.setText(fullname)
-            if(username.isNotEmpty()) tvUsername.setText(username)
-            tvEmail.setText(email)
+        userViewModel.userInfo.observe(viewLifecycleOwner) {
+            tvFullname.setText(it.fullname)
+            if(it.username.isNotEmpty()) tvUsername.setText(it.username)
+            tvEmail.setText(it.email)
+
+            if(it.profilePictureURI != null) {
+                // set profile image
+                val image = Uri.parse(it.profilePictureURI)
+                Glide.with(requireView())
+                    .load(image)
+                    .into(binding.ivProfilePicture)
+            }
+        }
+
+        val pickMedia = registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
+            if (uri != null) {
+                Log.d("PhotoPicker", "Selected URI: $uri")
+                userViewModel.setProfilePicture(uri.toString())
+            } else {
+                Log.d("PhotoPicker", "No media selected")
+            }
         }
 
         binding.btnEditProfile.setOnClickListener {
@@ -47,6 +70,10 @@ class ProfileFragment : Fragment() {
 
         binding.btnSignOut.setOnClickListener {
             logout()
+        }
+
+        binding.ivProfilePicture.setOnClickListener {
+            pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
         }
     }
 
@@ -61,8 +88,7 @@ class ProfileFragment : Fragment() {
                 userViewModel.logout()
                 Snackbar.make(requireView(), "Logged out successfully!", Snackbar.LENGTH_LONG).show()
                 //handle back button
-                findNavController().popBackStack(R.id.splashFragment, true)
-                findNavController().navigate(R.id.loginFragment)
+                findNavController().navigate(R.id.action_profileFragment_to_loginFragment)
             }
             .show()
     }

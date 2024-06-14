@@ -20,6 +20,10 @@ class UserAuthRepositoryImpl(
         dataStoreSource.saveAccountDetail(username, fullname, email)
     }
 
+    override suspend fun setProfilePicture(uri: String) {
+        dataStoreSource.saveProfilePictureUri(uri)
+    }
+
     override suspend fun deleteAllPreferences() {
         dataStoreSource.deleteAllPreferences()
     }
@@ -38,5 +42,8 @@ class UserAuthRepositoryImpl(
 
     override val readAccountPassword: Flow<String>
         get() = dataStoreSource.readAccountPassword
+
+    override val readProfilePictureURI: Flow<String>
+        get() = dataStoreSource.readProfilePictureURI
 
 }

@@ -10,4 +10,5 @@ object PrefDataStoreConstant {
     val USER_PASSWORD = stringPreferencesKey("user_password")
     val USER_FULLNAME = stringPreferencesKey("user_fullname")
     val USERNAME = stringPreferencesKey("user_name")
+    val PROFILE_URI = stringPreferencesKey("profile_picture_uri")
 }

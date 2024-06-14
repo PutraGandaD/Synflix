@@ -99,4 +99,7 @@ dependencies {
     implementation("io.insert-koin:koin-core-coroutines")
     implementation("io.insert-koin:koin-androidx-workmanager")
 
+    // Play Store Services Dependencies
+    implementation("com.google.android.gms:play-services-location:21.3.0")
+
 }

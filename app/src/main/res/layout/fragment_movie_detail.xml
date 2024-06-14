@@ -42,7 +42,7 @@
                     android:id="@+id/iv_movie_detail_poster"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/movie_thumbnail_placeholder"
+                    android:background="@color/placeholder_image"
                     android:scaleType="centerCrop"/>
 
             </com.google.android.material.card.MaterialCardView>
@@ -51,7 +51,6 @@
                 android:id="@+id/tv_movie_detail_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="John Wick"
                 android:maxLines="3"
                 android:fontFamily="@font/netflixsans_bold"
                 android:textColor="@color/white"
@@ -65,7 +64,6 @@
                 android:id="@+id/tv_movie_detail_year"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2014"
                 android:fontFamily="@font/netflixsans_regular"
                 android:textColor="@color/white"
                 android:textSize="14sp"
@@ -89,7 +87,6 @@
                 android:id="@+id/tv_movie_detail_synopsis"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/lorem_ipsum"
                 android:fontFamily="@font/netflixsans_regular"
                 android:textColor="@color/white"
                 android:textSize="14sp"

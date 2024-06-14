@@ -13,6 +13,7 @@ import com.putragandad.moviedbch5.domain.usecases.movies.PopularUseCase
 import com.putragandad.moviedbch5.domain.usecases.movies.TopRatedUseCase
 import com.putragandad.moviedbch5.domain.usecases.users.CheckLoginUseCase
 import com.putragandad.moviedbch5.domain.usecases.users.ReadUserInfoUseCase
+import com.putragandad.moviedbch5.domain.usecases.users.SetProfilePictureUseCase
 import com.putragandad.moviedbch5.domain.usecases.users.UpdateUserInfoUseCase
 import com.putragandad.moviedbch5.domain.usecases.users.UserLoginUseCase
 import com.putragandad.moviedbch5.domain.usecases.users.UserLogoutUseCase
@@ -35,7 +36,7 @@ object AppModule {
 
     val viewModelModule = module {
         viewModel { MoviesViewModel(get(), get(), get(), get(), get()) }
-        viewModel { UserViewModel(get(), get(), get(), get(), get(), get()) }
+        viewModel { UserViewModel(get(), get(), get(), get(), get(), get(), get()) }
     }
 
     val useCaseModule = module {
@@ -51,5 +52,6 @@ object AppModule {
         factory { ReadUserInfoUseCase(get()) }
         factory { UserLogoutUseCase(get()) }
         factory { UpdateUserInfoUseCase(get()) }
+        factory { SetProfilePictureUseCase(get()) }
     }
 }

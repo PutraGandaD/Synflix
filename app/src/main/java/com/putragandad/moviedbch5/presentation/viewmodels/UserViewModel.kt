@@ -4,8 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.putragandad.moviedbch5.domain.models.users.UserInfo
 import com.putragandad.moviedbch5.domain.usecases.users.CheckLoginUseCase
 import com.putragandad.moviedbch5.domain.usecases.users.ReadUserInfoUseCase
+import com.putragandad.moviedbch5.domain.usecases.users.SetProfilePictureUseCase
 import com.putragandad.moviedbch5.domain.usecases.users.UpdateUserInfoUseCase
 import com.putragandad.moviedbch5.domain.usecases.users.UserLoginUseCase
 import com.putragandad.moviedbch5.domain.usecases.users.UserLogoutUseCase
@@ -18,14 +20,15 @@ class UserViewModel(
     private val userRegisterUseCase: UserRegisterUseCase,
     private val readUserInfoUseCase: ReadUserInfoUseCase,
     private val userLogoutUseCase: UserLogoutUseCase,
-    private val updateUserInfoUseCase: UpdateUserInfoUseCase
+    private val updateUserInfoUseCase: UpdateUserInfoUseCase,
+    private val setProfilePictureUseCase: SetProfilePictureUseCase
 ): ViewModel() {
     private val _loginStatus = MutableLiveData<Boolean>()
     val loginStatus: LiveData<Boolean>
         get() = _loginStatus
 
-    private val _userInfo = MutableLiveData<Triple<String, String, String>>()
-    val userInfo: LiveData<Triple<String, String, String>> = _userInfo
+    private val _userInfo = MutableLiveData<UserInfo>()
+    val userInfo: LiveData<UserInfo> = _userInfo
 
     init {
         readLoginStatus()
@@ -42,8 +45,8 @@ class UserViewModel(
 
     private fun readUserInfo() {
         viewModelScope.launch {
-            readUserInfoUseCase.invoke().collect {(email, fullname, username) ->
-                _userInfo.value = Triple(email, fullname, username)
+            readUserInfoUseCase.invoke().collect {
+                _userInfo.value = it
             }
         }
     }
@@ -70,6 +73,12 @@ class UserViewModel(
     fun saveAccountDetail(username: String, fullname: String, email: String) {
         viewModelScope.launch {
             updateUserInfoUseCase.invoke(username, fullname, email)
+        }
+    }
+
+    fun setProfilePicture(uri: String) {
+        viewModelScope.launch {
+            setProfilePictureUseCase.invoke(uri)
         }
     }
 }

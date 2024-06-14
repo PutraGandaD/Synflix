@@ -38,6 +38,12 @@ class DataStoreSource(private val context: Context) {
         }
     }
 
+    suspend fun saveProfilePictureUri(uri : String) {
+        context.dataStore.edit { preferences ->
+            preferences[PrefDataStoreConstant.PROFILE_URI] = uri
+        }
+    }
+
     suspend fun deleteAllPreferences() {
         context.dataStore.edit { preferences ->
             preferences.clear()
@@ -107,5 +113,17 @@ class DataStoreSource(private val context: Context) {
         }
         .map {preferences ->
             preferences[PrefDataStoreConstant.USER_PASSWORD] ?: ""
+        }
+
+    val readProfilePictureURI :  Flow<String> = context.dataStore.data
+        .catch {  exception ->
+            if (exception is IOException) {
+                emit(emptyPreferences())
+            } else {
+                throw exception
+            }
+        }
+        .map { preferences ->
+            preferences[PrefDataStoreConstant.PROFILE_URI] ?: ""
         }
 }

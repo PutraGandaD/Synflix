@@ -1,13 +1,10 @@
 package com.putragandad.moviedbch5.presentation.fragments
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.activity.OnBackPressedCallback
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,8 +17,6 @@ import com.putragandad.moviedbch5.presentation.adapters.PopularClickListener
 import com.putragandad.moviedbch5.presentation.adapters.TopRatedAdapter
 import com.putragandad.moviedbch5.presentation.adapters.TopRatedClickListener
 import com.putragandad.moviedbch5.databinding.FragmentHomeBinding
-import com.putragandad.moviedbch5.data.services.remote.response.popular.PopularResult
-import com.putragandad.moviedbch5.data.services.remote.response.top_rated.TopRatedResult
 import com.putragandad.moviedbch5.domain.models.movies.NowPlaying
 import com.putragandad.moviedbch5.domain.models.movies.Popular
 import com.putragandad.moviedbch5.domain.models.movies.TopRated

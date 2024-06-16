@@ -1,6 +1,5 @@
 package com.putragandad.moviedbch5.domain.usecases.movies
 
-import com.putragandad.moviedbch5.data.services.remote.response.top_rated.asDomain
 import com.putragandad.moviedbch5.domain.models.movies.TopRated
 import com.putragandad.moviedbch5.domain.repositories.movies.MoviesRepository
 import com.putragandad.moviedbch5.utils.Resource

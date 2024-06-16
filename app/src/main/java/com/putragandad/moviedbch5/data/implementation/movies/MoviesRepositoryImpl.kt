@@ -1,14 +1,9 @@
 package com.putragandad.moviedbch5.data.implementation.movies
 
-import com.putragandad.moviedbch5.data.services.remote.response.details.CreditResponse
-import com.putragandad.moviedbch5.data.services.remote.response.details.MovieDetailsResponse
-import com.putragandad.moviedbch5.data.services.remote.response.details.asDomain
-import com.putragandad.moviedbch5.data.services.remote.response.now_playing.NowPlayingResponse
-import com.putragandad.moviedbch5.data.services.remote.response.now_playing.asDomain
-import com.putragandad.moviedbch5.data.services.remote.response.popular.PopularResponse
-import com.putragandad.moviedbch5.data.services.remote.response.popular.asDomain
-import com.putragandad.moviedbch5.data.services.remote.response.top_rated.TopRatedResponse
-import com.putragandad.moviedbch5.data.services.remote.response.top_rated.asDomain
+import com.putragandad.moviedbch5.data.network.response.details.asDomain
+import com.putragandad.moviedbch5.data.network.response.now_playing.asDomain
+import com.putragandad.moviedbch5.data.network.response.popular.asDomain
+import com.putragandad.moviedbch5.data.network.response.top_rated.asDomain
 import com.putragandad.moviedbch5.data.source.RemoteDataSource
 import com.putragandad.moviedbch5.domain.models.movies.Details
 import com.putragandad.moviedbch5.domain.models.movies.MovieCast

@@ -1,10 +1,8 @@
-package com.putragandad.moviedbch5.data.services.remote.response.popular
+package com.putragandad.moviedbch5.data.network.response.popular
 
 
-import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import com.putragandad.moviedbch5.domain.models.movies.Popular
-import kotlinx.parcelize.Parcelize
 
 data class PopularResult(
     @SerializedName("adult")

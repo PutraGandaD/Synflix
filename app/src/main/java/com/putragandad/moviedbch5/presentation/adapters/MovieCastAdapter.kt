@@ -9,7 +9,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.putragandad.moviedbch5.R
-import com.putragandad.moviedbch5.data.services.remote.response.details.Cast
 import com.putragandad.moviedbch5.domain.models.movies.MovieCast
 
 class MovieCastAdapter(

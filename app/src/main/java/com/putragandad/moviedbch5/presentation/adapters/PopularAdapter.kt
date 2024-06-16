@@ -8,7 +8,6 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.putragandad.moviedbch5.R
-import com.putragandad.moviedbch5.data.services.remote.response.popular.PopularResult
 import com.putragandad.moviedbch5.domain.models.movies.Popular
 
 class PopularAdapter(private val dataSet: List<Popular>, private val context: Context, private val popularClickListener: PopularClickListener) : RecyclerView.Adapter<PopularAdapter.ViewHolder>() {

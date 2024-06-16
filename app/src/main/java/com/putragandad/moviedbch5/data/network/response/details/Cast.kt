@@ -1,29 +1,37 @@
-package com.putragandad.moviedbch5.data.services.remote.response.details
+package com.putragandad.moviedbch5.data.network.response.details
 
 
 import com.google.gson.annotations.SerializedName
+import com.putragandad.moviedbch5.domain.models.movies.MovieCast
 
-data class Crew(
+data class Cast(
     @SerializedName("adult")
     val adult: Boolean,
+    @SerializedName("cast_id")
+    val castId: Int,
+    @SerializedName("character")
+    val character: String,
     @SerializedName("credit_id")
     val creditId: String,
-    @SerializedName("department")
-    val department: String,
     @SerializedName("gender")
     val gender: Int,
     @SerializedName("id")
     val id: Int,
-    @SerializedName("job")
-    val job: String,
     @SerializedName("known_for_department")
     val knownForDepartment: String,
     @SerializedName("name")
     val name: String,
+    @SerializedName("order")
+    val order: Int,
     @SerializedName("original_name")
     val originalName: String,
     @SerializedName("popularity")
     val popularity: Double,
     @SerializedName("profile_path")
-    val profilePath: String
+    val profilePath: String?
+)
+
+fun Cast.asDomain() = MovieCast (
+    name = name,
+    profilePath = profilePath
 )

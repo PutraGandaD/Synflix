@@ -1,13 +1,14 @@
-package com.putragandad.moviedbch5.data.services.remote.response.top_rated
-
+package com.putragandad.moviedbch5.data.network.response.now_playing
 
 import com.google.gson.annotations.SerializedName
 
-data class TopRatedResponse(
+data class NowPlayingResponse(
+    @SerializedName("dates")
+    val dates: NowPlayingDates,
     @SerializedName("page")
     val page: Int,
     @SerializedName("results")
-    val results: List<TopRatedResult>,
+    val results: List<NowPlayingResult>,
     @SerializedName("total_pages")
     val totalPages: Int,
     @SerializedName("total_results")

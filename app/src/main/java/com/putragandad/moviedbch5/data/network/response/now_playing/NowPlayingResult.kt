@@ -1,7 +1,6 @@
-package com.putragandad.moviedbch5.data.services.remote.response.now_playing
+package com.putragandad.moviedbch5.data.network.response.now_playing
 
 
-import android.util.Log
 import com.google.gson.annotations.SerializedName
 import com.putragandad.moviedbch5.domain.models.movies.NowPlaying
 

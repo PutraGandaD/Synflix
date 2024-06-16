@@ -46,6 +46,7 @@ class ProfileEditFragment : Fragment() {
             tvFullname.editText?.setText(it.fullname)
             if(it.username.isNotEmpty()) tvUsername.editText?.setText(it.username)
             tvEmail.editText?.setText(it.email)
+            uriProfileImageTemp = it.profilePictureURI
             Glide.with(requireView())
                 .load(it.profilePictureURI)
                 .placeholder(R.drawable.synflix_profile_picture_default)

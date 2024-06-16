@@ -1,6 +1,5 @@
 package com.putragandad.moviedbch5.domain.usecases.movies
 
-import com.putragandad.moviedbch5.data.services.remote.response.now_playing.asDomain
 import com.putragandad.moviedbch5.domain.models.movies.NowPlaying
 import com.putragandad.moviedbch5.domain.repositories.movies.MoviesRepository
 import com.putragandad.moviedbch5.utils.Resource

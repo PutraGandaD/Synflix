@@ -65,12 +65,12 @@
         <action
             android:id="@+id/action_splashFragment_to_loginFragment"
             app:destination="@id/loginFragment"
-            app:popUpTo="@id/splashFragment"
+            app:popUpTo="@id/movies_app_navgraph"
             app:popUpToInclusive="true"/>
         <action
             android:id="@+id/action_splashFragment_to_homeFragment"
             app:destination="@id/homeFragment"
-            app:popUpTo="@id/splashFragment"
+            app:popUpTo="@id/movies_app_navgraph"
             app:popUpToInclusive="true"/>
     </fragment>
 </navigation>

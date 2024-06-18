@@ -31,8 +31,8 @@ Basic Movie Database App utilizing The Movie Database (TMDB) API, for learning a
 - Koin
 
 ## WIP :
-- [ ] Modularization
-- [ ] Add features for change profile picture locally
+- [x] Modularization
+- [x] Add features for change profile picture locally
 - [ ] Implement Paging 3.0 for fetching data from API
 - [ ] Add Search Movie feature
 - [ ] Add "Add to Watchlist..." feature

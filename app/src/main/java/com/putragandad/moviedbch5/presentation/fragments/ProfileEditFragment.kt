@@ -8,12 +8,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.work.WorkInfo
 import com.bumptech.glide.Glide
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
 import com.putragandad.moviedbch5.R
@@ -75,8 +77,10 @@ class ProfileEditFragment : Fragment() {
         }
 
         binding.btnBackRegister.setOnClickListener {
-            findNavController().popBackStack()
+            backPressedDialog()
         }
+
+        handleBackPress()
     }
 
     private fun saveProfile(fullname: TextInputLayout, username: TextInputLayout, email: TextInputLayout, uriProfileImage: String) {
@@ -138,6 +142,27 @@ class ProfileEditFragment : Fragment() {
             .load(uriProfileImageTemp)
             .placeholder(R.drawable.synflix_profile_picture_default)
             .into(binding.ivProfilePicture)
+    }
+
+    private fun backPressedDialog() {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle("Edit Profile")
+            .setMessage("Are you sure to cancel? Any changes will be unsaved, including your profile picture.")
+            .setNegativeButton("No") { dialog, which ->
+                dialog.cancel()
+            }
+            .setPositiveButton("Yes") { dialog, which ->
+                findNavController().popBackStack()
+            }
+            .show()
+    }
+
+    private fun handleBackPress() {
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                backPressedDialog()
+            }
+        })
     }
 
 }

@@ -41,8 +41,11 @@ android {
 }
 
 dependencies {
+    implementation(project(":common"))
+    implementation(project(":data"))
+    implementation(project(":domain"))
+
     val lifecycle_version = "2.7.0"
-    val arch_version = "2.2.0"
     val koin_version = "3.5.6"
 
     // ViewModel

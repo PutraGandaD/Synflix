@@ -1,24 +1,20 @@
 package com.putragandad.moviedbch5.presentation.viewmodels
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import com.putragandad.moviedbch5.domain.models.movies.Details
 import com.putragandad.moviedbch5.domain.models.movies.MovieCast
 import com.putragandad.moviedbch5.domain.models.movies.NowPlaying
 import com.putragandad.moviedbch5.domain.models.movies.Popular
 import com.putragandad.moviedbch5.domain.models.movies.TopRated
-import com.putragandad.moviedbch5.domain.repositories.movies.MoviesRepository
 import com.putragandad.moviedbch5.domain.usecases.movies.CastUseCase
 import com.putragandad.moviedbch5.domain.usecases.movies.DetailsUseCase
 import com.putragandad.moviedbch5.domain.usecases.movies.NowPlayingUseCase
 import com.putragandad.moviedbch5.domain.usecases.movies.PopularUseCase
 import com.putragandad.moviedbch5.domain.usecases.movies.TopRatedUseCase
 import com.putragandad.moviedbch5.utils.Resource
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class MoviesViewModel(

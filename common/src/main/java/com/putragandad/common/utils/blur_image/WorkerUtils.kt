@@ -14,7 +14,7 @@ import android.util.Log
 import androidx.annotation.WorkerThread
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import com.putragandad.moviedbch5.R
+import com.putragandad.common.R
 import com.putragandad.moviedbch5.utils.Constant.Companion.CHANNEL_ID
 import com.putragandad.moviedbch5.utils.Constant.Companion.DELAY_TIME_MILLIS
 import com.putragandad.moviedbch5.utils.Constant.Companion.NOTIFICATION_ID
@@ -60,8 +60,8 @@ fun makeStatusNotification(message: String, context: Context) {
 
     // Create the notification
     val builder = NotificationCompat.Builder(context, CHANNEL_ID)
-        .setSmallIcon(R.drawable.ic_launcher_foreground)
         .setContentTitle(NOTIFICATION_TITLE)
+        .setSmallIcon(R.drawable.ic_launcher_foreground)
         .setContentText(message)
         .setPriority(NotificationCompat.PRIORITY_HIGH)
         .setVibrate(LongArray(0))

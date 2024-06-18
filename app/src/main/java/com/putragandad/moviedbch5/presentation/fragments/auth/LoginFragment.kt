@@ -69,7 +69,9 @@ class LoginFragment : Fragment() {
 
     private fun validateLogin(status : Boolean) {
         if(status) {
-            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+            if (findNavController().currentDestination?.id == R.id.loginFragment) {
+                findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+            }
             Snackbar.make(requireView(), "Login successful! You're signed in.", Snackbar.LENGTH_LONG).show()
         } else {
             Snackbar.make(requireView(), "Invalid email or password. Try Again.", Snackbar.LENGTH_LONG)

@@ -16,7 +16,7 @@
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
             app:destination="@id/homeFragment"
-            app:popUpTo="@id/loginFragment"
+            app:popUpTo="@id/movies_app_navgraph"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment

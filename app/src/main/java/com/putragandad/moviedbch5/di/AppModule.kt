@@ -36,7 +36,7 @@ object AppModule {
 
     val viewModelModule = module {
         viewModel { MoviesViewModel(get(), get(), get(), get(), get()) }
-        viewModel { UserViewModel(get(), get(), get(), get(), get(), get(), get()) }
+        viewModel { UserViewModel(get(), get(), get(), get(), get(), get(), get(), get()) }
     }
 
     val useCaseModule = module {

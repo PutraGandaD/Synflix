@@ -14,7 +14,7 @@ class Constant {
             "Verbose WorkManager Notifications"
         const val VERBOSE_NOTIFICATION_CHANNEL_DESCRIPTION =
             "Shows notifications whenever work starts"
-        @JvmField val NOTIFICATION_TITLE: CharSequence = "WorkRequest Starting"
+        @JvmField val NOTIFICATION_TITLE: CharSequence = "Synflix"
         const val CHANNEL_ID = "VERBOSE_NOTIFICATION"
         const val NOTIFICATION_ID = 1
 
@@ -24,7 +24,7 @@ class Constant {
         // Other keys
         const val OUTPUT_PATH = "blur_filter_outputs"
         const val KEY_IMAGE_URI = "KEY_IMAGE_URI"
-        const val TAG_OUTPUT = "OUTPUT"
+        const val TAG_WORKER = "BLUR_WORKER"
 
         const val DELAY_TIME_MILLIS: Long = 3000
     }

@@ -10,13 +10,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.work.WorkInfo
 import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
 import com.putragandad.moviedbch5.R
 import com.putragandad.moviedbch5.databinding.FragmentProfileEditBinding
 import com.putragandad.moviedbch5.presentation.viewmodels.UserViewModel
+import com.putragandad.moviedbch5.utils.Constant.Companion.KEY_IMAGE_URI
+import com.putragandad.moviedbch5.utils.blur_image.makeStatusNotification
+import com.putragandad.moviedbch5.utils.blur_image.sleep
 import org.koin.android.ext.android.inject
 
 class ProfileEditFragment : Fragment() {
@@ -24,6 +29,7 @@ class ProfileEditFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val userViewModel : UserViewModel by inject()
+    private var uriProfileImageTemp = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,27 +46,20 @@ class ProfileEditFragment : Fragment() {
         val tvFullname = binding.etEditprofileFullname
         val tvUsername = binding.etEditprofileUsername
         val tvEmail = binding.etEditprofileEmail
-        var uriProfileImageTemp = ""
 
         userViewModel.userInfo.observe(viewLifecycleOwner) {
             tvFullname.editText?.setText(it.fullname)
             if(it.username.isNotEmpty()) tvUsername.editText?.setText(it.username)
             tvEmail.editText?.setText(it.email)
             uriProfileImageTemp = it.profilePictureURI
-            Glide.with(requireView())
-                .load(it.profilePictureURI)
-                .placeholder(R.drawable.synflix_profile_picture_default)
-                .into(binding.ivProfilePicture)
+            setPreviewProfilePicture()
         }
 
         val pickMedia = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
                 val selectedPicUri = result.data?.data
-                Log.d("PhotoPicker", "Selected URI: $selectedPicUri")
-                Glide.with(requireView())
-                    .load(selectedPicUri)
-                    .into(binding.ivProfilePicture)
-                uriProfileImageTemp = selectedPicUri.toString()
+                userViewModel.applyBlur(selectedPicUri.toString())
+                userViewModel.outputWorkInfos.observe(viewLifecycleOwner, workInfosObserver())
             }
         }
 
@@ -86,12 +85,59 @@ class ProfileEditFragment : Fragment() {
         val getEmail = email.editText?.text.toString()
         if(getFullname.isNotEmpty() && getEmail.isNotEmpty()) {
             userViewModel.saveAccountDetail(getUsername, getFullname, getEmail)
-            userViewModel.setProfilePicture(uriProfileImage.toString())
+            userViewModel.setProfilePicture(uriProfileImage)
+            uriProfileImageTemp = ""
             findNavController().popBackStack()
             Snackbar.make(requireView(), "Profile successfully saved.", Snackbar.LENGTH_LONG).show()
         } else {
             Snackbar.make(requireView(), "Email / Fullname field can't be empty!", Snackbar.LENGTH_LONG).show()
         }
+    }
+
+    private fun workInfosObserver(): Observer<List<WorkInfo>> {
+        return Observer { listOfWorkInfo ->
+
+            // Note that these next few lines grab a single WorkInfo if it exists
+            // This code could be in a Transformation in the ViewModel; they are included here
+            // so that the entire process of displaying a WorkInfo is in one location.
+
+            // If there are no matching work info, do nothing
+            if (listOfWorkInfo.isNullOrEmpty()) {
+                return@Observer
+            }
+
+            // We only care about the one output status.
+            // Every continuation has only one worker tagged TAG_OUTPUT
+            val workInfo = listOfWorkInfo[0]
+
+            when(workInfo.state) {
+                WorkInfo.State.RUNNING -> {
+                    makeStatusNotification("Blurring Image...", requireContext())
+                }
+                WorkInfo.State.SUCCEEDED -> {
+                    val outputImageUri = workInfo.outputData.getString(KEY_IMAGE_URI)
+
+                    if (!outputImageUri.isNullOrEmpty()) {
+                        uriProfileImageTemp = outputImageUri
+                        makeStatusNotification("Successfully blurred image.", requireContext())
+                        setPreviewProfilePicture()
+                    }
+                }
+                WorkInfo.State.FAILED -> {
+                    makeStatusNotification("Failed to blur the image.", requireContext())
+                }
+                else -> {
+
+                }
+            }
+        }
+    }
+
+    private fun setPreviewProfilePicture() {
+        Glide.with(requireView())
+            .load(uriProfileImageTemp)
+            .placeholder(R.drawable.synflix_profile_picture_default)
+            .into(binding.ivProfilePicture)
     }
 
 }

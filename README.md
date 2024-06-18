@@ -3,7 +3,7 @@
 Basic Movie Database App utilizing The Movie Database (TMDB) API, for learning android development purpose.
 
 ## Branch
-- **clean-architecture** = Clean Architecture implementation + Dependency Injection (Koin)
+- **clean-architecture** = Modularization + Clean Architecture implementation with Dependency Injection (Koin)
 - **mvvm-with-di-koin** = MVVM (Model - View - ViewModel) Architecture implementation + Dependency Injection (Koin)
 
 ## Screenshot

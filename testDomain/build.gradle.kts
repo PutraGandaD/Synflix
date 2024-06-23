@@ -1,11 +1,10 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
-    kotlin("kapt")
 }
 
 android {
-    namespace = "com.putragandad.domain"
+    namespace = "com.putragandad.testdomain"
     compileSdk = 34
 
     defaultConfig {
@@ -31,10 +30,13 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
 }
 
 dependencies {
     implementation(project(":common"))
+    implementation(project(":data"))
+    implementation(project(":domain"))
 
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.appcompat:appcompat:1.6.1")
@@ -53,4 +55,6 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
     testImplementation("com.squareup.okhttp3:mockwebserver:4.12.0")
+
+
 }

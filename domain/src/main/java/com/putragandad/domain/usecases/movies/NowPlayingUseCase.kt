@@ -13,11 +13,11 @@ class NowPlayingUseCase(private val repository: MoviesRepository) {
         try {
             emit(Resource.Loading<List<NowPlaying>>())
             val movieResult = repository.getMovieNowPlaying()
-            emit(Resource.Success<List<NowPlaying>>(movieResult))
+            if(movieResult.isNotEmpty()) emit(Resource.Success<List<NowPlaying>>(movieResult))
         } catch (e: HttpException) {
-            emit(Resource.Error<List<NowPlaying>>("Data can't retrieved from the API", emptyList()))
+            emit(Resource.Error<List<NowPlaying>>("API Error. Data can't retrieved from the API", emptyList()))
         } catch (e: IOException) {
-            emit(Resource.Error<List<NowPlaying>>("Error", emptyList()))
+            emit(Resource.Error<List<NowPlaying>>("Error. Connection Failure / Forced Disconnect / Data Corrupt", emptyList()))
         }
     }
 }

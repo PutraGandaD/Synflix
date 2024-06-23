@@ -1,0 +1,411 @@
+{
+  "dates": {
+    "maximum": "2024-06-26",
+    "minimum": "2024-05-15"
+  },
+  "page": 1,
+  "results": [
+    {
+      "adult": false,
+      "backdrop_path": "/xg27NrXi7VXCGUr7MG75UqLl6Vg.jpg",
+      "genre_ids": [
+        16,
+        10751,
+        18,
+        12,
+        35
+      ],
+      "id": 1022789,
+      "original_language": "en",
+      "original_title": "Inside Out 2",
+      "overview": "Teenager Riley's mind headquarters is undergoing a sudden demolition to make room for something entirely unexpected: new Emotions! Joy, Sadness, Anger, Fear and Disgust, who’ve long been running a successful operation by all accounts, aren’t sure how to feel when Anxiety shows up. And it looks like she’s not alone.",
+      "popularity": 8282.191,
+      "poster_path": "/3aIrZuRyiGs9xDYHvMitHPFDd6r.jpg",
+      "release_date": "2024-06-11",
+      "title": "Inside Out 2",
+      "video": false,
+      "vote_average": 7.883,
+      "vote_count": 593
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/fqv8v6AycXKsivp1T5yKtLbGXce.jpg",
+      "genre_ids": [
+        878,
+        12,
+        28
+      ],
+      "id": 653346,
+      "original_language": "en",
+      "original_title": "Kingdom of the Planet of the Apes",
+      "overview": "Several generations in the future following Caesar's reign, apes are now the dominant species and live harmoniously while humans have been reduced to living in the shadows. As a new tyrannical ape leader builds his empire, one young ape undertakes a harrowing journey that will cause him to question all that he has known about the past and to make choices that will define a future for apes and humans alike.",
+      "popularity": 3444.493,
+      "poster_path": "/gKkl37BQuKTanygYQG1pyYgLVgf.jpg",
+      "release_date": "2024-05-08",
+      "title": "Kingdom of the Planet of the Apes",
+      "video": false,
+      "vote_average": 6.876,
+      "vote_count": 1183
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/gRApXuxWmO2forYTuTmcz5RaNUV.jpg",
+      "genre_ids": [
+        28,
+        80,
+        53,
+        35
+      ],
+      "id": 573435,
+      "original_language": "en",
+      "original_title": "Bad Boys: Ride or Die",
+      "overview": "After their late former Captain is framed, Lowrey and Burnett try to clear his name, only to end up on the run themselves.",
+      "popularity": 2105.821,
+      "poster_path": "/nP6RliHjxsz4irTKsxe8FRhKZYl.jpg",
+      "release_date": "2024-06-05",
+      "title": "Bad Boys: Ride or Die",
+      "video": false,
+      "vote_average": 7.153,
+      "vote_count": 382
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/iTWrsOVsUqcwYSxrpINNs3hG2nC.jpg",
+      "genre_ids": [
+        53,
+        27,
+        28,
+        9648
+      ],
+      "id": 1001311,
+      "original_language": "fr",
+      "original_title": "Sous la Seine",
+      "overview": "In the Summer of 2024, Paris is hosting the World Triathlon Championships on the Seine for the first time. Sophia, a brilliant scientist, learns from Mika, a young environmental activist, that a large shark is swimming deep in the river. To avoid a bloodbath at the heart of the city, they have no choice but to join forces with Adil, the Seine river police commander.",
+      "popularity": 1959.758,
+      "poster_path": "/qZPLK5ktRKa3CL4sKRZtj8UlPYc.jpg",
+      "release_date": "2024-06-05",
+      "title": "Under Paris",
+      "video": false,
+      "vote_average": 5.997,
+      "vote_count": 668
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/z121dSTR7PY9KxKuvwiIFSYW8cf.jpg",
+      "genre_ids": [
+        10752,
+        28,
+        18
+      ],
+      "id": 929590,
+      "original_language": "en",
+      "original_title": "Civil War",
+      "overview": "In the near future, a group of war journalists attempt to survive while reporting the truth as the United States stands on the brink of civil war.",
+      "popularity": 1524.677,
+      "poster_path": "/sh7Rg8Er3tFcN9BpKIPOMvALgZd.jpg",
+      "release_date": "2024-04-10",
+      "title": "Civil War",
+      "video": false,
+      "vote_average": 7.019,
+      "vote_count": 1668
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/nxxCPRGTzxUH8SFMrIsvMmdxHti.jpg",
+      "genre_ids": [
+        35,
+        14,
+        10751
+      ],
+      "id": 639720,
+      "original_language": "en",
+      "original_title": "IF",
+      "overview": "A young girl who goes through a difficult experience begins to see everyone's imaginary friends who have been left behind as their real-life friends have grown up.",
+      "popularity": 1836.593,
+      "poster_path": "/xbKFv4KF3sVYuWKllLlwWDmuZP7.jpg",
+      "release_date": "2024-05-08",
+      "title": "IF",
+      "video": false,
+      "vote_average": 7.53,
+      "vote_count": 316
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/oZDRuGHhe5uY8wBqFJcJZT9kdvJ.jpg",
+      "genre_ids": [
+        27,
+        9648,
+        14
+      ],
+      "id": 1086747,
+      "original_language": "en",
+      "original_title": "The Watchers",
+      "overview": "A young artist gets stranded in an extensive, immaculate forest in western Ireland, where, after finding shelter, she becomes trapped alongside three strangers, stalked by mysterious creatures each night.",
+      "popularity": 1004.531,
+      "poster_path": "/vZVEUPychdvZLrTNwWErr9xZFmu.jpg",
+      "release_date": "2024-06-06",
+      "title": "The Watchers",
+      "video": false,
+      "vote_average": 6.2,
+      "vote_count": 165
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/SI22DaQXIfDvLrNBHGpSVShrsC.jpg",
+      "genre_ids": [
+        16,
+        878,
+        10751,
+        28
+      ],
+      "id": 829402,
+      "original_language": "en",
+      "original_title": "Ultraman: Rising",
+      "overview": "With Tokyo under attack from kaiju, Ultraman discovers his greatest challenge isn’t fighting giant monsters - it’s raising one.",
+      "popularity": 1067.907,
+      "poster_path": "/j886YEkIUsiImY53px5VHKD4lRa.jpg",
+      "release_date": "2024-06-14",
+      "title": "Ultraman: Rising",
+      "video": false,
+      "vote_average": 8.759,
+      "vote_count": 87
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/3TNSoa0UHGEzEz5ndXGjJVKo8RJ.jpg",
+      "genre_ids": [
+        878,
+        28
+      ],
+      "id": 614933,
+      "original_language": "en",
+      "original_title": "Atlas",
+      "overview": "A brilliant counterterrorism analyst with a deep distrust of AI discovers it might be her only hope when a mission to capture a renegade robot goes awry.",
+      "popularity": 969.052,
+      "poster_path": "/bcM2Tl5HlsvPBnL8DKP9Ie6vU4r.jpg",
+      "release_date": "2024-05-23",
+      "title": "Atlas",
+      "video": false,
+      "vote_average": 6.824,
+      "vote_count": 857
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/H5HjE7Xb9N09rbWn1zBfxgI8uz.jpg",
+      "genre_ids": [
+        28,
+        35
+      ],
+      "id": 746036,
+      "original_language": "en",
+      "original_title": "The Fall Guy",
+      "overview": "Fresh off an almost career-ending accident, stuntman Colt Seavers has to track down a missing movie star, solve a conspiracy and try to win back the love of his life while still doing his day job.",
+      "popularity": 862.492,
+      "poster_path": "/aBkqu7EddWK7qmY4grL4I6edx2h.jpg",
+      "release_date": "2024-04-24",
+      "title": "The Fall Guy",
+      "video": false,
+      "vote_average": 7.3,
+      "vote_count": 1341
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/oavbmL3iddJUmC8nQjL6bLHwAP4.jpg",
+      "genre_ids": [
+        27
+      ],
+      "id": 719221,
+      "original_language": "en",
+      "original_title": "Tarot",
+      "overview": "When a group of friends recklessly violate the sacred rule of Tarot readings, they unknowingly unleash an unspeakable evil trapped within the cursed cards. One by one, they come face to face with fate and end up in a race against death.",
+      "popularity": 867.509,
+      "poster_path": "/gAEUXC37vl1SnM7PXsHTF23I2vq.jpg",
+      "release_date": "2024-05-01",
+      "title": "Tarot",
+      "video": false,
+      "vote_average": 6.58,
+      "vote_count": 555
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/raph7qjAGTMXaIjVxt6ZDSXRzUr.jpg",
+      "genre_ids": [
+        28,
+        12,
+        878
+      ],
+      "id": 786892,
+      "original_language": "en",
+      "original_title": "Furiosa: A Mad Max Saga",
+      "overview": "As the world fell, young Furiosa is snatched from the Green Place of Many Mothers and falls into the hands of a great Biker Horde led by the Warlord Dementus. Sweeping through the Wasteland they come across the Citadel presided over by The Immortan Joe. While the two Tyrants war for dominance, Furiosa must survive many trials as she puts together the means to find her way home.",
+      "popularity": 658.542,
+      "poster_path": "/iADOJ8Zymht2JPMoy3R7xceZprc.jpg",
+      "release_date": "2024-05-22",
+      "title": "Furiosa: A Mad Max Saga",
+      "video": false,
+      "vote_average": 7.6,
+      "vote_count": 981
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/vWzJDjLPmycnQ42IppEjMpIhrhc.jpg",
+      "genre_ids": [
+        16,
+        35,
+        10751,
+        12
+      ],
+      "id": 748783,
+      "original_language": "en",
+      "original_title": "The Garfield Movie",
+      "overview": "Garfield, the world-famous, Monday-hating, lasagna-loving indoor cat, is about to have a wild outdoor adventure! After an unexpected reunion with his long-lost father – scruffy street cat Vic – Garfield and his canine friend Odie are forced from their perfectly pampered life into joining Vic in a hilarious, high-stakes heist.",
+      "popularity": 654.498,
+      "poster_path": "/tSPsiMHb4edeBKZZjKDmhX18Jbs.jpg",
+      "release_date": "2024-04-30",
+      "title": "The Garfield Movie",
+      "video": false,
+      "vote_average": 6.725,
+      "vote_count": 187
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/fDmci71SMkfZM8RnCuXJVDPaSdE.jpg",
+      "genre_ids": [
+        16,
+        10751,
+        35,
+        28
+      ],
+      "id": 519182,
+      "original_language": "en",
+      "original_title": "Despicable Me 4",
+      "overview": "Gru and Lucy and their girls — Margo, Edith and Agnes — welcome a new member to the Gru family, Gru Jr., who is intent on tormenting his dad. Gru faces a new nemesis in Maxime Le Mal and his femme fatale girlfriend Valentina, and the family is forced to go on the run.",
+      "popularity": 684.61,
+      "poster_path": "/3w84hCFJATpiCO5g8hpdWVPBbmq.jpg",
+      "release_date": "2024-06-20",
+      "title": "Despicable Me 4",
+      "video": false,
+      "vote_average": 8.923,
+      "vote_count": 13
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/nb3xI8XI3w4pMVZ38VijbsyBqP4.jpg",
+      "genre_ids": [
+        18,
+        36
+      ],
+      "id": 872585,
+      "original_language": "en",
+      "original_title": "Oppenheimer",
+      "overview": "The story of J. Robert Oppenheimer's role in the development of the atomic bomb during World War II.",
+      "popularity": 443.337,
+      "poster_path": "/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
+      "release_date": "2023-07-19",
+      "title": "Oppenheimer",
+      "video": false,
+      "vote_average": 8.093,
+      "vote_count": 8383
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/nv6F6tz7r61DUhE7zgHwLJFcTYp.jpg",
+      "genre_ids": [
+        10749,
+        35,
+        80
+      ],
+      "id": 974635,
+      "original_language": "en",
+      "original_title": "Hit Man",
+      "overview": "A mild-mannered professor moonlighting as a fake hit man in police stings ignites a chain reaction of trouble when he falls for a potential client.",
+      "popularity": 518.23,
+      "poster_path": "/1126gjlBf4hTm9Sgf0ox3LGVEBt.jpg",
+      "release_date": "2024-05-16",
+      "title": "Hit Man",
+      "video": false,
+      "vote_average": 7.071,
+      "vote_count": 368
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/kti9ufHhCKaOLjg2to4RKfrlkmh.jpg",
+      "genre_ids": [
+        16,
+        28
+      ],
+      "id": 1263421,
+      "original_language": "ja",
+      "original_title": "範馬刃牙VSケンガンアシュラ",
+      "overview": "It's the ultimate showdown. The toughest fighters from \"Baki Hanma\" and \"Kengan Ashura\" clash in this unprecedented, hard-hitting martial arts crossover.",
+      "popularity": 445.625,
+      "poster_path": "/etbHJxil0wHvYOCmibzFLsMcl2C.jpg",
+      "release_date": "2024-06-05",
+      "title": "Baki Hanma VS Kengan Ashura",
+      "video": false,
+      "vote_average": 7.966,
+      "vote_count": 163
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/sNBnCmF1ueoERa4uW5kh929KkRO.jpg",
+      "genre_ids": [
+        18,
+        27
+      ],
+      "id": 858017,
+      "original_language": "en",
+      "original_title": "I Saw the TV Glow",
+      "overview": "Teenager Owen is just trying to make it through life in the suburbs when his classmate introduces him to a mysterious late-night TV show — a vision of a supernatural world beneath their own. In the pale glow of the television, Owen’s view of reality begins to crack.",
+      "popularity": 462.591,
+      "poster_path": "/hS4GYkYpN1rfl4GIxyc02sCyfAj.jpg",
+      "release_date": "2024-05-03",
+      "title": "I Saw the TV Glow",
+      "video": false,
+      "vote_average": 6.034,
+      "vote_count": 73
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/5Eip60UDiPLASyKjmHPMruggTc4.jpg",
+      "genre_ids": [
+        27,
+        9648,
+        53
+      ],
+      "id": 1041613,
+      "original_language": "en",
+      "original_title": "Immaculate",
+      "overview": "An American nun embarks on a new journey when she joins a remote convent in the Italian countryside. However, her warm welcome quickly turns into a living nightmare when she discovers her new home harbours a sinister secret and unspeakable horrors.",
+      "popularity": 452.501,
+      "poster_path": "/fdZpvODTX5wwkD0ikZNaClE4AoW.jpg",
+      "release_date": "2024-03-20",
+      "title": "Immaculate",
+      "video": false,
+      "vote_average": 6.299,
+      "vote_count": 622
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/AuKXTyCVzeIdtTe1NAQnJa1ZC7I.jpg",
+      "genre_ids": [
+        16,
+        14,
+        10751
+      ],
+      "id": 739547,
+      "original_language": "en",
+      "original_title": "Thelma the Unicorn",
+      "overview": "Thelma dreams of being a glamorous unicorn. Then in a rare pink and glitter-filled moment of fate, Thelma's wish comes true. She rises to instant international stardom, but at an unexpected cost. After a while, Thelma realizes that she was happier as her ordinary, sparkle-free self. So she ditches her horn, scrubs off her sparkles, and returns home, where her best friend is waiting for her with a hug.",
+      "popularity": 402.056,
+      "poster_path": "/yutiEZ7taGDNau2jGjKIdDwQpDw.jpg",
+      "release_date": "2024-05-17",
+      "title": "Thelma the Unicorn",
+      "video": false,
+      "vote_average": 6.93,
+      "vote_count": 100
+    }
+  ],
+  "total_pages": 228,
+  "total_results": 4554
+}

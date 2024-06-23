@@ -1,20 +1,15 @@
-package com.putragandad.domain.usecases.users
+package com.putragandad.testdomain.usecases.users
 
-import com.google.common.truth.Truth.assertThat
-import com.putragandad.data.repository.FakeUserRepository
+import com.google.common.truth.Truth
+import com.putragandad.testdomain.data.repository.FakeUserRepository
 import com.putragandad.moviedbch5.domain.usecases.users.UserLoginUseCase
-import com.putragandad.moviedbch5.domain.usecases.users.UserRegisterUseCase
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import org.junit.Test
 
+import org.junit.Assert.*
 import org.junit.Before
 
-/**
- * Example local unit test, which will execute on the development machine (host).
- *
- * See [testing documentation](http://d.android.com/tools/testing).
- */
 class UserLoginUseCaseUnitTest {
     private lateinit var userLoginUseCase: UserLoginUseCase
     private lateinit var fakeUserRepository: FakeUserRepository
@@ -40,7 +35,7 @@ class UserLoginUseCaseUnitTest {
             val email = "testemail"
             val password = "testpassword"
             userLoginUseCase.invoke(email, password)
-            assertThat(fakeUserRepository.readLoginStatus.first()).isEqualTo(true)
+            Truth.assertThat(fakeUserRepository.readLoginStatus.first()).isEqualTo(true)
         }
     }
 
@@ -50,7 +45,7 @@ class UserLoginUseCaseUnitTest {
             val email = "testemail"
             val password = "testpassword123"
             userLoginUseCase.invoke(email, password)
-            assertThat(fakeUserRepository.readLoginStatus.first()).isEqualTo(false)
+            Truth.assertThat(fakeUserRepository.readLoginStatus.first()).isEqualTo(false)
         }
     }
 }

@@ -7,6 +7,8 @@ import com.putragandad.moviedbch5.domain.models.movies.Popular
 import com.putragandad.moviedbch5.domain.models.movies.TopRated
 
 interface MoviesRepository {
+
+
     suspend fun getMovieNowPlaying() : List<NowPlaying>
 
     suspend fun getMoviePopular() : List<Popular>

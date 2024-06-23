@@ -1,4 +1,4 @@
-package com.putragandad.data.repository
+package com.putragandad.testdomain.data.repository
 
 import com.putragandad.moviedbch5.domain.repositories.users.UserAuthRepository
 import kotlinx.coroutines.flow.Flow

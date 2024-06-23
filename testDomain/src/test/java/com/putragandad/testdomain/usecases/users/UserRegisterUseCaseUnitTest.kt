@@ -1,14 +1,14 @@
-package com.putragandad.domain.usecases.users
+package com.putragandad.testdomain.usecases.users
 
-import com.google.common.truth.Truth.assertThat
-import com.putragandad.data.repository.FakeUserRepository
+import com.google.common.truth.Truth
+import com.putragandad.testdomain.data.repository.FakeUserRepository
 import com.putragandad.moviedbch5.domain.usecases.users.UserRegisterUseCase
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Test
 
-class UserRegisterUseCaseTest {
+class UserRegisterUseCaseUnitTest {
     private lateinit var userRegisterUseCase: UserRegisterUseCase
     private lateinit var fakeUserRepository: FakeUserRepository
 
@@ -27,9 +27,9 @@ class UserRegisterUseCaseTest {
             userRegisterUseCase.invoke(
                 fullname, email, password
             )
-            assertThat(fakeUserRepository.readAccountUserFullName.first()).isEqualTo(fullname)
-            assertThat(fakeUserRepository.readAccountEmail.first()).isEqualTo(email)
-            assertThat(fakeUserRepository.readAccountPassword.first()).isEqualTo(password)
+            Truth.assertThat(fakeUserRepository.readAccountUserFullName.first()).isEqualTo(fullname)
+            Truth.assertThat(fakeUserRepository.readAccountEmail.first()).isEqualTo(email)
+            Truth.assertThat(fakeUserRepository.readAccountPassword.first()).isEqualTo(password)
         }
     }
 }

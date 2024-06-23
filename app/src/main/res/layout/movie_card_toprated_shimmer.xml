@@ -19,7 +19,8 @@
             android:id="@+id/iv_toprated_movie"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:scaleType="centerCrop"/>
+            android:scaleType="centerCrop"
+            android:importantForAccessibility="no" />
 
     </com.google.android.material.card.MaterialCardView>
 

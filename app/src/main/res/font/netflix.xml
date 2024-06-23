@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<font-family xmlns:android="http://schemas.android.com/apk/res/android">
+<font-family xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <font
         android:fontStyle="normal"
-        android:font="@font/netflixsans_regular"/>
+        android:font="@font/netflixsans_regular"
+        tools:targetApi="o" />
 
     <font
-        android:font="@font/netflixsans_medium"/>
+        android:font="@font/netflixsans_medium"
+        tools:targetApi="o" />
 
     <font
-        android:font="@font/netflixsans_light"/>
+        android:font="@font/netflixsans_light"
+        tools:targetApi="o" />
 
     <font
-        android:font="@font/netflixsans_bold"/>
+        android:font="@font/netflixsans_bold"
+        tools:targetApi="o" />
 
 </font-family>

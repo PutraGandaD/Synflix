@@ -1,4 +1,4 @@
-package com.putragandad.moviedbch5.presentation.viewmodels
+package com.putragandad.synflix.presentation.viewmodels
 
 import android.app.Application
 import androidx.lifecycle.LiveData
@@ -11,23 +11,23 @@ import androidx.work.OneTimeWorkRequest
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkInfo
 import androidx.work.WorkManager
-import com.putragandad.moviedbch5.domain.models.users.AccountDetail
-import com.putragandad.moviedbch5.domain.usecases.users.CheckLoginUseCase
-import com.putragandad.moviedbch5.domain.usecases.users.ReadUserInfoUseCase
-import com.putragandad.moviedbch5.domain.usecases.users.SetProfilePictureUseCase
-import com.putragandad.moviedbch5.domain.usecases.users.UpdateUserInfoUseCase
-import com.putragandad.moviedbch5.domain.usecases.users.UserLoginUseCase
-import com.putragandad.moviedbch5.domain.usecases.users.UserLogoutUseCase
-import com.putragandad.moviedbch5.domain.usecases.users.UserRegisterUseCase
-import com.putragandad.moviedbch5.utils.Constant.Companion.IMAGE_MANIPULATION_WORK_NAME
-import com.putragandad.moviedbch5.utils.Constant.Companion.KEY_IMAGE_URI
-import com.putragandad.moviedbch5.utils.Constant.Companion.TAG_WORKER
-import com.putragandad.moviedbch5.utils.blur_image.BlurWorker
-import com.putragandad.moviedbch5.utils.blur_image.CleanupWorker
+import com.putragandad.domain.models.users.AccountDetail
+import com.putragandad.domain.usecases.users.CheckLoginUseCase
+import com.putragandad.domain.usecases.users.ReadUserInfoUseCase
+import com.putragandad.domain.usecases.users.SetProfilePictureUseCase
+import com.putragandad.domain.usecases.users.UpdateUserInfoUseCase
+import com.putragandad.domain.usecases.users.UserLoginUseCase
+import com.putragandad.domain.usecases.users.UserLogoutUseCase
+import com.putragandad.domain.usecases.users.UserRegisterUseCase
+import com.putragandad.common.utils.Constant.Companion.IMAGE_MANIPULATION_WORK_NAME
+import com.putragandad.common.utils.Constant.Companion.KEY_IMAGE_URI
+import com.putragandad.common.utils.Constant.Companion.TAG_WORKER
+import com.putragandad.common.utils.blur_image.BlurWorker
+import com.putragandad.common.utils.blur_image.CleanupWorker
 import kotlinx.coroutines.launch
 
 class UserViewModel(
-    private val application: Application,
+    application: Application,
     private val checkLoginUseCase: CheckLoginUseCase,
     private val userLoginUseCase : UserLoginUseCase,
     private val userRegisterUseCase: UserRegisterUseCase,

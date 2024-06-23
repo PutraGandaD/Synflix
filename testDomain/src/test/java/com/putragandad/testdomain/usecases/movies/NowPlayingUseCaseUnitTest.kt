@@ -1,9 +1,9 @@
 package com.putragandad.testdomain.usecases.movies
 
 import com.google.common.truth.Truth.assertThat
-import com.putragandad.moviedbch5.data.network.ApiService
-import com.putragandad.moviedbch5.domain.usecases.movies.NowPlayingUseCase
-import com.putragandad.moviedbch5.utils.Resource
+import com.putragandad.data.network.ApiService
+import com.putragandad.domain.usecases.movies.NowPlayingUseCase
+import com.putragandad.common.utils.Resource
 import com.putragandad.testdomain.data.repository.FakeMovieRepository
 import com.putragandad.testdomain.utils.RetrofitBuilder
 import kotlinx.coroutines.flow.last

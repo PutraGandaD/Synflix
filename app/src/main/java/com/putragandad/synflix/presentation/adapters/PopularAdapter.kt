@@ -1,4 +1,4 @@
-package com.putragandad.moviedbch5.presentation.adapters
+package com.putragandad.synflix.presentation.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.putragandad.moviedbch5.R
-import com.putragandad.moviedbch5.domain.models.movies.Popular
+import com.putragandad.synflix.R
+import com.putragandad.domain.models.movies.Popular
 
 class PopularAdapter(private val dataSet: List<Popular>, private val context: Context, private val popularClickListener: PopularClickListener) : RecyclerView.Adapter<PopularAdapter.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {

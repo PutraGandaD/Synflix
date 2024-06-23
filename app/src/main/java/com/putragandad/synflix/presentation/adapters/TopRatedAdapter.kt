@@ -1,4 +1,4 @@
-package com.putragandad.moviedbch5.presentation.adapters
+package com.putragandad.synflix.presentation.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -9,8 +9,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.putragandad.moviedbch5.R
-import com.putragandad.moviedbch5.domain.models.movies.TopRated
+import com.putragandad.synflix.R
+import com.putragandad.domain.models.movies.TopRated
 
 class TopRatedAdapter(private val dataSet: List<TopRated>, private val context: Context, private val topRatedClickListener: TopRatedClickListener) : RecyclerView.Adapter<TopRatedAdapter.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {

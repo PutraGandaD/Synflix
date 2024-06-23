@@ -2,7 +2,7 @@ package com.putragandad.testdomain.usecases.users
 
 import com.google.common.truth.Truth
 import com.putragandad.testdomain.data.repository.FakeUserRepository
-import com.putragandad.moviedbch5.domain.usecases.users.UserRegisterUseCase
+import com.putragandad.domain.usecases.users.UserRegisterUseCase
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import org.junit.Before

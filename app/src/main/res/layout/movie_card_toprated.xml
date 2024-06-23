@@ -19,7 +19,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/movie_landscape_placeholder"
-            android:scaleType="centerCrop"/>
+            android:scaleType="centerCrop"
+            android:importantForAccessibility="no" />
 
     </com.google.android.material.card.MaterialCardView>
 
@@ -27,7 +28,7 @@
         android:id="@+id/tv_movie_popular_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="The Shawshank Redemption"
+        android:text="@string/placeholder_movie_title_toprated"
         android:fontFamily="@font/netflixsans_regular"
         android:textColor="@color/white"
         android:textSize="15sp"

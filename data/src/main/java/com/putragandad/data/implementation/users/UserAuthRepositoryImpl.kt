@@ -1,7 +1,7 @@
-package com.putragandad.moviedbch5.data.implementation.users
+package com.putragandad.data.implementation.users
 
-import com.putragandad.moviedbch5.data.source.DataStoreSource
-import com.putragandad.moviedbch5.domain.repositories.users.UserAuthRepository
+import com.putragandad.data.source.DataStoreSource
+import com.putragandad.domain.repositories.users.UserAuthRepository
 import kotlinx.coroutines.flow.Flow
 
 class UserAuthRepositoryImpl(

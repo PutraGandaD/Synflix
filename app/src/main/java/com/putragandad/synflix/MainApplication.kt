@@ -1,11 +1,11 @@
-package com.putragandad.moviedbch5
+package com.putragandad.synflix
 
 import android.app.Application
-import com.putragandad.moviedbch5.di.AppModule.appModule
-import com.putragandad.moviedbch5.di.AppModule.repositoryModule
-import com.putragandad.moviedbch5.di.AppModule.useCaseModule
-import com.putragandad.moviedbch5.di.AppModule.viewModelModule
-import com.putragandad.moviedbch5.di.NetworkModule.networkModule
+import com.putragandad.synflix.di.AppModule.appModule
+import com.putragandad.synflix.di.AppModule.repositoryModule
+import com.putragandad.synflix.di.AppModule.useCaseModule
+import com.putragandad.synflix.di.AppModule.viewModelModule
+import com.putragandad.synflix.di.NetworkModule.networkModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin

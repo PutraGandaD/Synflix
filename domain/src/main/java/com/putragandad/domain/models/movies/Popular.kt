@@ -1,4 +1,4 @@
-package com.putragandad.moviedbch5.domain.models.movies
+package com.putragandad.domain.models.movies
 
 data class Popular (
     val id: Int,

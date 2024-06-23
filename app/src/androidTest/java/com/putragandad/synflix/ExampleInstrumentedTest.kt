@@ -1,4 +1,4 @@
-package com.putragandad.moviedbch5
+package com.putragandad.synflix
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

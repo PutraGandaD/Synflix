@@ -1,4 +1,4 @@
-package com.putragandad.moviedbch5.presentation.fragments
+package com.putragandad.synflix.presentation.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.putragandad.moviedbch5.R
-import com.putragandad.moviedbch5.presentation.viewmodels.UserViewModel
+import com.putragandad.synflix.R
+import com.putragandad.synflix.presentation.viewmodels.UserViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject

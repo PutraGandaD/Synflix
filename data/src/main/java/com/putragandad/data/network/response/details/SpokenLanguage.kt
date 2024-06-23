@@ -1,4 +1,4 @@
-package com.putragandad.moviedbch5.data.network.response.details
+package com.putragandad.data.network.response.details
 
 
 import com.google.gson.annotations.SerializedName

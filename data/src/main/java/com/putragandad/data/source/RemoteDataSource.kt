@@ -1,11 +1,11 @@
-package com.putragandad.moviedbch5.data.source
+package com.putragandad.data.source
 
-import com.putragandad.moviedbch5.data.network.ApiService
-import com.putragandad.moviedbch5.data.network.response.details.CreditResponse
-import com.putragandad.moviedbch5.data.network.response.details.MovieDetailsResponse
-import com.putragandad.moviedbch5.data.network.response.now_playing.NowPlayingResponse
-import com.putragandad.moviedbch5.data.network.response.popular.PopularResponse
-import com.putragandad.moviedbch5.data.network.response.top_rated.TopRatedResponse
+import com.putragandad.data.network.ApiService
+import com.putragandad.data.network.response.details.CreditResponse
+import com.putragandad.data.network.response.details.MovieDetailsResponse
+import com.putragandad.data.network.response.now_playing.NowPlayingResponse
+import com.putragandad.data.network.response.popular.PopularResponse
+import com.putragandad.data.network.response.top_rated.TopRatedResponse
 
 class RemoteDataSource(private val apiService: ApiService) {
     suspend fun getMovieNowPlaying() : NowPlayingResponse {

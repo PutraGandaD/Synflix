@@ -2,12 +2,11 @@ package com.putragandad.testdomain.usecases.users
 
 import com.google.common.truth.Truth
 import com.putragandad.testdomain.data.repository.FakeUserRepository
-import com.putragandad.moviedbch5.domain.usecases.users.UserLoginUseCase
+import com.putragandad.domain.usecases.users.UserLoginUseCase
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import org.junit.Test
 
-import org.junit.Assert.*
 import org.junit.Before
 
 class UserLoginUseCaseUnitTest {

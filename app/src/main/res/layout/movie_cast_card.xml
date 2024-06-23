@@ -17,7 +17,7 @@
         android:id="@+id/tv_movie_cast_name"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:text="Chris Pratt"
+        android:text="@string/placeholder_cast_moviedetail"
         android:textAlignment="center"
         android:fontFamily="@font/netflixsans_light"
         android:textColor="@color/white"

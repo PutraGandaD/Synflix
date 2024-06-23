@@ -1,4 +1,4 @@
-package com.putragandad.moviedbch5.utils.prefdatastore
+package com.putragandad.common.utils.prefdatastore
 
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey

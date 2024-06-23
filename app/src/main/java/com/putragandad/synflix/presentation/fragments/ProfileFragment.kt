@@ -1,22 +1,18 @@
-package com.putragandad.moviedbch5.presentation.fragments
+package com.putragandad.synflix.presentation.fragments
 
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.result.PickVisualMediaRequest
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
-import com.putragandad.moviedbch5.R
-import com.putragandad.moviedbch5.databinding.FragmentProfileBinding
-import com.putragandad.moviedbch5.presentation.viewmodels.UserViewModel
+import com.putragandad.synflix.R
+import com.putragandad.synflix.databinding.FragmentProfileBinding
+import com.putragandad.synflix.presentation.viewmodels.UserViewModel
 import org.koin.android.ext.android.inject
 
 class ProfileFragment : Fragment() {
@@ -28,7 +24,7 @@ class ProfileFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root

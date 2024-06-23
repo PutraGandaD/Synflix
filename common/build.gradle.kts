@@ -35,6 +35,7 @@ android {
 
 dependencies {
     implementation("androidx.core:core-ktx:1.13.1")
+    //noinspection GradleDependency,GradleDependency
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.12.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
@@ -53,5 +54,6 @@ dependencies {
     implementation("androidx.datastore:datastore-preferences:1.1.1")
 
     // Work Manager
+    //noinspection GradleDependency,GradleDependency
     implementation("androidx.work:work-runtime-ktx:2.7.1")
 }

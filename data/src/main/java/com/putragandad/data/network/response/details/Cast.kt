@@ -1,8 +1,8 @@
-package com.putragandad.moviedbch5.data.network.response.details
+package com.putragandad.data.network.response.details
 
 
 import com.google.gson.annotations.SerializedName
-import com.putragandad.moviedbch5.domain.models.movies.MovieCast
+import com.putragandad.domain.models.movies.MovieCast
 
 data class Cast(
     @SerializedName("adult")

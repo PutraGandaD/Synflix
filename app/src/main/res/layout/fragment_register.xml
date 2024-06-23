@@ -15,7 +15,8 @@
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:importantForAccessibility="no" />
 
     <ImageView
         android:id="@+id/btn_back_register"
@@ -24,7 +25,8 @@
         android:src="@drawable/ic_arrow_back_ios"
         app:layout_constraintStart_toStartOf="@id/et_register_name"
         app:layout_constraintTop_toTopOf="@id/synflix_logo"
-        app:layout_constraintBottom_toBottomOf="@id/synflix_logo"/>
+        app:layout_constraintBottom_toBottomOf="@id/synflix_logo"
+        android:importantForAccessibility="no" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/et_register_name"

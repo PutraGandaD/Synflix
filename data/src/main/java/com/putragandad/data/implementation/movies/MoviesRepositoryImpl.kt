@@ -1,40 +1,35 @@
-package com.putragandad.moviedbch5.data.implementation.movies
+package com.putragandad.data.implementation.movies
 
-import com.putragandad.moviedbch5.data.network.response.details.asDomain
-import com.putragandad.moviedbch5.data.network.response.now_playing.asDomain
-import com.putragandad.moviedbch5.data.network.response.popular.asDomain
-import com.putragandad.moviedbch5.data.network.response.top_rated.asDomain
-import com.putragandad.moviedbch5.data.source.RemoteDataSource
-import com.putragandad.moviedbch5.domain.models.movies.Details
-import com.putragandad.moviedbch5.domain.models.movies.MovieCast
-import com.putragandad.moviedbch5.domain.models.movies.NowPlaying
-import com.putragandad.moviedbch5.domain.models.movies.Popular
-import com.putragandad.moviedbch5.domain.models.movies.TopRated
-import com.putragandad.moviedbch5.domain.repositories.movies.MoviesRepository
+import com.putragandad.data.network.response.details.asDomain
+import com.putragandad.data.network.response.now_playing.asDomain
+import com.putragandad.data.network.response.popular.asDomain
+import com.putragandad.data.network.response.top_rated.asDomain
+import com.putragandad.data.source.RemoteDataSource
+import com.putragandad.domain.models.movies.Details
+import com.putragandad.domain.models.movies.MovieCast
+import com.putragandad.domain.models.movies.NowPlaying
+import com.putragandad.domain.models.movies.Popular
+import com.putragandad.domain.models.movies.TopRated
+import com.putragandad.domain.repositories.movies.MoviesRepository
 
-class MoviesRepositoryImpl(private val remoteDataSource: RemoteDataSource) : MoviesRepository  {
-    override suspend fun getMovieCast(query: String) : List<MovieCast> {
-        val cast = remoteDataSource.getMovieCredits(query).cast.map { it.asDomain() }
-        return cast
+class MoviesRepositoryImpl(private val remoteDataSource: RemoteDataSource) : MoviesRepository {
+    override suspend fun getMovieCast(query: String): List<MovieCast> {
+        return remoteDataSource.getMovieCredits(query).cast.map { it.asDomain() }
     }
 
-    override suspend fun getMovieDetails(query: String) : Details {
-        val details = remoteDataSource.getMovieDetails(query).asDomain()
-        return details
+    override suspend fun getMovieDetails(query: String): Details {
+        return remoteDataSource.getMovieDetails(query).asDomain()
     }
 
-    override suspend fun getMovieNowPlaying() : List<NowPlaying> {
-        val nowplaying = remoteDataSource.getMovieNowPlaying().results.map { it.asDomain() }
-        return nowplaying
+    override suspend fun getMovieNowPlaying(): List<NowPlaying> {
+        return remoteDataSource.getMovieNowPlaying().results.map { it.asDomain() }
     }
 
-    override suspend fun getMoviePopular() : List<Popular> {
-        val popular = remoteDataSource.getMoviePopular().results.map { it.asDomain() }
-        return popular
+    override suspend fun getMoviePopular(): List<Popular> {
+        return remoteDataSource.getMoviePopular().results.map { it.asDomain() }
     }
 
-    override suspend fun getMovieTopRated() : List<TopRated> {
-        val toprated = remoteDataSource.getMovieTopRated().results.map { it.asDomain() }
-        return toprated
+    override suspend fun getMovieTopRated(): List<TopRated> {
+        return remoteDataSource.getMovieTopRated().results.map { it.asDomain() }
     }
 }

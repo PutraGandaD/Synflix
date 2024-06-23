@@ -1,6 +1,6 @@
-package com.putragandad.moviedbch5.domain.usecases.users
+package com.putragandad.domain.usecases.users
 
-import com.putragandad.moviedbch5.domain.repositories.users.UserAuthRepository
+import com.putragandad.domain.repositories.users.UserAuthRepository
 import kotlinx.coroutines.flow.Flow
 
 class CheckLoginUseCase(private val userAuthRepository: UserAuthRepository) {

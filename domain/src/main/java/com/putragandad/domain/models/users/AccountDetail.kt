@@ -1,4 +1,4 @@
-package com.putragandad.moviedbch5.domain.models.users
+package com.putragandad.domain.models.users
 
 data class AccountDetail (
     val email: String,

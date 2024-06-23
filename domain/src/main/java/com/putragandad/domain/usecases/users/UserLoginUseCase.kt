@@ -1,11 +1,7 @@
-package com.putragandad.moviedbch5.domain.usecases.users
+package com.putragandad.domain.usecases.users
 
-import android.util.Log
-import com.putragandad.moviedbch5.domain.repositories.users.UserAuthRepository
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.combine
+import com.putragandad.domain.repositories.users.UserAuthRepository
 import kotlinx.coroutines.flow.firstOrNull
-import kotlinx.coroutines.flow.flow
 
 class UserLoginUseCase(private val userAuthRepository: UserAuthRepository) {
     suspend operator fun invoke(email: String, password: String)  {

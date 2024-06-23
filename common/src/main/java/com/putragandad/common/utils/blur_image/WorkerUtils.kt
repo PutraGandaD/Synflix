@@ -1,5 +1,6 @@
-package com.putragandad.moviedbch5.utils.blur_image
+package com.putragandad.common.utils.blur_image
 
+import android.annotation.SuppressLint
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
@@ -15,13 +16,13 @@ import androidx.annotation.WorkerThread
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.putragandad.common.R
-import com.putragandad.moviedbch5.utils.Constant.Companion.CHANNEL_ID
-import com.putragandad.moviedbch5.utils.Constant.Companion.DELAY_TIME_MILLIS
-import com.putragandad.moviedbch5.utils.Constant.Companion.NOTIFICATION_ID
-import com.putragandad.moviedbch5.utils.Constant.Companion.NOTIFICATION_TITLE
-import com.putragandad.moviedbch5.utils.Constant.Companion.OUTPUT_PATH
-import com.putragandad.moviedbch5.utils.Constant.Companion.VERBOSE_NOTIFICATION_CHANNEL_DESCRIPTION
-import com.putragandad.moviedbch5.utils.Constant.Companion.VERBOSE_NOTIFICATION_CHANNEL_NAME
+import com.putragandad.common.utils.Constant.Companion.CHANNEL_ID
+import com.putragandad.common.utils.Constant.Companion.DELAY_TIME_MILLIS
+import com.putragandad.common.utils.Constant.Companion.NOTIFICATION_ID
+import com.putragandad.common.utils.Constant.Companion.NOTIFICATION_TITLE
+import com.putragandad.common.utils.Constant.Companion.OUTPUT_PATH
+import com.putragandad.common.utils.Constant.Companion.VERBOSE_NOTIFICATION_CHANNEL_DESCRIPTION
+import com.putragandad.common.utils.Constant.Companion.VERBOSE_NOTIFICATION_CHANNEL_NAME
 import java.io.File
 import java.io.FileNotFoundException
 import java.io.FileOutputStream
@@ -39,6 +40,7 @@ private const val TAG = "WorkerUtils"
  * @param message Message shown on the notification
  * @param context Context needed to create Toast
  */
+@SuppressLint("MissingPermission")
 fun makeStatusNotification(message: String, context: Context) {
 
     // Make a channel if necessary

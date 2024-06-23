@@ -1,9 +1,9 @@
-package com.putragandad.moviedbch5.di
+package com.putragandad.synflix.di
 
 import com.chuckerteam.chucker.api.ChuckerInterceptor
-import com.putragandad.moviedbch5.utils.Constant
-import com.putragandad.moviedbch5.utils.network.AuthInterceptor
-import com.putragandad.moviedbch5.data.network.ApiService
+import com.putragandad.common.utils.Constant
+import com.putragandad.common.utils.network.AuthInterceptor
+import com.putragandad.data.network.ApiService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module

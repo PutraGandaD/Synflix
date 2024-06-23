@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.putragandad.moviedbch5"
+    namespace = "com.putragandad.synflix"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.putragandad.moviedbch5"
+        applicationId = "com.putragandad.synflix"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -91,24 +91,31 @@ dependencies {
     val koin_version = "3.5.6"
 
     // ViewModel
+    //noinspection GradleDependency
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
     // ViewModel utilities for Compose
+    //noinspection GradleDependency
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version")
     // LiveData
+    //noinspection GradleDependency
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
     // Lifecycles only (without ViewModel or LiveData)
+    //noinspection GradleDependency
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version")
     // Lifecycle utilities for Compose
+    //noinspection GradleDependency
     implementation("androidx.lifecycle:lifecycle-runtime-compose:$lifecycle_version")
 
     // Saved state module for ViewModel
+    //noinspection GradleDependency
     implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version")
 
     // Annotation processor
-    //noinspection LifecycleAnnotationProcessorWithJava8
+    //noinspection GradleDependency,LifecycleAnnotationProcessorWithJava8
     kapt("androidx.lifecycle:lifecycle-compiler:$lifecycle_version")
 
     implementation("androidx.core:core-ktx:1.13.1")
+    //noinspection GradleDependency
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.12.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
@@ -148,6 +155,7 @@ dependencies {
     implementation("com.google.android.gms:play-services-location:21.3.0")
 
     // Work Manager
+    //noinspection GradleDependency
     implementation("androidx.work:work-runtime-ktx:2.7.1")
 
     // Chucker

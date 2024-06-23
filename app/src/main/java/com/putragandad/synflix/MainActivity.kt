@@ -1,4 +1,4 @@
-package com.putragandad.moviedbch5
+package com.putragandad.synflix
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,7 +7,7 @@ import android.view.View
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.putragandad.moviedbch5.databinding.ActivityMainBinding
+import com.putragandad.synflix.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding

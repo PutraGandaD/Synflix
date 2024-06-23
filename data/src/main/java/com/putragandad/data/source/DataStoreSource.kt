@@ -1,6 +1,6 @@
-package com.putragandad.moviedbch5.data.source
+package com.putragandad.data.source
 
-import com.putragandad.moviedbch5.utils.prefdatastore.PrefDataStoreConstant
+import com.putragandad.common.utils.prefdatastore.PrefDataStoreConstant
 
 import android.content.Context
 import androidx.datastore.core.DataStore
@@ -14,7 +14,8 @@ import kotlinx.coroutines.flow.map
 import java.io.IOException
 
 class DataStoreSource(private val context: Context) {
-    private val Context.dataStore : DataStore<Preferences> by preferencesDataStore(PrefDataStoreConstant.APP_DATASTORE)
+    private val Context.dataStore : DataStore<Preferences> by preferencesDataStore(
+        PrefDataStoreConstant.APP_DATASTORE)
 
     suspend fun saveLoginStatus(status: Boolean) {
         context.dataStore.edit { preferences ->

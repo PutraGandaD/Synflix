@@ -1,15 +1,14 @@
-package com.putragandad.moviedbch5.presentation.fragments.auth
+package com.putragandad.synflix.presentation.fragments.auth
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
-import com.putragandad.moviedbch5.databinding.FragmentRegisterBinding
-import com.putragandad.moviedbch5.presentation.viewmodels.UserViewModel
+import com.putragandad.synflix.databinding.FragmentRegisterBinding
+import com.putragandad.synflix.presentation.viewmodels.UserViewModel
 import org.koin.android.ext.android.inject
 
 class RegisterFragment : Fragment() {
@@ -21,7 +20,7 @@ class RegisterFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentRegisterBinding.inflate(inflater, container, false)
         return binding.root

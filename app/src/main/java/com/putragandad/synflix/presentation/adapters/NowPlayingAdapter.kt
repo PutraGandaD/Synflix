@@ -1,15 +1,14 @@
-package com.putragandad.moviedbch5.presentation.adapters
+package com.putragandad.synflix.presentation.adapters
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.putragandad.moviedbch5.R
-import com.putragandad.moviedbch5.domain.models.movies.NowPlaying
+import com.putragandad.synflix.R
+import com.putragandad.domain.models.movies.NowPlaying
 
 class NowPlayingAdapter(private val dataSet: List<NowPlaying>, private val context: Context, private val nowPlayingClickListener: NowPlayingClickListener) : RecyclerView.Adapter<NowPlayingAdapter.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {

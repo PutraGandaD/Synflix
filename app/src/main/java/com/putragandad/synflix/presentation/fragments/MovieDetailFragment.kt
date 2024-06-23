@@ -1,4 +1,4 @@
-package com.putragandad.moviedbch5.presentation.fragments
+package com.putragandad.synflix.presentation.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,13 +9,13 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.putragandad.moviedbch5.R
-import com.putragandad.moviedbch5.presentation.adapters.MovieCastAdapter
-import com.putragandad.moviedbch5.databinding.FragmentMovieDetailBinding
-import com.putragandad.moviedbch5.domain.models.movies.MovieCast
-import com.putragandad.moviedbch5.presentation.viewmodels.MoviesViewModel
-import com.putragandad.moviedbch5.utils.Constant
-import com.putragandad.moviedbch5.utils.Resource
+import com.putragandad.synflix.R
+import com.putragandad.synflix.presentation.adapters.MovieCastAdapter
+import com.putragandad.synflix.databinding.FragmentMovieDetailBinding
+import com.putragandad.domain.models.movies.MovieCast
+import com.putragandad.synflix.presentation.viewmodels.MoviesViewModel
+import com.putragandad.common.utils.Constant
+import com.putragandad.common.utils.Resource
 import org.koin.android.ext.android.inject
 
 class MovieDetailFragment : Fragment() {
@@ -27,7 +27,7 @@ class MovieDetailFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentMovieDetailBinding.inflate(inflater, container, false)
         return binding.root

@@ -1,4 +1,4 @@
-package com.putragandad.moviedbch5
+package com.putragandad.synflix
 
 import org.junit.Test
 

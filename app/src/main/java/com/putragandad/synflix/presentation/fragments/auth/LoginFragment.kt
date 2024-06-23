@@ -1,23 +1,15 @@
-package com.putragandad.moviedbch5.presentation.fragments.auth
+package com.putragandad.synflix.presentation.fragments.auth
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.facebook.shimmer.BuildConfig
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
-import com.putragandad.moviedbch5.R
-import com.putragandad.moviedbch5.databinding.FragmentLoginBinding
-import com.putragandad.moviedbch5.presentation.viewmodels.UserViewModel
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
+import com.putragandad.synflix.R
+import com.putragandad.synflix.databinding.FragmentLoginBinding
+import com.putragandad.synflix.presentation.viewmodels.UserViewModel
 import org.koin.android.ext.android.inject
 
 class LoginFragment : Fragment() {
@@ -31,7 +23,7 @@ class LoginFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root

@@ -1,13 +1,13 @@
 package com.putragandad.testdomain.data.repository
 
-import com.putragandad.moviedbch5.data.network.ApiService
-import com.putragandad.moviedbch5.data.network.response.now_playing.asDomain
-import com.putragandad.moviedbch5.domain.models.movies.Details
-import com.putragandad.moviedbch5.domain.models.movies.MovieCast
-import com.putragandad.moviedbch5.domain.models.movies.NowPlaying
-import com.putragandad.moviedbch5.domain.models.movies.Popular
-import com.putragandad.moviedbch5.domain.models.movies.TopRated
-import com.putragandad.moviedbch5.domain.repositories.movies.MoviesRepository
+import com.putragandad.data.network.ApiService
+import com.putragandad.data.network.response.now_playing.asDomain
+import com.putragandad.domain.models.movies.Details
+import com.putragandad.domain.models.movies.MovieCast
+import com.putragandad.domain.models.movies.NowPlaying
+import com.putragandad.domain.models.movies.Popular
+import com.putragandad.domain.models.movies.TopRated
+import com.putragandad.domain.repositories.movies.MoviesRepository
 
 class FakeMovieRepository(private val apiService: ApiService) : MoviesRepository {
     override suspend fun getMovieNowPlaying(): List<NowPlaying> {

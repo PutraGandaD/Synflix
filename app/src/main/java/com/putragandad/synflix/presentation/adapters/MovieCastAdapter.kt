@@ -1,4 +1,4 @@
-package com.putragandad.moviedbch5.presentation.adapters
+package com.putragandad.synflix.presentation.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,8 +8,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.putragandad.moviedbch5.R
-import com.putragandad.moviedbch5.domain.models.movies.MovieCast
+import com.putragandad.synflix.R
+import com.putragandad.domain.models.movies.MovieCast
 
 class MovieCastAdapter(
     private val dataSet: List<MovieCast>,

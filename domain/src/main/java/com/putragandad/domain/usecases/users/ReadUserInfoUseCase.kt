@@ -1,7 +1,7 @@
-package com.putragandad.moviedbch5.domain.usecases.users
+package com.putragandad.domain.usecases.users
 
-import com.putragandad.moviedbch5.domain.models.users.AccountDetail
-import com.putragandad.moviedbch5.domain.repositories.users.UserAuthRepository
+import com.putragandad.domain.models.users.AccountDetail
+import com.putragandad.domain.repositories.users.UserAuthRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 

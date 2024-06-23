@@ -1,4 +1,4 @@
-package com.putragandad.moviedbch5.domain.repositories.users
+package com.putragandad.domain.repositories.users
 
 import kotlinx.coroutines.flow.Flow
 

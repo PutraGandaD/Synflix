@@ -1,4 +1,4 @@
-package com.putragandad.moviedbch5.presentation.fragments
+package com.putragandad.synflix.presentation.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,20 +9,20 @@ import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.putragandad.moviedbch5.R
-import com.putragandad.moviedbch5.presentation.adapters.NowPlayingAdapter
-import com.putragandad.moviedbch5.presentation.adapters.NowPlayingClickListener
-import com.putragandad.moviedbch5.presentation.adapters.PopularAdapter
-import com.putragandad.moviedbch5.presentation.adapters.PopularClickListener
-import com.putragandad.moviedbch5.presentation.adapters.TopRatedAdapter
-import com.putragandad.moviedbch5.presentation.adapters.TopRatedClickListener
-import com.putragandad.moviedbch5.databinding.FragmentHomeBinding
-import com.putragandad.moviedbch5.domain.models.movies.NowPlaying
-import com.putragandad.moviedbch5.domain.models.movies.Popular
-import com.putragandad.moviedbch5.domain.models.movies.TopRated
-import com.putragandad.moviedbch5.presentation.viewmodels.MoviesViewModel
-import com.putragandad.moviedbch5.utils.Constant
-import com.putragandad.moviedbch5.utils.Resource
+import com.putragandad.synflix.R
+import com.putragandad.synflix.presentation.adapters.NowPlayingAdapter
+import com.putragandad.synflix.presentation.adapters.NowPlayingClickListener
+import com.putragandad.synflix.presentation.adapters.PopularAdapter
+import com.putragandad.synflix.presentation.adapters.PopularClickListener
+import com.putragandad.synflix.presentation.adapters.TopRatedAdapter
+import com.putragandad.synflix.presentation.adapters.TopRatedClickListener
+import com.putragandad.synflix.databinding.FragmentHomeBinding
+import com.putragandad.domain.models.movies.NowPlaying
+import com.putragandad.domain.models.movies.Popular
+import com.putragandad.domain.models.movies.TopRated
+import com.putragandad.synflix.presentation.viewmodels.MoviesViewModel
+import com.putragandad.common.utils.Constant
+import com.putragandad.common.utils.Resource
 import org.koin.android.ext.android.inject
 
 class HomeFragment : Fragment(), NowPlayingClickListener, TopRatedClickListener,
@@ -35,7 +35,7 @@ class HomeFragment : Fragment(), NowPlayingClickListener, TopRatedClickListener,
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }

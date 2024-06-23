@@ -1,6 +1,7 @@
 package com.putragandad.testdomain.data.repository
 
 import com.putragandad.data.network.ApiService
+import com.putragandad.data.network.response.details.asDomain
 import com.putragandad.data.network.response.now_playing.asDomain
 import com.putragandad.domain.models.movies.Details
 import com.putragandad.domain.models.movies.MovieCast
@@ -23,7 +24,7 @@ class FakeMovieRepository(private val apiService: ApiService) : MoviesRepository
     }
 
     override suspend fun getMovieDetails(query: String): Details {
-        TODO("Not yet implemented")
+        return apiService.getMovieDetails(query).asDomain()
     }
 
     override suspend fun getMovieCast(query: String): List<MovieCast> {

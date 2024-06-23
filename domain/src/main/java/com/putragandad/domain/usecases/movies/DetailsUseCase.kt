@@ -15,7 +15,7 @@ class DetailsUseCase(private val repository: MoviesRepository) {
             val details = repository.getMovieDetails(query)
             emit(Resource.Success(details))
         } catch (e: HttpException) {
-            emit(Resource.Error(e.localizedMessage ?: "An unexpected error occured"))
+            emit(Resource.Error( "An unexpected error occured (Client Error)"))
         } catch (e: IOException) {
             emit(Resource.Error("Couldn't reach server. Check your internet connection."))
         }

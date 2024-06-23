@@ -60,6 +60,7 @@ data class MovieDetailsResponse(
 )
 
 fun MovieDetailsResponse.asDomain() = Details (
+    id = id,
     title = title,
     releaseDate = releaseDate,
     overview = overview,

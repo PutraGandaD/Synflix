@@ -2,9 +2,11 @@ package com.putragandad.moviedbch5
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.putragandad.moviedbch5.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -30,5 +32,24 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        val message = "Product Flavor = ${BuildConfig.FLAVOR} \nBuild Type = ${BuildConfig.BUILD_TYPE}"
+
+        Log.d("BuildConfig", "BUILD_FLAVOR: ${BuildConfig.FLAVOR}, BUILD_TYPE: ${BuildConfig.BUILD_TYPE}")
+
+        MaterialAlertDialogBuilder(this)
+            .setTitle("About Synflix Build")
+            .setMessage(message)
+            .setNegativeButton("Cancel") { dialog, _ ->
+                dialog.cancel()
+            }
+            .setPositiveButton("Yes") { dialog, _ ->
+                dialog.cancel()
+            }
+            .show()
     }
 }

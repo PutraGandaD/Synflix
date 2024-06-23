@@ -4,4 +4,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="shimmerColor">#C2C2C2</color>
     <color name="placeholder_image">#1E1F23</color>
+    <color name="btn_color">#FC0D1B</color>
 </resources>

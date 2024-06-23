@@ -88,7 +88,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cornerRadius="8dp"
-        android:backgroundTint="#FC0D1B"
+        android:backgroundTint="@color/btn_color"
         app:icon="@drawable/ic_logout_24"
         app:iconSize="22dp"
         app:iconGravity="textStart"

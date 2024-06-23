@@ -26,8 +26,49 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            buildConfigField("String", "BUILD_TYPE", "\"release\"")
+        }
+        debug {
+            applicationIdSuffix = ".debug"
+            versionNameSuffix = "-debug"
+            buildConfigField("String", "BUILD_FLAVOR", "\"debug\"")
         }
     }
+
+    flavorDimensions += listOf("memberTier")
+
+    productFlavors {
+        create("free") {
+            dimension = "memberTier"
+            applicationIdSuffix = ".free"
+            versionNameSuffix = ".free"
+            manifestPlaceholders["appLabel"] = "Synflix Free"
+            buildConfigField("String", "BUILD_FLAVOR", "\"free\"")
+        }
+        create("paid") {
+            dimension = "memberTier"
+            applicationIdSuffix = ".pro"
+            versionNameSuffix = ".pro"
+            manifestPlaceholders["appLabel"] = "Synflix Pro"
+            buildConfigField("String", "BUILD_FLAVOR", "\"paid\"")
+        }
+    }
+
+    sourceSets {
+        getByName("main") {
+            java.srcDirs("src/main/java")
+            res.srcDirs("src/main/res")
+        }
+        named("free") {
+            java.srcDirs("src/freeVersion/java")
+            res.srcDirs("src/freeVersion/res")
+        }
+        named("paid") {
+            java.srcDirs("src/paidVersion/java")
+            res.srcDirs("src/paidVersion/res")
+        }
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -37,6 +78,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 }
 

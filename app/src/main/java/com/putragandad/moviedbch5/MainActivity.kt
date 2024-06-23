@@ -22,6 +22,8 @@ class MainActivity : AppCompatActivity() {
 
         bottomNavbar.setupWithNavController(navController)
 
+        buildDialog()
+
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when(destination.id) {
                 R.id.splashFragment, R.id.loginFragment, R.id.registerFragment, R.id.movieDetailFragment, R.id.profileEditFragment -> {
@@ -34,9 +36,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-
+    private fun buildDialog() {
         val message = "Product Flavor = ${BuildConfig.FLAVOR} \nBuild Type = ${BuildConfig.BUILD_TYPE}"
 
         Log.d("BuildConfig", "BUILD_FLAVOR: ${BuildConfig.FLAVOR}, BUILD_TYPE: ${BuildConfig.BUILD_TYPE}")

@@ -1,5 +1,6 @@
 package com.putragandad.moviedbch5.di
 
+import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.putragandad.moviedbch5.utils.Constant
 import com.putragandad.moviedbch5.utils.network.AuthInterceptor
 import com.putragandad.moviedbch5.data.network.ApiService
@@ -12,8 +13,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 object NetworkModule {
     val networkModule = module {
         single { AuthInterceptor() }
+        single { ChuckerInterceptor(get()) }
         single { provideInterceptor() }
-        factory { provideOkHttpClient(get(), get()) }
+        factory { provideOkHttpClient(get(), get(), get()) }
         single { provideRetrofit(get()) }
         single { provideRetrofitApi(get()) }
     }
@@ -23,10 +25,11 @@ object NetworkModule {
             .addConverterFactory(GsonConverterFactory.create()).build()
     }
 
-    fun provideOkHttpClient(authInterceptor: AuthInterceptor, httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
+    fun provideOkHttpClient(authInterceptor: AuthInterceptor, httpLoggingInterceptor: HttpLoggingInterceptor, chuckerInterceptor: ChuckerInterceptor): OkHttpClient {
         return OkHttpClient().newBuilder()
             .addInterceptor(authInterceptor)
             .addInterceptor(httpLoggingInterceptor)
+            .addInterceptor(chuckerInterceptor)
             .build()
     }
 

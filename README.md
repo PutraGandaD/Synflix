@@ -7,12 +7,12 @@ Basic Movie Database App utilizing The Movie Database (TMDB) API, for learning a
 - **mvvm-with-di-koin** = MVVM (Model - View - ViewModel) Architecture implementation + Dependency Injection (Koin)
 
 ## Screenshot
-![1](https://github.com/PutraGandaD/Synflix/assets/54593964/75a367fa-7e4b-4978-a9d8-dc3e85851e3c)
-![2](https://github.com/PutraGandaD/Synflix/assets/54593964/f7899428-a6f1-4d05-be38-fa54e7b8f26d)
+![Untitled design](https://github.com/PutraGandaD/Synflix/assets/54593964/a9f506e4-63ec-41dd-becb-7ed401f4c19a)
+![Untitled design (1)](https://github.com/PutraGandaD/Synflix/assets/54593964/f9ba6c65-58c7-4520-8c02-5e2afbb23be1)
 
 ## Tech Stack :
 - Built using Material Design 3 (https://m3.material.io), UI Inspired by Netflix
-- Built with Clean Architecture
+- Built with Clean Architecture (kind of)
 - With Dependency Injection (Koin)
 - Single Activity Approach with multiple Fragments
 - Using TheMovieDB API (https://api.themoviedb.org)
@@ -32,7 +32,11 @@ Basic Movie Database App utilizing The Movie Database (TMDB) API, for learning a
 
 ## WIP :
 - [x] Modularization
-- [x] Add features for change profile picture locally
+- [x] Add features for change profile picture locally (+WorkManager for blurring image)
+- [x] Build Flavoring and Build Types
+- [x] Unit Test (with JUnit4)
+- [x] Simple CI/CD with GitHub Actions
+- [ ] Migrating from LiveData to StateFlow 
 - [ ] Implement Paging 3.0 for fetching data from API
 - [ ] Add Search Movie feature
 - [ ] Add "Add to Watchlist..." feature

@@ -20,12 +20,26 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
+      - name: Run Unit Tests
+        run: ./gradlew test
+
       - name: Build Debug Paid Variant with Gradle
         run: ./gradlew assemblePaidDebug
 
-      - name: Upload a Build Artifact
+      - name: Build Debug Free Variant with Gradle
+        run: ./gradlew assembleFreeDebug
+
+      - name: Upload APK of Debug Paid Variant Build
         uses: actions/upload-artifact@v4.3.3
         with:
-          name: app_build.apk
+          name: debug_paid_build.apk
           path: app/build/outputs/apk/paid/debug/app-paid-debug.apk
+
+      - name: Upload APK of Debug Free Variant Build
+        uses: actions/upload-artifact@v4.3.3
+        with:
+          name: debug_free_build.apk
+          path: app/build/outputs/apk/free/debug/app-free-debug.apk
+
+
 

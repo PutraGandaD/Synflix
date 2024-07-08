@@ -23,6 +23,15 @@ jobs:
       - name: Run Unit Tests
         run: ./gradlew test
 
+      - name: Decode Keystore
+        env:
+          ENCODED_STRING: ${{ secrets.SIGNING_KEY_STORE_BASE64 }}
+          SIGNING_KEY_STORE_PATH: ${{ secrets.SIGNING_KEY_STORE_PATH }}
+
+        run: |
+          echo $ENCODED_STRING > keystore-b64.txt
+          base64 -d keystore-b64.txt > $SIGNING_KEY_STORE_PATH
+
       - name: Build Unsigned APK Debug Paid Variant with Gradle
         run: ./gradlew assemblePaidDebug
 
@@ -30,38 +39,20 @@ jobs:
         run: ./gradlew assembleFreeDebug
 
       - name: Build Android Bundle (.aab) Release Free Variant
+        env:
+          SIGNING_KEY_STORE_PATH: ${{ secrets.SIGNING_KEY_STORE_PATH }}
+          SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
+          SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
+          SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
         run: ./gradlew bundleFreeRelease
 
       - name: Build Android Bundle (.aab) Release Paid Variant
+        env:
+          SIGNING_KEY_STORE_PATH: ${{ secrets.SIGNING_KEY_STORE_PATH }}
+          SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
+          SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
+          SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
         run: ./gradlew bundlePaidRelease
-
-      - uses: r0adkll/sign-android-release@v1
-        name: Sign Android Bundle (.aab) Release Free Variant
-        # ID used to access action output
-        id: sign_aab_free_release
-        with:
-          releaseDirectory: app/build/outputs/bundle/free/release
-          signingKeyBase64: ${{ secrets.SIGNING_KEY }}
-          alias: ${{ secrets.ALIAS }}
-          keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
-          keyPassword: ${{ secrets.KEY_PASSWORD }}
-        env:
-          # override default build-tools version (33.0.0) -- optional
-          BUILD_TOOLS_VERSION: "34.0.0"
-
-      - uses: r0adkll/sign-android-release@v1
-        name: Sign Android Bundle (.aab) Release Paid Variant
-        # ID used to access action output
-        id: sign_aab_paid_release
-        with:
-          releaseDirectory: app/build/outputs/bundle/paid/release
-          signingKeyBase64: ${{ secrets.SIGNING_KEY }}
-          alias: ${{ secrets.ALIAS }}
-          keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
-          keyPassword: ${{ secrets.KEY_PASSWORD }}
-        env:
-          # override default build-tools version (33.0.0) -- optional
-          BUILD_TOOLS_VERSION: "34.0.0"
 
       - name: Upload APK of Debug Paid Variant Build
         uses: actions/upload-artifact@v4.3.3
@@ -74,6 +65,14 @@ jobs:
         with:
           name: debug_free_build_unsigned.apk
           path: app/build/outputs/apk/free/debug/app-free-debug.apk
+
+      - name: Upload .aab Release
+        uses: actions/upload-artifact@v4.3.3
+        with:
+          name: release-artifacts
+          paths: |
+            app/free/release/
+            app/paid/release/
 
 
 

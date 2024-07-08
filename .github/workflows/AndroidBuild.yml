@@ -71,8 +71,8 @@ jobs:
         with:
           name: release-artifacts
           path: |
-            app/free/release/
-            app/paid/release/
+            app/build/outputs/bundle/free/release/
+            app/build/outputs/bundle/paid/release/
 
 
 

@@ -54,6 +54,12 @@ jobs:
           SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
         run: ./gradlew bundlePaidRelease
 
+      - name: Move Free Variant AAB to Release Directory
+        run: mkdir -p app/free/release && mv app/build/outputs/bundle/freeRelease/*.aab app/free/release/
+
+      - name: Move Paid Variant AAB to Release Directory
+        run: mkdir -p app/paid/release && mv app/build/outputs/bundle/paidRelease/*.aab app/paid/release/
+
       - name: Upload APK of Debug Paid Variant Build
         uses: actions/upload-artifact@v4.3.3
         with:

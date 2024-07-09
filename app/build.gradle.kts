@@ -1,8 +1,10 @@
 plugins {
     id("com.android.application")
+    id("com.google.gms.google-services")
     id("org.jetbrains.kotlin.android")
     id("kotlin-parcelize")
     kotlin("kapt")
+    id("com.google.firebase.firebase-perf")
 }
 
 android {
@@ -27,11 +29,12 @@ android {
                 "proguard-rules.pro"
             )
             buildConfigField("String", "BUILD_TYPE", "\"release\"")
+            signingConfig = signingConfigs.getByName("debug")
         }
         debug {
             applicationIdSuffix = ".debug"
             versionNameSuffix = "-debug"
-            buildConfigField("String", "BUILD_FLAVOR", "\"debug\"")
+            buildConfigField("String", "BUILD_TYPE", "\"debug\"")
         }
     }
 
@@ -60,12 +63,12 @@ android {
             res.srcDirs("src/main/res")
         }
         named("free") {
-            java.srcDirs("src/freeVersion/java")
-            res.srcDirs("src/freeVersion/res")
+            java.srcDirs("src/free/java")
+            res.srcDirs("src/free/res")
         }
         named("paid") {
-            java.srcDirs("src/paidVersion/java")
-            res.srcDirs("src/paidVersion/res")
+            java.srcDirs("src/paid/java")
+            res.srcDirs("src/paid/res")
         }
     }
 
@@ -161,5 +164,14 @@ dependencies {
     // Chucker
     debugImplementation("com.github.chuckerteam.chucker:library:4.0.0")
     releaseImplementation("com.github.chuckerteam.chucker:library-no-op:4.0.0")
+
+    // Firebase
+    // Import the Firebase BoM
+    implementation(platform("com.google.firebase:firebase-bom:33.1.1"))
+    // TODO: Add the dependencies for Firebase products you want to use
+    // When using the BoM, don't specify versions in Firebase dependencies
+    implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-perf")
+
 
 }

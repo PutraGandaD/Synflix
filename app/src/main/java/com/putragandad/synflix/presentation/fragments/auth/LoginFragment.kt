@@ -7,10 +7,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.Firebase
 import com.putragandad.synflix.R
 import com.putragandad.synflix.databinding.FragmentLoginBinding
 import com.putragandad.synflix.presentation.viewmodels.UserViewModel
 import org.koin.android.ext.android.inject
+import com.google.firebase.perf.performance
+import com.google.firebase.perf.FirebasePerformance;
+import com.google.firebase.perf.metrics.Trace;
 
 class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
@@ -38,6 +42,8 @@ class LoginFragment : Fragment() {
             }
         }
 
+        val loginBtnTrace = Firebase.performance.newTrace("btn_login_pressed")
+        loginBtnTrace.start()
         binding.btnLogin.setOnClickListener {
             val email = binding.etLoginEmail.editText?.text.toString()
             val password = binding.etLoginPassword.editText?.text.toString()
@@ -50,10 +56,14 @@ class LoginFragment : Fragment() {
                     .show()
             }
         }
+        loginBtnTrace.stop()
 
+        val registerBtnTrace = Firebase.performance.newTrace("btn_register_pressed")
+        registerBtnTrace.start()
         binding.btnRegister.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
+        registerBtnTrace.stop()
     }
 
     override fun onDestroyView() {

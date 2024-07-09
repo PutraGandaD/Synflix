@@ -9,6 +9,8 @@ import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.perf.FirebasePerformance;
+import com.google.firebase.perf.metrics.AddTrace
 import com.putragandad.synflix.R
 import com.putragandad.synflix.presentation.adapters.NowPlayingAdapter
 import com.putragandad.synflix.presentation.adapters.NowPlayingClickListener
@@ -154,16 +156,19 @@ class HomeFragment : Fragment(), NowPlayingClickListener, TopRatedClickListener,
         }
     }
 
+    @AddTrace(name = "on_click_movie_nowplaying", enabled = true)
     override fun onClickMovieNowPlaying(result: NowPlaying) {
         val bundle = bundleOf(Constant.MOVIES_ID_EXTRA to result.id)
         findNavController().navigate(R.id.action_homeFragment_to_movieDetailFragment, bundle)
     }
 
+    @AddTrace(name = "on_click_movie_popular", enabled = true)
     override fun onClickPopularMovie(result: Popular) {
         val bundle = bundleOf(Constant.MOVIES_ID_EXTRA to result.id)
         findNavController().navigate(R.id.action_homeFragment_to_movieDetailFragment, bundle)
     }
 
+    @AddTrace(name = "on_click_movie_toprated", enabled = true)
     override fun onClickMovieTopRated(result: TopRated) {
         val bundle = bundleOf(Constant.MOVIES_ID_EXTRA to result.id)
         findNavController().navigate(R.id.action_homeFragment_to_movieDetailFragment, bundle)

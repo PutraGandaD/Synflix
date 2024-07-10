@@ -14,3 +14,7 @@
 .cxx
 local.properties
 google-services.json
+/app/src/debug/free/google-services.json
+/app/src/debug/paid/google-services.json
+/app/src/release/free/google-services.json
+/app/src/release/paid/google-services.json

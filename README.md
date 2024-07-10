@@ -25,8 +25,20 @@ Basic Movie Database App utilizing The Movie Database (TMDB) API, for learning a
 ![1_eWl4zVmw4zKNGEF3Cba6Tw](https://github.com/PutraGandaD/Synflix/assets/54593964/4e436873-9f2a-4e6f-8a7c-022f2cb0f24b)
 
 ## Build Variant / Flavors
-![Screen Shot 2024-07-11 at 2 23 25 AM](https://github.com/PutraGandaD/Synflix/assets/54593964/3e8bce58-b888-4c7d-b2b9-a5de7399f6fb)
+![Screen Shot 2024-07-11 at 2 23 25 AM](https://github.com/PutraGandaD/Synflix/assets/54593964/3e8bce58-b888-4c7d-b2b9-a5de7399f6fb)<br>
 See this commit for details : https://github.com/PutraGandaD/Synflix/commit/ffd956bd1c78973e33f7febad7e903f68d0c38b0
+
+## CI/CD 
+This project utilize CI/CD with GitHub Actions.
+Please go to Actions tab for more details on CI/CD Script
+
+## Firebase Integrations
+This project utilizing Firebase for Performance Monitoring and Custom Traces (for learning purposes). <br>
+In order to build this app, you need the google-services.json file that suited the build variant/flavors of this app. <br>
+For CI/CD to work, i implemented a custom way to generate google-services.json based on GitHub Secrets. <br>
+See these commit for details on Firebase Integrations in this app : <br>
+https://github.com/PutraGandaD/Synflix/commit/fe0afd8a5148c17c0ba95460147d9c9d337135fc <br>
+https://github.com/PutraGandaD/Synflix/commit/78c364c5c3f7109a89558bb756e6641ce4b67fe7
 
 ## 3rd party library featured in this app :
 - Facebook Shimmer Library (https://github.com/facebookarchive/shimmer-android)

@@ -24,8 +24,11 @@ Basic Movie Database App utilizing The Movie Database (TMDB) API, for learning a
 ## Architecture Overview
 ![1_eWl4zVmw4zKNGEF3Cba6Tw](https://github.com/PutraGandaD/Synflix/assets/54593964/4e436873-9f2a-4e6f-8a7c-022f2cb0f24b)
 
+## Build Variant / Flavors
+![Screen Shot 2024-07-11 at 2 23 25 AM](https://github.com/PutraGandaD/Synflix/assets/54593964/3e8bce58-b888-4c7d-b2b9-a5de7399f6fb)
+
 ## 3rd party library featured in this app :
-- Facebook Shimmering Loading Effect Library (https://github.com/facebookarchive/shimmer-android)
+- Facebook Shimmer Library (https://github.com/facebookarchive/shimmer-android)
 - Retrofit
 - Glide
 - Koin
@@ -41,7 +44,7 @@ Basic Movie Database App utilizing The Movie Database (TMDB) API, for learning a
 - [ ] Add Search Movie feature
 - [ ] Add "Add to Watchlist..." feature
 
-## Reference :
+## README Credits :
 - A Definitive Guide to Clean Architecture in Android with MVVM by Sourik at Medium <br>
   https://medium.com/@gangulysourik/a-definitive-guide-to-clean-architecture-in-android-with-mvvm-d74a0533ef2c
 

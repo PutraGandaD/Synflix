@@ -26,6 +26,7 @@ Basic Movie Database App utilizing The Movie Database (TMDB) API, for learning a
 
 ## Build Variant / Flavors
 ![Screen Shot 2024-07-11 at 2 23 25 AM](https://github.com/PutraGandaD/Synflix/assets/54593964/3e8bce58-b888-4c7d-b2b9-a5de7399f6fb)
+See this commit for details : https://github.com/PutraGandaD/Synflix/commit/ffd956bd1c78973e33f7febad7e903f68d0c38b0
 
 ## 3rd party library featured in this app :
 - Facebook Shimmer Library (https://github.com/facebookarchive/shimmer-android)

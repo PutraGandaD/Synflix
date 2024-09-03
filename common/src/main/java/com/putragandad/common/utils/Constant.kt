@@ -1,4 +1,4 @@
-package com.putragandad.common.utils
+package com.putragandad.synflix.common.utils
 
 class Constant {
     companion object {

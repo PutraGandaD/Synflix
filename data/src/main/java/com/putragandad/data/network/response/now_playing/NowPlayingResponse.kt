@@ -1,4 +1,4 @@
-package com.putragandad.data.network.response.now_playing
+package com.putragandad.synflix.data.network.response.now_playing
 
 import com.google.gson.annotations.SerializedName
 

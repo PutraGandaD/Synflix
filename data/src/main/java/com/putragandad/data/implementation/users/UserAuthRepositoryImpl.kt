@@ -1,7 +1,7 @@
-package com.putragandad.data.implementation.users
+package com.putragandad.synflix.data.implementation.users
 
-import com.putragandad.data.source.DataStoreSource
-import com.putragandad.domain.repositories.users.UserAuthRepository
+import com.putragandad.synflix.data.source.DataStoreSource
+import com.putragandad.synflix.domain.repositories.users.UserAuthRepository
 import kotlinx.coroutines.flow.Flow
 
 class UserAuthRepositoryImpl(

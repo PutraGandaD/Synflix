@@ -1,16 +1,16 @@
-package com.putragandad.data.implementation.movies
+package com.putragandad.synflix.data.implementation.movies
 
-import com.putragandad.data.network.response.details.asDomain
-import com.putragandad.data.network.response.now_playing.asDomain
-import com.putragandad.data.network.response.popular.asDomain
-import com.putragandad.data.network.response.top_rated.asDomain
-import com.putragandad.data.source.RemoteDataSource
-import com.putragandad.domain.models.movies.Details
-import com.putragandad.domain.models.movies.MovieCast
-import com.putragandad.domain.models.movies.NowPlaying
-import com.putragandad.domain.models.movies.Popular
-import com.putragandad.domain.models.movies.TopRated
-import com.putragandad.domain.repositories.movies.MoviesRepository
+import com.putragandad.synflix.data.network.response.details.asDomain
+import com.putragandad.synflix.data.network.response.now_playing.asDomain
+import com.putragandad.synflix.data.network.response.popular.asDomain
+import com.putragandad.synflix.data.network.response.top_rated.asDomain
+import com.putragandad.synflix.data.source.RemoteDataSource
+import com.putragandad.synflix.domain.models.movies.Details
+import com.putragandad.synflix.domain.models.movies.MovieCast
+import com.putragandad.synflix.domain.models.movies.NowPlaying
+import com.putragandad.synflix.domain.models.movies.Popular
+import com.putragandad.synflix.domain.models.movies.TopRated
+import com.putragandad.synflix.domain.repositories.movies.MoviesRepository
 
 class MoviesRepositoryImpl(private val remoteDataSource: RemoteDataSource) : MoviesRepository {
     override suspend fun getMovieCast(query: String): List<MovieCast> {

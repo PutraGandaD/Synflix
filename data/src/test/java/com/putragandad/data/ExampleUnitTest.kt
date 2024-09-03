@@ -1,4 +1,4 @@
-package com.putragandad.data
+package com.putragandad.synflix.data
 
 import org.junit.Test
 

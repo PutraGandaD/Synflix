@@ -1,4 +1,4 @@
-package com.putragandad.common.utils.blur_image
+package com.putragandad.synflix.common.utils.blur_image
 
 import android.annotation.SuppressLint
 import android.app.NotificationChannel
@@ -15,14 +15,14 @@ import android.util.Log
 import androidx.annotation.WorkerThread
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import com.putragandad.common.R
-import com.putragandad.common.utils.Constant.Companion.CHANNEL_ID
-import com.putragandad.common.utils.Constant.Companion.DELAY_TIME_MILLIS
-import com.putragandad.common.utils.Constant.Companion.NOTIFICATION_ID
-import com.putragandad.common.utils.Constant.Companion.NOTIFICATION_TITLE
-import com.putragandad.common.utils.Constant.Companion.OUTPUT_PATH
-import com.putragandad.common.utils.Constant.Companion.VERBOSE_NOTIFICATION_CHANNEL_DESCRIPTION
-import com.putragandad.common.utils.Constant.Companion.VERBOSE_NOTIFICATION_CHANNEL_NAME
+import com.putragandad.synflix.common.utils.Constant.Companion.CHANNEL_ID
+import com.putragandad.synflix.common.utils.Constant.Companion.DELAY_TIME_MILLIS
+import com.putragandad.synflix.common.utils.Constant.Companion.NOTIFICATION_ID
+import com.putragandad.synflix.common.utils.Constant.Companion.NOTIFICATION_TITLE
+import com.putragandad.synflix.common.utils.Constant.Companion.OUTPUT_PATH
+import com.putragandad.synflix.common.utils.Constant.Companion.VERBOSE_NOTIFICATION_CHANNEL_DESCRIPTION
+import com.putragandad.synflix.common.utils.Constant.Companion.VERBOSE_NOTIFICATION_CHANNEL_NAME
+import com.putragandad.synflix.common.R
 import java.io.File
 import java.io.FileNotFoundException
 import java.io.FileOutputStream

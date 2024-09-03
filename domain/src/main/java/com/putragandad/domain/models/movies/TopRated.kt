@@ -1,4 +1,4 @@
-package com.putragandad.domain.models.movies
+package com.putragandad.synflix.domain.models.movies
 
 data class TopRated (
     val id: Int,

@@ -1,11 +1,11 @@
-package com.putragandad.data.source
+package com.putragandad.synflix.data.source
 
-import com.putragandad.data.network.ApiService
-import com.putragandad.data.network.response.details.CreditResponse
-import com.putragandad.data.network.response.details.MovieDetailsResponse
-import com.putragandad.data.network.response.now_playing.NowPlayingResponse
-import com.putragandad.data.network.response.popular.PopularResponse
-import com.putragandad.data.network.response.top_rated.TopRatedResponse
+import com.putragandad.synflix.data.network.ApiService
+import com.putragandad.synflix.data.network.response.details.CreditResponse
+import com.putragandad.synflix.data.network.response.details.MovieDetailsResponse
+import com.putragandad.synflix.data.network.response.now_playing.NowPlayingResponse
+import com.putragandad.synflix.data.network.response.popular.PopularResponse
+import com.putragandad.synflix.data.network.response.top_rated.TopRatedResponse
 
 class RemoteDataSource(private val apiService: ApiService) {
     suspend fun getMovieNowPlaying() : NowPlayingResponse {

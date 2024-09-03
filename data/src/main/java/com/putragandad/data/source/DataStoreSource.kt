@@ -1,6 +1,4 @@
-package com.putragandad.data.source
-
-import com.putragandad.common.utils.prefdatastore.PrefDataStoreConstant
+package com.putragandad.synflix.data.source
 
 import android.content.Context
 import androidx.datastore.core.DataStore
@@ -8,6 +6,7 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.emptyPreferences
 import androidx.datastore.preferences.preferencesDataStore
+import com.putragandad.synflix.common.utils.prefdatastore.PrefDataStoreConstant
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map

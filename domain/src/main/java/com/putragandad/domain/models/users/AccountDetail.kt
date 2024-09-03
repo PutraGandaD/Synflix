@@ -1,4 +1,4 @@
-package com.putragandad.domain.models.users
+package com.putragandad.synflix.domain.models.users
 
 data class AccountDetail (
     val email: String,

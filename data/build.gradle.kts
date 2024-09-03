@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.putragandad.data"
+    namespace = "com.putragandad.synflix.data"
     compileSdk = 34
 
     defaultConfig {

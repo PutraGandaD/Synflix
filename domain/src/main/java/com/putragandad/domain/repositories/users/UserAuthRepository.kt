@@ -1,4 +1,4 @@
-package com.putragandad.domain.repositories.users
+package com.putragandad.synflix.domain.repositories.users
 
 import kotlinx.coroutines.flow.Flow
 

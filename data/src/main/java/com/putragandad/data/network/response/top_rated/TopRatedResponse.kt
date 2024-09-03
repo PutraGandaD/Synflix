@@ -1,4 +1,4 @@
-package com.putragandad.data.network.response.top_rated
+package com.putragandad.synflix.data.network.response.top_rated
 
 
 import com.google.gson.annotations.SerializedName

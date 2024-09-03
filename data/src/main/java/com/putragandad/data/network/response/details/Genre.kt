@@ -1,4 +1,4 @@
-package com.putragandad.data.network.response.details
+package com.putragandad.synflix.data.network.response.details
 
 
 import com.google.gson.annotations.SerializedName

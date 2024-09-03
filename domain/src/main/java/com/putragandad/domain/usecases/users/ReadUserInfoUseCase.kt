@@ -1,7 +1,7 @@
-package com.putragandad.domain.usecases.users
+package com.putragandad.synflix.domain.usecases.users
 
-import com.putragandad.domain.models.users.AccountDetail
-import com.putragandad.domain.repositories.users.UserAuthRepository
+import com.putragandad.synflix.domain.models.users.AccountDetail
+import com.putragandad.synflix.domain.repositories.users.UserAuthRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 

@@ -1,8 +1,8 @@
-package com.putragandad.data.network.response.top_rated
+package com.putragandad.synflix.data.network.response.top_rated
 
 
 import com.google.gson.annotations.SerializedName
-import com.putragandad.domain.models.movies.TopRated
+import com.putragandad.synflix.domain.models.movies.TopRated
 
 data class TopRatedResult(
     @SerializedName("adult")

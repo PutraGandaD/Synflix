@@ -1,8 +1,8 @@
-package com.putragandad.domain.usecases.movies
+package com.putragandad.synflix.domain.usecases.movies
 
-import com.putragandad.domain.models.movies.Popular
-import com.putragandad.domain.repositories.movies.MoviesRepository
-import com.putragandad.common.utils.Resource
+import com.putragandad.synflix.domain.models.movies.Popular
+import com.putragandad.synflix.domain.repositories.movies.MoviesRepository
+import com.putragandad.synflix.common.utils.Resource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException

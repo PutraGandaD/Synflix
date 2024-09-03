@@ -1,6 +1,6 @@
-package com.putragandad.common.utils.network
+package com.putragandad.synflix.common.utils.network
 
-import com.putragandad.common.utils.Constant
+import com.putragandad.synflix.common.utils.Constant
 import okhttp3.Interceptor
 import okhttp3.Response
 

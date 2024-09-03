@@ -1,0 +1,85 @@
+package com.putragandad.synflix.presentation.fragments.auth
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.Firebase
+import com.putragandad.synflix.presentation.viewmodels.UserViewModel
+import org.koin.android.ext.android.inject
+import com.google.firebase.perf.performance
+import com.google.firebase.perf.FirebasePerformance;
+import com.google.firebase.perf.metrics.Trace;
+import com.putragandad.synflix.presentation.R
+import com.putragandad.synflix.presentation.databinding.FragmentLoginBinding
+
+class LoginFragment : Fragment() {
+    private var _binding: FragmentLoginBinding? = null
+    private val binding get() = _binding!!
+
+    private val userViewModel: UserViewModel by inject()
+
+    private var loginFormIsNotEmpty = false
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        // Inflate the layout for this fragment
+        _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        userViewModel.loginStatus.observe(viewLifecycleOwner) { status ->
+            if(loginFormIsNotEmpty) {
+                validateLogin(status)
+            }
+        }
+
+        val loginBtnTrace = Firebase.performance.newTrace("btn_login_pressed")
+        loginBtnTrace.start()
+        binding.btnLogin.setOnClickListener {
+            val email = binding.etLoginEmail.editText?.text.toString()
+            val password = binding.etLoginPassword.editText?.text.toString()
+
+            if(email.isNotEmpty() && password.isNotEmpty()) {
+                loginFormIsNotEmpty = true
+                userViewModel.login(email, password)
+            } else {
+                Snackbar.make(requireView(), "Email and password can't be empty", Snackbar.LENGTH_LONG)
+                    .show()
+            }
+        }
+        loginBtnTrace.stop()
+
+        val registerBtnTrace = Firebase.performance.newTrace("btn_register_pressed")
+        registerBtnTrace.start()
+        binding.btnRegister.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+        }
+        registerBtnTrace.stop()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    private fun validateLogin(status : Boolean) {
+        if(status) {
+            if (findNavController().currentDestination?.id == R.id.loginFragment) {
+                findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+            }
+            Snackbar.make(requireView(), "Login successful! You're signed in.", Snackbar.LENGTH_LONG).show()
+        } else {
+            Snackbar.make(requireView(), "Invalid email or password. Try Again.", Snackbar.LENGTH_LONG)
+                .show()
+        }
+    }
+}

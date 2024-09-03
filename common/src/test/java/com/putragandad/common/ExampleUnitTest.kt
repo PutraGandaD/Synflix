@@ -1,4 +1,4 @@
-package com.putragandad.common
+package com.putragandad.synflix.common
 
 import org.junit.Test
 

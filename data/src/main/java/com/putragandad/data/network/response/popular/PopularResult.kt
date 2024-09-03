@@ -1,8 +1,8 @@
-package com.putragandad.data.network.response.popular
+package com.putragandad.synflix.data.network.response.popular
 
 
 import com.google.gson.annotations.SerializedName
-import com.putragandad.domain.models.movies.Popular
+import com.putragandad.synflix.domain.models.movies.Popular
 
 data class PopularResult(
     @SerializedName("adult")

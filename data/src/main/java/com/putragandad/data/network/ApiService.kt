@@ -1,10 +1,10 @@
-package com.putragandad.data.network
+package com.putragandad.synflix.data.network
 
-import com.putragandad.data.network.response.details.CreditResponse
-import com.putragandad.data.network.response.details.MovieDetailsResponse
-import com.putragandad.data.network.response.now_playing.NowPlayingResponse
-import com.putragandad.data.network.response.popular.PopularResponse
-import com.putragandad.data.network.response.top_rated.TopRatedResponse
+import com.putragandad.synflix.data.network.response.details.CreditResponse
+import com.putragandad.synflix.data.network.response.details.MovieDetailsResponse
+import com.putragandad.synflix.data.network.response.now_playing.NowPlayingResponse
+import com.putragandad.synflix.data.network.response.popular.PopularResponse
+import com.putragandad.synflix.data.network.response.top_rated.TopRatedResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 

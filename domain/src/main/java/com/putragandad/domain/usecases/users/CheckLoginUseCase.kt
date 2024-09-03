@@ -1,6 +1,6 @@
-package com.putragandad.domain.usecases.users
+package com.putragandad.synflix.domain.usecases.users
 
-import com.putragandad.domain.repositories.users.UserAuthRepository
+import com.putragandad.synflix.domain.repositories.users.UserAuthRepository
 import kotlinx.coroutines.flow.Flow
 
 class CheckLoginUseCase(private val userAuthRepository: UserAuthRepository) {

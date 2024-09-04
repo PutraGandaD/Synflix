@@ -122,9 +122,6 @@ dependencies {
     // CircleImageView
     implementation("de.hdodenhof:circleimageview:3.1.0")
 
-    // DataStore
-    implementation("androidx.datastore:datastore-preferences:1.1.1")
-
     // Facebook Shimmer Loading
     implementation("com.facebook.shimmer:shimmer:0.5.0")
 
@@ -137,16 +134,9 @@ dependencies {
     implementation("io.insert-koin:koin-core-coroutines")
     implementation("io.insert-koin:koin-androidx-workmanager")
 
-    // Play Store Services Dependencies
-    implementation("com.google.android.gms:play-services-location:21.3.0")
-
     // Work Manager
     //noinspection GradleDependency
     implementation("androidx.work:work-runtime-ktx:2.7.1")
-
-    // Chucker
-    debugImplementation("com.github.chuckerteam.chucker:library:4.0.0")
-    releaseImplementation("com.github.chuckerteam.chucker:library-no-op:4.0.0")
 
     // Firebase
     // Import the Firebase BoM

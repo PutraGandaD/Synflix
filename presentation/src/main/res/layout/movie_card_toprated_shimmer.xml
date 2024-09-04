@@ -2,13 +2,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="8dp"
+    android:layout_marginBottom="10dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card_iv_toprated"
-        android:layout_width="180dp"
-        android:layout_height="100dp"
+        android:layout_width="140dp"
+        android:layout_height="80dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -32,7 +32,7 @@
         android:background="@color/shimmerColor"
         android:fontFamily="@font/netflixsans_regular"
         android:textColor="@color/white"
-        android:textSize="15sp"
+        android:textSize="12sp"
         android:layout_marginStart="8dp"
         android:maxLines="2"
         app:layout_constraintVertical_chainStyle="packed"

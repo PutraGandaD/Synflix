@@ -1,10 +1,10 @@
 plugins {
-    id("com.android.application")
-    id("com.google.gms.google-services")
-    id("org.jetbrains.kotlin.android")
-    id("kotlin-parcelize")
-    kotlin("kapt")
-    id("com.google.firebase.firebase-perf")
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.google.services)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.parcelize)
+    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.firebase.perf)
 }
 
 android {
@@ -76,78 +76,65 @@ dependencies {
     implementation(project(":domain"))
     implementation(project(":presentation"))
 
-    val lifecycle_version = "2.7.0"
-    val koin_version = "3.5.6"
-
     // ViewModel
-    //noinspection GradleDependency
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
+    implementation(libs.lifecycle.viewmodel.ktx)
     // ViewModel utilities for Compose
-    //noinspection GradleDependency
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version")
+    implementation(libs.lifecycle.viewmodel.compose)
     // LiveData
-    //noinspection GradleDependency
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
+    implementation(libs.lifecycle.livedata.ktx)
     // Lifecycles only (without ViewModel or LiveData)
-    //noinspection GradleDependency
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version")
+    implementation(libs.lifecycle.runtime.ktx)
     // Lifecycle utilities for Compose
-    //noinspection GradleDependency
-    implementation("androidx.lifecycle:lifecycle-runtime-compose:$lifecycle_version")
-
+    implementation(libs.lifecycle.runtime.compose)
     // Saved state module for ViewModel
-    //noinspection GradleDependency
-    implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version")
-
+    implementation(libs.lifecycle.viewmodel.savedstate)
     // Annotation processor
-    //noinspection GradleDependency,LifecycleAnnotationProcessorWithJava8
-    kapt("androidx.lifecycle:lifecycle-compiler:$lifecycle_version")
+    implementation(libs.lifecycle.compiler)
 
-    implementation("androidx.core:core-ktx:1.13.1")
-    //noinspection GradleDependency
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.12.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
-    implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
+    implementation(libs.core.ktx)
+    implementation(libs.appcompat)
+    implementation(libs.material.design)
+    implementation(libs.constraintlayout)
+    implementation(libs.navigation.fragment.ktx)
+    implementation(libs.navigation.ui.ktx)
 
     // Retrofit
-    implementation("com.squareup.retrofit2:retrofit:2.11.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
-    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.gson)
+    implementation(libs.okhttp.logging.interceptor)
+    implementation(libs.serialization.json)
 
     // DataStore
-    implementation("androidx.datastore:datastore-preferences:1.1.1")
+    implementation(libs.datastore.preferences)
 
     // Koin (Dependency Injection)
     // Declare koin-bom version
-    implementation(platform("io.insert-koin:koin-bom:$koin_version"))
-
+    implementation(platform(libs.koin.bom))
+    implementation(libs.koin.core)
     // Declare the koin dependencies that you need
-    implementation("io.insert-koin:koin-android")
-    implementation("io.insert-koin:koin-core-coroutines")
-    implementation("io.insert-koin:koin-androidx-workmanager")
+    implementation(libs.koin.android)
+    implementation(libs.koin.core.coroutines)
+    implementation(libs.koin.androidx.workmanager)
 
     // Play Store Services Dependencies
-    implementation("com.google.android.gms:play-services-location:21.3.0")
+    implementation(libs.play.services.location)
 
     // Chucker
-    debugImplementation("com.github.chuckerteam.chucker:library:4.0.0")
-    releaseImplementation("com.github.chuckerteam.chucker:library-no-op:4.0.0")
+    debugImplementation(libs.chucker.debug)
+    releaseImplementation(libs.chucker.release)
 
     // Firebase
     // Import the Firebase BoM
-    implementation(platform("com.google.firebase:firebase-bom:33.1.1"))
+    implementation(platform(libs.firebase.bom))
     // TODO: Add the dependencies for Firebase products you want to use
     // When using the BoM, don't specify versions in Firebase dependencies
-    implementation("com.google.firebase:firebase-analytics")
-    implementation("com.google.firebase:firebase-perf")
+    implementation(libs.firebase.analytics)
+    implementation(libs.firebase.perf)
 
     // Unit Test
-    testImplementation("com.google.truth:truth:1.4.2")
-    testImplementation("com.squareup.okhttp3:mockwebserver:4.12.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    testImplementation(libs.truth)
+    testImplementation(libs.mockwebserver)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.test.ext.junit)
+    androidTestImplementation(libs.espresso.core)
 }

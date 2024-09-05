@@ -13,7 +13,7 @@ Basic Movie Database App utilizing The Movie Database (TMDB) API, for learning a
 ## Tech Stack :
 - Using TheMovieDB API (https://api.themoviedb.org)
 - Built using Material Design 3 (https://m3.material.io), UI Inspired by Netflix
-- Built with Clean Architecture, modularization by later.
+- Built with Clean Architecture, modularization by layer.
 - With Dependency Injection (Koin)
 - Single Activity Approach with multiple Fragments
 - Using Android Jetpack Navigation Component for Navigation

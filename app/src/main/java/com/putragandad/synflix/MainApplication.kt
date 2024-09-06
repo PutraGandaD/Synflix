@@ -2,10 +2,10 @@ package com.putragandad.synflix
 
 import android.app.Application
 import com.putragandad.synflix.di.AppModule.appModule
-import com.putragandad.synflix.di.AppModule.repositoryModule
-import com.putragandad.synflix.di.AppModule.useCaseModule
-import com.putragandad.synflix.di.AppModule.viewModelModule
+import com.putragandad.synflix.di.DataModule.repositoryModule
+import com.putragandad.synflix.di.DomainModule.useCaseModule
 import com.putragandad.synflix.di.NetworkModule.networkModule
+import com.putragandad.synflix.di.PresentationModule.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin

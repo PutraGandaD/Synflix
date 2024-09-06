@@ -1,4 +1,4 @@
-package com.putragandad.synflix.presentation.fragments
+package com.putragandad.presentation.fragments.details
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

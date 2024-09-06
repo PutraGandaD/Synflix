@@ -1,4 +1,4 @@
-package com.putragandad.synflix.presentation.fragments
+package com.putragandad.presentation.fragments.home
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,17 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.perf.FirebasePerformance;
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.perf.metrics.AddTrace
 import com.putragandad.synflix.domain.models.movies.NowPlaying
 import com.putragandad.synflix.domain.models.movies.Popular
 import com.putragandad.synflix.domain.models.movies.TopRated
 import com.putragandad.synflix.presentation.viewmodels.MoviesViewModel
 import com.putragandad.synflix.common.utils.Constant
-import com.putragandad.synflix.common.utils.Resource
 import com.putragandad.synflix.presentation.R
 import com.putragandad.synflix.presentation.adapters.NowPlayingAdapter
 import com.putragandad.synflix.presentation.adapters.NowPlayingClickListener
@@ -25,6 +27,8 @@ import com.putragandad.synflix.presentation.adapters.PopularClickListener
 import com.putragandad.synflix.presentation.adapters.TopRatedAdapter
 import com.putragandad.synflix.presentation.adapters.TopRatedClickListener
 import com.putragandad.synflix.presentation.databinding.FragmentHomeBinding
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 
 class HomeFragment : Fragment(), NowPlayingClickListener, TopRatedClickListener,
@@ -45,54 +49,50 @@ class HomeFragment : Fragment(), NowPlayingClickListener, TopRatedClickListener,
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        moviesViewModel.movieNowPlaying.observe(viewLifecycleOwner) { movies ->
-            when(movies) {
-                is Resource.Success -> {
-                    //Toast.makeText(requireActivity(), "SUCCESS", Toast.LENGTH_SHORT).show()
-                    movies.data?.let {
+        observer()
+        onClickListener()
+    }
+
+    private fun observer() {
+        lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                moviesViewModel.homeUiState.collectLatest { uiState ->
+                    uiState.movieNowPlaying?.let {
                         setUpRvNowPlaying(it)
                     }
-                }
-                is Resource.Error -> {
-                    //Toast.makeText(requireActivity(), "ERROR", Toast.LENGTH_SHORT).show()
-                }
-                is Resource.Loading -> {
-                    //Toast.makeText(requireActivity(), "LOADING", Toast.LENGTH_SHORT).show()
-                    setUpRvNowPlaying(emptyList())
-                }
-            }
-        }
 
-        moviesViewModel.moviePopular.observe(viewLifecycleOwner) { movies ->
-            when(movies) {
-                is Resource.Success -> {
-                    movies.data?.let {
+                    uiState.moviePopular?.let {
                         setUpRvPopular(it)
                     }
-                }
-                is Resource.Error -> {
 
-                }
-                is Resource.Loading -> {
-                    setUpRvPopular(emptyList())
+                    uiState.movieTopRated?.let {
+                        setUpRvTopRated(it)
+                    }
+
+                    uiState.message?.let {
+                        Snackbar.make(requireView(), it, Snackbar.LENGTH_LONG)
+                            .setAction("Retry") {
+                                moviesViewModel.initializeHomeScreen()
+                            }
+                            .show()
+                        moviesViewModel.messageShowed()
+                    }
+
+                    if(uiState.hasInternetConnection) {
+                        binding.layoutHomeContent.visibility = View.VISIBLE
+                        binding.noInternetLayout.root.visibility = View.GONE
+                    } else {
+                        binding.layoutHomeContent.visibility = View.GONE
+                        binding.noInternetLayout.root.visibility = View.VISIBLE
+                    }
                 }
             }
         }
+    }
 
-        moviesViewModel.movieTopRated.observe(viewLifecycleOwner) { movies ->
-            when(movies) {
-                is Resource.Success -> {
-                    movies.data?.let {
-                        setUpRvTopRated(it)
-                    }
-                }
-                is Resource.Error -> {
-
-                }
-                is Resource.Loading -> {
-                    setUpRvTopRated(emptyList())
-                }
-            }
+    private fun onClickListener() {
+        binding.noInternetLayout.btnRetry.setOnClickListener {
+            moviesViewModel.initializeHomeScreen()
         }
     }
 

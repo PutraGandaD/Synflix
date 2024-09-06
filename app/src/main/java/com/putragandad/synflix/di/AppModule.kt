@@ -1,5 +1,6 @@
 package com.putragandad.synflix.di
 
+import com.putragandad.common.utils.network.ConnectivityManager
 import com.putragandad.synflix.data.implementation.movies.MoviesRepositoryImpl
 import com.putragandad.synflix.data.implementation.users.UserAuthRepositoryImpl
 import com.putragandad.data.source.datastore.DataStorePreference
@@ -29,31 +30,6 @@ object AppModule {
         single { RemoteDataSource(get()) } // Declare Remote Data Source
         single { DataStorePreference(get()) } // Declare Preference Data Store Manager
         single { LocalDataSource(get()) }
-    }
-
-    val repositoryModule = module {
-        factory <MoviesRepository> { MoviesRepositoryImpl(get()) } // Repository
-        factory <UserAuthRepository> { UserAuthRepositoryImpl(get()) }
-    }
-
-    val viewModelModule = module {
-        viewModel { MoviesViewModel(get(), get(), get(), get(), get()) }
-        viewModel { UserViewModel(get(), get(), get(), get(), get(), get(), get(), get()) }
-    }
-
-    val useCaseModule = module {
-        factory { DetailsUseCase(get()) }
-        factory { NowPlayingUseCase(get()) }
-        factory { PopularUseCase(get()) }
-        factory { TopRatedUseCase(get()) }
-        factory { CastUseCase(get()) }
-
-        factory { CheckLoginUseCase(get()) }
-        factory { UserLoginUseCase(get()) }
-        factory { UserRegisterUseCase(get()) }
-        factory { ReadUserInfoUseCase(get()) }
-        factory { UserLogoutUseCase(get()) }
-        factory { UpdateUserInfoUseCase(get()) }
-        factory { SetProfilePictureUseCase(get()) }
+        factory { ConnectivityManager(get()) }
     }
 }

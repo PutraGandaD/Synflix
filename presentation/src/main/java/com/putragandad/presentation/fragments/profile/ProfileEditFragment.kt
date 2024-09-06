@@ -1,4 +1,4 @@
-package com.putragandad.synflix.presentation.fragments
+package com.putragandad.presentation.fragments.profile
 
 import android.app.Activity
 import android.content.Intent

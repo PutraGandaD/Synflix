@@ -26,7 +26,7 @@
         tools:layout="@layout/fragment_register" />
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.putragandad.synflix.presentation.fragments.HomeFragment"
+        android:name="com.putragandad.presentation.fragments.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -35,7 +35,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.putragandad.synflix.presentation.fragments.ProfileFragment"
+        android:name="com.putragandad.presentation.fragments.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
         <action
@@ -49,12 +49,12 @@
     </fragment>
     <fragment
         android:id="@+id/movieDetailFragment"
-        android:name="com.putragandad.synflix.presentation.fragments.MovieDetailFragment"
+        android:name="com.putragandad.presentation.fragments.details.MovieDetailFragment"
         android:label="fragment_movie_detail"
         tools:layout="@layout/fragment_movie_detail" />
     <fragment
         android:id="@+id/profileEditFragment"
-        android:name="com.putragandad.synflix.presentation.fragments.ProfileEditFragment"
+        android:name="com.putragandad.presentation.fragments.profile.ProfileEditFragment"
         android:label="fragment_profile_edit"
         tools:layout="@layout/fragment_profile_edit" />
     <fragment

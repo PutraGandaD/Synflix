@@ -9,15 +9,7 @@ import retrofit2.HttpException
 import java.io.IOException
 
 class CastUseCase(private val repository: MoviesRepository) {
-    operator fun invoke(query: String) : Flow<Resource<List<MovieCast>>> = flow {
-        try {
-            emit(Resource.Loading())
-            val castResult = repository.getMovieCast(query)
-            emit(Resource.Success(castResult))
-        } catch (e: HttpException) {
-
-        } catch (e: IOException) {
-
-        }
+    suspend operator fun invoke(query: String) : Flow<Resource<List<MovieCast>>> {
+        return repository.getMovieCast(query)
     }
 }

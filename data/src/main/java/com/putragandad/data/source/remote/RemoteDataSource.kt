@@ -1,4 +1,4 @@
-package com.putragandad.synflix.data.source
+package com.putragandad.data.source.remote
 
 import com.putragandad.synflix.data.network.ApiService
 import com.putragandad.synflix.data.network.response.details.CreditResponse

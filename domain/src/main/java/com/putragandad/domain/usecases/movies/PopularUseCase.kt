@@ -9,15 +9,7 @@ import retrofit2.HttpException
 import java.io.IOException
 
 class PopularUseCase(private val repository: MoviesRepository) {
-    operator fun invoke() : Flow<Resource<List<Popular>>> = flow {
-        try {
-            emit(Resource.Loading())
-            val movieResult = repository.getMoviePopular()
-            emit(Resource.Success(movieResult))
-        } catch (e: HttpException) {
-
-        } catch (e: IOException) {
-
-        }
+    suspend operator fun invoke() : Flow<Resource<List<Popular>>> {
+        return repository.getMoviePopular()
     }
 }

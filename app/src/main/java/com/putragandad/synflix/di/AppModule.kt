@@ -2,8 +2,9 @@ package com.putragandad.synflix.di
 
 import com.putragandad.synflix.data.implementation.movies.MoviesRepositoryImpl
 import com.putragandad.synflix.data.implementation.users.UserAuthRepositoryImpl
-import com.putragandad.synflix.data.source.DataStoreSource
-import com.putragandad.synflix.data.source.RemoteDataSource
+import com.putragandad.data.source.datastore.DataStorePreference
+import com.putragandad.data.source.local.LocalDataSource
+import com.putragandad.data.source.remote.RemoteDataSource
 import com.putragandad.synflix.domain.repositories.movies.MoviesRepository
 import com.putragandad.synflix.domain.repositories.users.UserAuthRepository
 import com.putragandad.synflix.domain.usecases.movies.CastUseCase
@@ -26,7 +27,8 @@ import org.koin.dsl.module
 object AppModule {
     val appModule = module {
         single { RemoteDataSource(get()) } // Declare Remote Data Source
-        single { DataStoreSource(get()) } // Declare Preference Data Store Manager
+        single { DataStorePreference(get()) } // Declare Preference Data Store Manager
+        single { LocalDataSource(get()) }
     }
 
     val repositoryModule = module {

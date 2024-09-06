@@ -9,15 +9,7 @@ import retrofit2.HttpException
 import java.io.IOException
 
 class DetailsUseCase(private val repository: MoviesRepository) {
-    operator fun invoke(query: String) : Flow<Resource<Details>> = flow {
-        try {
-            emit(Resource.Loading())
-            val details = repository.getMovieDetails(query)
-            emit(Resource.Success(details))
-        } catch (e: HttpException) {
-            emit(Resource.Error( "An unexpected error occured (Client Error)"))
-        } catch (e: IOException) {
-            emit(Resource.Error("Couldn't reach server. Check your internet connection."))
-        }
+    suspend operator fun invoke(query: String) : Flow<Resource<Details>> {
+        return repository.getMovieDetails(query)
     }
 }

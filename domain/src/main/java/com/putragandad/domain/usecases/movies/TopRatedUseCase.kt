@@ -9,15 +9,7 @@ import retrofit2.HttpException
 import java.io.IOException
 
 class TopRatedUseCase(private val repository: MoviesRepository) {
-    operator fun invoke() : Flow<Resource<List<TopRated>>> = flow {
-        try {
-            emit(Resource.Loading())
-            val movieResult = repository.getMovieTopRated()
-            emit(Resource.Success(movieResult))
-        } catch (e: HttpException) {
-
-        } catch (e: IOException) {
-
-        }
+    suspend operator fun invoke() : Flow<Resource<List<TopRated>>> {
+        return repository.getMovieTopRated()
     }
 }

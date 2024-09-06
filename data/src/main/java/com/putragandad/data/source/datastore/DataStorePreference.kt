@@ -1,4 +1,4 @@
-package com.putragandad.synflix.data.source
+package com.putragandad.data.source.datastore
 
 import android.content.Context
 import androidx.datastore.core.DataStore
@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
 import java.io.IOException
 
-class DataStoreSource(private val context: Context) {
+class DataStorePreference(private val context: Context) {
     private val Context.dataStore : DataStore<Preferences> by preferencesDataStore(
         PrefDataStoreConstant.APP_DATASTORE)
 

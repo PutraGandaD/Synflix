@@ -57,8 +57,8 @@ You can check the dependency used in this project [here](https://github.com/Putr
 - [x] Unit Test (with JUnit4)
 - [x] Simple CI/CD with GitHub Actions
 - [x] Migrating dependencies to Gradle Version Catalog 
-- [ ] Migrating from LiveData to StateFlow
-- [ ] Implement Check Internet Connection
+- [x] Migrating from LiveData to StateFlow
+- [x] Implement Check Internet Connection
 - [ ] Implement Paging 3.0 for fetching data from API
 - [ ] Add Search Movie feature
 - [ ] Add "Add to Watchlist..." feature

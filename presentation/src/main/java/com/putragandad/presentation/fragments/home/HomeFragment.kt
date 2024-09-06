@@ -17,7 +17,6 @@ import com.google.firebase.perf.metrics.AddTrace
 import com.putragandad.synflix.domain.models.movies.NowPlaying
 import com.putragandad.synflix.domain.models.movies.Popular
 import com.putragandad.synflix.domain.models.movies.TopRated
-import com.putragandad.synflix.presentation.viewmodels.MoviesViewModel
 import com.putragandad.synflix.common.utils.Constant
 import com.putragandad.synflix.presentation.R
 import com.putragandad.synflix.presentation.adapters.NowPlayingAdapter
@@ -36,7 +35,7 @@ class HomeFragment : Fragment(), NowPlayingClickListener, TopRatedClickListener,
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
-    private val moviesViewModel: MoviesViewModel by inject()
+    private val homeViewModel: HomeViewModel by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -56,7 +55,7 @@ class HomeFragment : Fragment(), NowPlayingClickListener, TopRatedClickListener,
     private fun observer() {
         lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                moviesViewModel.homeUiState.collectLatest { uiState ->
+                homeViewModel.homeUiState.collectLatest { uiState ->
                     uiState.movieNowPlaying?.let {
                         setUpRvNowPlaying(it)
                     }
@@ -72,10 +71,10 @@ class HomeFragment : Fragment(), NowPlayingClickListener, TopRatedClickListener,
                     uiState.message?.let {
                         Snackbar.make(requireView(), it, Snackbar.LENGTH_LONG)
                             .setAction("Retry") {
-                                moviesViewModel.initializeHomeScreen()
+                                homeViewModel.initializeHomeScreen()
                             }
                             .show()
-                        moviesViewModel.messageShowed()
+                        homeViewModel.messageShowed()
                     }
 
                     if(uiState.hasInternetConnection) {
@@ -92,7 +91,7 @@ class HomeFragment : Fragment(), NowPlayingClickListener, TopRatedClickListener,
 
     private fun onClickListener() {
         binding.noInternetLayout.btnRetry.setOnClickListener {
-            moviesViewModel.initializeHomeScreen()
+            homeViewModel.initializeHomeScreen()
         }
     }
 

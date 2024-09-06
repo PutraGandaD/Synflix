@@ -20,7 +20,6 @@ import com.putragandad.synflix.domain.usecases.users.UpdateUserInfoUseCase
 import com.putragandad.synflix.domain.usecases.users.UserLoginUseCase
 import com.putragandad.synflix.domain.usecases.users.UserLogoutUseCase
 import com.putragandad.synflix.domain.usecases.users.UserRegisterUseCase
-import com.putragandad.synflix.presentation.viewmodels.MoviesViewModel
 import com.putragandad.synflix.presentation.viewmodels.UserViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module

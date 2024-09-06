@@ -5,9 +5,9 @@ import com.putragandad.synflix.domain.models.movies.Popular
 import com.putragandad.synflix.domain.models.movies.TopRated
 
 data class HomeUiState(
-    val movieNowPlayingLoading: Boolean = false,
-    val movieTopRatedLoading: Boolean = false,
-    val moviePopularLoading: Boolean = false,
+    val isMovieNowPlayingLoading: Boolean = false,
+    val isMovieTopRatedLoading: Boolean = false,
+    val isMoviePopularLoading: Boolean = false,
     val movieNowPlaying: List<NowPlaying>? = null,
     val movieTopRated: List<TopRated>? = null,
     val moviePopular: List<Popular>? = null,

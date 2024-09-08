@@ -6,25 +6,32 @@ import com.putragandad.synflix.data.network.response.details.MovieDetailsRespons
 import com.putragandad.synflix.data.network.response.now_playing.NowPlayingResponse
 import com.putragandad.synflix.data.network.response.popular.PopularResponse
 import com.putragandad.synflix.data.network.response.top_rated.TopRatedResponse
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 class RemoteDataSource(private val apiService: ApiService) {
-    suspend fun getMovieNowPlaying() : NowPlayingResponse {
-        return apiService.getMovieNowPlaying()
-    }
+    suspend fun getMovieNowPlaying() : NowPlayingResponse =
+        withContext(Dispatchers.IO) {
+            apiService.getMovieNowPlaying()
+        }
 
-    suspend fun getMovieCredits(query: String) : CreditResponse {
-        return apiService.getMovieCredits(query)
-    }
+    suspend fun getMovieCredits(query: String) : CreditResponse =
+        withContext(Dispatchers.IO) {
+            apiService.getMovieCredits(query)
+        }
 
-    suspend fun getMovieDetails(query: String) : MovieDetailsResponse {
-        return apiService.getMovieDetails(query)
-    }
+    suspend fun getMovieDetails(query: String) : MovieDetailsResponse =
+        withContext(Dispatchers.IO) {
+            apiService.getMovieDetails(query)
+        }
 
-    suspend fun getMoviePopular() : PopularResponse {
-        return apiService.getMoviePopular()
-    }
+    suspend fun getMoviePopular() : PopularResponse =
+        withContext(Dispatchers.IO) {
+            apiService.getMoviePopular()
+        }
 
-    suspend fun getMovieTopRated() : TopRatedResponse {
-        return apiService.getMovieTopRated()
-    }
+    suspend fun getMovieTopRated() : TopRatedResponse =
+        withContext(Dispatchers.IO) {
+            apiService.getMovieTopRated()
+        }
 }

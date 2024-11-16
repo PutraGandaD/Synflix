@@ -22,7 +22,7 @@ class MovieDetailViewModel(
     val detailUiState = _detailUiState.asStateFlow()
 
     fun getMovieDetails(query: String) = viewModelScope.launch {
-        if(connectivityManager.hasInternetConnection()) {
+        if(connectivityManager.isNotOffline()) {
             hasInternetConnection()
             val movieDetails = detailsUseCase.invoke(query)
             val movieCast = castUseCase.invoke(query)

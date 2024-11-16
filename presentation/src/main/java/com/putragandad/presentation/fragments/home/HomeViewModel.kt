@@ -28,7 +28,7 @@ class HomeViewModel(
     }
 
     fun initializeHomeScreen() = viewModelScope.launch {
-        if (connectivityManager.hasInternetConnection()) {
+        if (connectivityManager.isNotOffline()) {
             hasInternetConnection()
 
             val movieNowPlaying = nowPlayingUseCase.invoke()
@@ -42,7 +42,8 @@ class HomeViewModel(
                             currentUiState.copy(
                                 isMovieNowPlayingLoading = false,
                                 movieNowPlaying = nowPlaying.data ?: emptyList(),
-                                message = null
+                                message = null,
+                                isMovieNowPlayingTimeout = false
                             )
                         }
                     }
@@ -52,7 +53,8 @@ class HomeViewModel(
                             currentUiState.copy(
                                 isMovieNowPlayingLoading = false,
                                 movieNowPlaying = emptyList(),
-                                message = nowPlaying.message
+                                message = "Terjadi kesalahan pada server. Coba lagi dan periksa koneksi internet anda.",
+                                isMovieNowPlayingTimeout = true
                             )
                         }
                     }
@@ -62,7 +64,8 @@ class HomeViewModel(
                             currentUiState.copy(
                                 isMovieNowPlayingLoading = true,
                                 movieNowPlaying = emptyList(),
-                                message = null
+                                message = null,
+                                isMovieNowPlayingTimeout = false
                             )
                         }
                     }
@@ -74,7 +77,8 @@ class HomeViewModel(
                             currentUiState.copy(
                                 isMoviePopularLoading = false,
                                 moviePopular = popular.data ?: emptyList(),
-                                message = null
+                                message = null,
+                                isMoviePopularTimeout = false
                             )
                         }
                     }
@@ -84,7 +88,8 @@ class HomeViewModel(
                             currentUiState.copy(
                                 isMoviePopularLoading = false,
                                 moviePopular = emptyList(),
-                                message = popular.message
+                                message = "Terjadi kesalahan pada server. Coba lagi dan periksa koneksi internet anda.",
+                                isMoviePopularTimeout = true
                             )
                         }
                     }
@@ -94,7 +99,8 @@ class HomeViewModel(
                             currentUiState.copy(
                                 isMoviePopularLoading = true,
                                 moviePopular = emptyList(),
-                                message = null
+                                message = null,
+                                isMoviePopularTimeout = false
                             )
                         }
                     }
@@ -106,7 +112,8 @@ class HomeViewModel(
                             currentUiState.copy(
                                 isMovieTopRatedLoading = false,
                                 movieTopRated = topRated.data ?: emptyList(),
-                                message = null
+                                message = null,
+                                isMovieTopRatedTimeout = false
                             )
                         }
                     }
@@ -116,7 +123,8 @@ class HomeViewModel(
                             currentUiState.copy(
                                 isMovieTopRatedLoading = false,
                                 movieTopRated = emptyList(),
-                                message = topRated.message
+                                message = "Terjadi kesalahan pada server. Coba lagi dan periksa koneksi internet anda.",
+                                isMovieTopRatedTimeout = true
                             )
                         }
                     }
@@ -126,7 +134,8 @@ class HomeViewModel(
                             currentUiState.copy(
                                 isMovieTopRatedLoading = true,
                                 movieTopRated = emptyList(),
-                                message = null
+                                message = null,
+                                isMovieTopRatedTimeout = false
                             )
                         }
                     }
@@ -136,7 +145,7 @@ class HomeViewModel(
             _homeUiState.update { currentUiState ->
                 currentUiState.copy(
                     message = "No Internet Connection",
-                    hasInternetConnection = false
+                    isNotOffline = false
                 )
             }
         }
@@ -150,7 +159,7 @@ class HomeViewModel(
 
     private fun hasInternetConnection() = viewModelScope.launch {
         _homeUiState.update { currentUiState ->
-            currentUiState.copy(hasInternetConnection = true)
+            currentUiState.copy(isNotOffline = true)
         }
     }
 }

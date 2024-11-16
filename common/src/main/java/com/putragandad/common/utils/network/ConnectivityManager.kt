@@ -11,7 +11,7 @@ import android.net.NetworkCapabilities.TRANSPORT_WIFI
 import android.os.Build
 
 class ConnectivityManager(val context: Context) {
-    fun hasInternetConnection(): Boolean {
+    fun isNotOffline(): Boolean {
         val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             val activeNetwork = connectivityManager.activeNetwork ?: return false

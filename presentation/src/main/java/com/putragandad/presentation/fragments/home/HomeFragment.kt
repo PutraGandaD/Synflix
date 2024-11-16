@@ -68,26 +68,23 @@ class HomeFragment : Fragment(), NowPlayingClickListener, TopRatedClickListener,
                         setUpRvTopRated(it)
                     }
 
-                    if(uiState.isNotOffline) {
-                        binding.layoutHomeContent.visibility = View.VISIBLE
-                        binding.noInternetLayout.root.visibility = View.GONE
-                    } else {
+                    // determine initial visibility states
+                    if (!uiState.isNotOffline) {
+                        // Check if No internet connection / Offline
                         binding.layoutHomeContent.visibility = View.GONE
                         binding.noInternetLayout.root.visibility = View.VISIBLE
-                    }
-
-                    if(uiState.isServerTimeout) {
+                        binding.timeoutLayout.root.visibility = View.GONE
+                    } else if (uiState.isServerTimeout) {
+                        // Check fpr Server timeout
                         binding.layoutHomeContent.visibility = View.GONE
+                        binding.noInternetLayout.root.visibility = View.GONE
                         binding.timeoutLayout.root.visibility = View.VISIBLE
                     } else {
                         binding.layoutHomeContent.visibility = View.VISIBLE
+                        binding.noInternetLayout.root.visibility = View.GONE
                         binding.timeoutLayout.root.visibility = View.GONE
                     }
 
-                    if(!uiState.isNotOffline && uiState.isServerTimeout) {
-                        binding.timeoutLayout.root.visibility = View.GONE
-                        binding.noInternetLayout.root.visibility = View.VISIBLE
-                    }
                 }
             }
         }
